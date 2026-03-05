@@ -1,0 +1,481 @@
+{
+  "nav": {
+    "home": "Domov",
+    "about": "O nás",
+    "services": "Služby",
+    "blog": "Blog",
+    "pricing": "Cenník",
+    "contact": "Kontakt",
+    "cta": "Začnime"
+  },
+  "topbar": {
+    "email": "info@dunajmedia.sk",
+    "phone": "+421 952 049 119",
+    "tagline": "Prémiová digitálna agentúra · Bratislava, Slovensko"
+  },
+  "home": {
+    "hero": {
+      "badge": "Marketingová agentúra Bratislava",
+      "headline1": "Digitálne",
+      "headline2": "riešenia",
+      "headline3": "budúcnosti.",
+      "sub": "Tvoríme prémiové webové stránky, spravujeme sociálne siete a poháňame rast vašej značky pomocou AI-optimalizovaných stratégií. Vaša úspešná digitálna prítomnosť začína tu.",
+      "cta_primary": "Získajte bezplatnú konzultáciu",
+      "cta_secondary": "Pozrite si naše práce",
+      "scroll": "Scroll nadol"
+    },
+    "stats": {
+      "projects": "Projektov dokončených",
+      "clients": "Spokojných klientov",
+      "years": "Rokov skúseností",
+      "countries": "Krajín pôsobnosti"
+    },
+    "about_snippet": {
+      "label": "Kto sme",
+      "headline": "Dunajmedia — kde stratégia stretáva dizajn",
+      "body": "Sme bratislavský tím digitálnych expertov, ktorý pomáha firmám dominovať online. Od tvorby webových stránok cez správu sociálnych sietí až po AI-riadenú SEO optimalizáciu — dodávame merateľné výsledky.",
+      "cta": "Spoznajte náš tím"
+    },
+    "services_snippet": {
+      "label": "Naše služby",
+      "headline": "Komplexné digitálne služby pre moderný biznis",
+      "sub": "Každá služba je navrhnutá pre maximálny dopad a merateľný rast vašej značky na slovenskom aj medzinárodnom trhu."
+    },
+    "why": {
+      "label": "Prečo Dunajmedia",
+      "headline": "Váš partner pre digitálny úspech",
+      "items": [
+        {
+          "title": "AI-prvá metodológia",
+          "desc": "Využívame pokročilé nástroje umelej inteligencie pre tvorbu obsahu, SEO stratégie a prediktívnu analytiku."
+        },
+        {
+          "title": "Výsledky do 48 hodín",
+          "desc": "Náš Expres Start balíček doručí funkčnú webstránku do 48 hodín od objednávky."
+        },
+        {
+          "title": "Dvojjazyčný dizajn",
+          "desc": "Každý web stavíme s natívnou podporou SK/EN pre maximálny dosah na domácom aj zahraničnom trhu."
+        },
+        {
+          "title": "Transparentné ceny",
+          "desc": "Žiadne skryté poplatky. Fixné ceny s jasnými výsledkami. Od €299 po €999."
+        }
+      ]
+    },
+    "cta_banner": {
+      "headline": "Pripravení na digitálnu transformáciu?",
+      "sub": "Spojte sa s naším tímom a získajte bezplatnú stratégiu pre váš biznis.",
+      "cta": "Kontaktujte nás dnes"
+    }
+  },
+  "about": {
+    "hero": {
+      "label": "Náš príbeh",
+      "headline": "Vytvárame digitálne dedičstvo pre slovenské značky",
+      "sub": "Dunajmedia vznikla v Bratislave s jednou misiou: priniesť klientom najvyššiu úroveň digitálneho marketingu s dušou skutočného partnerstva."
+    },
+    "story": {
+      "headline": "Od malého štartu k prémiové agentúre",
+      "body1": "Dunajmedia bola založená skupinou digitálnych nadšencov s hlbokými koreňmi v Bratislave a víziou zmeniť, ako slovenské firmy prezentujú seba online. Od prvého projektu tvorby web stránok sme rástli do plnohodnotnej agentúry s portfóliom stoviek spokojných klientov.",
+      "body2": "Naša práca spája technickú precíznosť s kreatívnym myslením. Každý projekt, či ide o jednoduchú prezentačnú stránku alebo komplexnú e-commerce platformu, dostáva rovnakú úroveň starostlivosti a inovatívneho prístupu.",
+      "body3": "Dnes sme uznávanou marketingovou agentúrou Bratislava, ktorá obsluhuje klientov nielen na Slovensku, ale aj v Čechách, Rakúsku a ďalej. Náš tím špecialistov na tvorbu web stránok, správu sociálnych sietí a optimalizáciu pre AI pracuje s jediným cieľom — váš úspech."
+    },
+    "values": {
+      "label": "Naše hodnoty",
+      "headline": "Princípy, ktoré nás definujú",
+      "items": [
+        {
+          "title": "Inovácia",
+          "desc": "Neustále sledujeme trendy AI, no aplikujeme len to, čo skutočne prináša výsledky vašej firme."
+        },
+        {
+          "title": "Transparentnosť",
+          "desc": "Jasná komunikácia, reálne reporty a žiadne prekvapenia na faktúre."
+        },
+        {
+          "title": "Partnerstvo",
+          "desc": "Nepracujeme pre klientov — pracujeme s nimi. Váš biznis je aj náš biznis."
+        },
+        {
+          "title": "Excelencia",
+          "desc": "Každý pixel, každé slovo, každý kód — navrhnutý pre maximálny dopad."
+        }
+      ]
+    },
+    "team": {
+      "label": "Náš tím",
+      "headline": "Ľudia za výsledkami",
+      "members": [
+        {
+          "name": "Marek Novák",
+          "role": "CEO & Growth Stratég",
+          "bio": "10+ rokov v digitálnom marketingu. Špecialista na growth marketing Bratislava a škálovanie značiek."
+        },
+        {
+          "name": "Jana Kováčová",
+          "role": "Lead Web Developer",
+          "bio": "Full-stack expertka so zameraním na webové služby a výkonnostné aplikácie Next.js."
+        },
+        {
+          "name": "Tomáš Horváth",
+          "role": "SEO & AI Špecialista",
+          "bio": "Priekopník optimalizácie pre AI a pokročilých keyword stratégií pre slovenský trh."
+        },
+        {
+          "name": "Lucia Benková",
+          "role": "Social Media Manažérka",
+          "bio": "Tvorí príbehy značiek, ktoré rezonujú. Expertka na správu sociálnych sietí pre B2C aj B2B."
+        }
+      ]
+    },
+    "numbers": {
+      "headline": "Dunajmedia v číslach",
+      "items": [
+        { "value": "250+", "label": "Projektov" },
+        { "value": "98%", "label": "Spokojnosť klientov" },
+        { "value": "6", "label": "Rokov na trhu" },
+        { "value": "12", "label": "Expertov v tíme" }
+      ]
+    }
+  },
+  "services": {
+    "hero": {
+      "label": "Naše služby",
+      "headline": "Každý aspekt vašej digitálnej prítomnosti",
+      "sub": "Od tvorby web stránok po pokročilú správu sociálnych sietí — ponúkame kompletný ekosystém digitálnych služieb pre moderné slovenské firmy."
+    },
+    "items": [
+      {
+        "slug": "web-development",
+        "icon": "Code2",
+        "title": "Tvorba Web Stránok",
+        "short": "Prémiový vývoj webových stránok na mieru s Next.js a moderným tech-stackom.",
+        "desc": "Vaša webová stránka je vaša digitálna kancelária — a my ju stavíme tak, aby imponovala. Každý projekt tvorby web stránok začína hlbokou analýzou vašich potrieb, cieľovej skupiny a konkurencie. Výsledkom je rýchla, krásna a konverzne optimalizovaná stránka.",
+        "features": [
+          "Next.js 14 App Router",
+          "Dvojjazyčnosť SK/EN natívne",
+          "Core Web Vitals optimalizácia",
+          "Integrovaný rezervačný systém",
+          "Responzívny dizajn pre všetky zariadenia",
+          "CMS integrácia pre správu obsahu"
+        ]
+      },
+      {
+        "slug": "seo-ai",
+        "icon": "Brain",
+        "title": "AI-Driven SEO",
+        "short": "Optimalizácia pre AI vyhľadávanie a tradičné SEO stratégie pre dominanciu v Google.",
+        "desc": "Optimalizácia pre AI je nová hranica — a my sme na jej čele. Kombinujeme tradičné SEO techniky s pokročilou AI analýzou pre tvorbu obsahu, ktorý rankuje vyššie, rýchlejšie. Naša keyword stratégia cieli na zákazníkov so zámerom nakúpiť.",
+        "features": [
+          "AI content optimization",
+          "Technical SEO audit",
+          "Keyword research pre SK/EN",
+          "Link building stratégie",
+          "Google Search Console management",
+          "Monthly performance reporting"
+        ]
+      },
+      {
+        "slug": "social-media",
+        "icon": "Share2",
+        "title": "Správa Sociálnych Sietí",
+        "short": "Kompletná správa sociálnych sietí vrátane tvorby obsahu a community managementu.",
+        "desc": "Správa sociálnych sietí je umenie aj veda. Tvoríme konzistentný obsah, manažujeme komunitu a analyzujeme výsledky pre neustále zlepšovanie. Od Instagramu po LinkedIn — budujeme vašu digitálnu komunitu.",
+        "features": [
+          "Mesačný content calendar",
+          "Grafický dizajn pre social media",
+          "Community management",
+          "Platená reklama (Meta, Google Ads)",
+          "Influencer marketing",
+          "Výkonnostné reporty"
+        ]
+      },
+      {
+        "slug": "growth-marketing",
+        "icon": "TrendingUp",
+        "title": "Growth Marketing",
+        "short": "Dátami riadené stratégie rastu pre škálovanie vášho biznisu na slovenskom aj európskom trhu.",
+        "desc": "Growth marketing Bratislava je naša špeciálnosť. Kombinujeme email marketing, performance reklamu a konverzné optimalizácie do ucelenej stratégie, ktorá generuje predaje — nie len návštevnosť.",
+        "features": [
+          "Funnel analýza a optimalizácia",
+          "Email marketing automácie",
+          "A/B testovanie",
+          "CRO (Conversion Rate Optimization)",
+          "Retargeting kampane",
+          "Cohort analýza zákazníkov"
+        ]
+      },
+      {
+        "slug": "branding",
+        "icon": "Palette",
+        "title": "Branding & Dizajn",
+        "short": "Vizuálna identita a brand stratégia pre nezabudnuteľný prvý dojem.",
+        "desc": "Silná značka je základ úspešného biznisu. Tvoríme komplexné vizuálne identity — od loga cez brand guidelines po kompletný dizajn systém, ktorý rastie spolu s vašou firmou.",
+        "features": [
+          "Logo dizajn a varianty",
+          "Brand guidelines dokument",
+          "Firemná identita (visitky, hlavičkový papier)",
+          "UI/UX dizajn",
+          "Prezentačné materiály",
+          "Sociálne siete vizuály"
+        ]
+      },
+      {
+        "slug": "analytics",
+        "icon": "BarChart3",
+        "title": "Analytika & Reporting",
+        "short": "Pokročilá dátová analytika a reporting pre informované obchodné rozhodnutia.",
+        "desc": "Bez dát je marketing len hadanie. Nastavujeme pokročilé sledovanie, vlastné dashboardy a pravidelné reporty, ktoré vám dávajú jasný obraz o každom euro investovanom do digitálneho marketingu.",
+        "features": [
+          "Google Analytics 4 setup",
+          "Custom dashboard (Looker Studio)",
+          "Konverzné sledovanie",
+          "ROI reporting",
+          "Competitor analýza",
+          "Prediktívna analytika s AI"
+        ]
+      }
+    ],
+    "process": {
+      "label": "Náš proces",
+      "headline": "Ako pracujeme",
+      "steps": [
+        { "number": "01", "title": "Discovery", "desc": "Hlboká analýza vášho biznisu, cieľov a konkurencie." },
+        { "number": "02", "title": "Stratégia", "desc": "Tvoríme na mieru šitú digitálnu stratégiu s jasnými KPI." },
+        { "number": "03", "title": "Realizácia", "desc": "Rýchla a kvalitná implementácia podľa dohodnutého plánu." },
+        { "number": "04", "title": "Optimalizácia", "desc": "Kontinuálne meranie a zlepšovanie pre maximálny ROI." }
+      ]
+    }
+  },
+  "blog": {
+    "hero": {
+      "label": "Dunajmedia Blog",
+      "headline": "Insights z digitálneho sveta",
+      "sub": "Aktuálne trendy, stratégie a tipy od nášho tímu expertov na digitálny marketing Slovensko."
+    },
+    "categories": ["Všetko", "SEO", "Web Dizajn", "Social Media", "AI & Tech", "Growth"],
+    "posts": [
+      {
+        "slug": "ai-seo-2024",
+        "category": "AI & Tech",
+        "title": "Optimalizácia pre AI: Ako ChatGPT mení pravidlá SEO",
+        "excerpt": "AI vyhľadávanie transformuje digitálny marketing. Zistite, ako optimalizovať váš web pre novú éru.",
+        "date": "15. januára 2025",
+        "readTime": "7 min",
+        "image": "/blog/ai-seo.jpg"
+      },
+      {
+        "slug": "web-development-slovakia",
+        "category": "Web Dizajn",
+        "title": "Tvorba web stránok v roku 2025: Čo musí každá stránka mať",
+        "excerpt": "Next.js, Core Web Vitals, accessibility — moderná webstránka musí spĺňať vyššie štandardy ako kedykoľvek.",
+        "date": "8. januára 2025",
+        "readTime": "5 min",
+        "image": "/blog/web-dev.jpg"
+      },
+      {
+        "slug": "social-media-trends",
+        "category": "Social Media",
+        "title": "Správa sociálnych sietí v 2025: Trendy, ktoré nesmieš ignorovať",
+        "excerpt": "Krátke video, AI-generovaný obsah a micro-influenceri — sociálne siete sa menia rýchlo.",
+        "date": "2. januára 2025",
+        "readTime": "6 min",
+        "image": "/blog/social.jpg"
+      },
+      {
+        "slug": "growth-marketing-bratislava",
+        "category": "Growth",
+        "title": "Growth Marketing Bratislava: Prečo lokálne firmy potrebujú globálne stratégie",
+        "excerpt": "Slovenské firmy, ktoré myslia globálne, rastú rýchlejšie. Ako na to s obmedzeným rozpočtom?",
+        "date": "27. decembra 2024",
+        "readTime": "8 min",
+        "image": "/blog/growth.jpg"
+      },
+      {
+        "slug": "seo-slovakia",
+        "category": "SEO",
+        "title": "SEO pre slovenský trh: Kompletný sprievodca 2025",
+        "excerpt": "Keyword research, technické SEO, link building — všetko čo potrebujete vedieť pre top pozície v Google.sk.",
+        "date": "20. decembra 2024",
+        "readTime": "10 min",
+        "image": "/blog/seo.jpg"
+      },
+      {
+        "slug": "digital-marketing-agency",
+        "category": "Growth",
+        "title": "Ako si vybrať správnu digitálnu agentúru pre váš biznis",
+        "excerpt": "Nie každá agentúra je rovnaká. Tu sú kritériá, podľa ktorých si vyberú múdre firmy.",
+        "date": "15. decembra 2024",
+        "readTime": "5 min",
+        "image": "/blog/agency.jpg"
+      }
+    ],
+    "readMore": "Čítať viac",
+    "allPosts": "Všetky články",
+    "newsletter": {
+      "headline": "Dostávajte najnovšie insights na email",
+      "sub": "Žiadny spam. Len hodnotný obsah o digitálnom marketingu, SEO a AI trendoch.",
+      "placeholder": "váš@email.sk",
+      "cta": "Prihlásiť sa"
+    }
+  },
+  "pricing": {
+    "hero": {
+      "label": "Transparentné ceny",
+      "headline": "Investícia, ktorá sa vracia",
+      "sub": "Fixné ceny bez skrytých poplatkov. Vyberte si balíček, ktorý zodpovedá vašim potrebám a rozpočtu."
+    },
+    "toggle": {
+      "one_time": "Jednorazové",
+      "monthly": "Mesačne"
+    },
+    "tiers": [
+      {
+        "id": "expres",
+        "name": "Expres Start",
+        "price": "299",
+        "currency": "€",
+        "badge": null,
+        "desc": "Ideálne pre štartupy a malé podniky, ktoré potrebujú profesionálnu online prítomnosť rýchlo.",
+        "features": [
+          "1-stránkový scroll web",
+          "Dvojjazyčnosť EN/SK",
+          "Integrovaný rezervačný systém",
+          "Doručenie do 48 hodín",
+          "Základná AI-SEO optimalizácia",
+          "Fluid animácie (Framer Motion)",
+          "Responzívny dizajn",
+          "1 rok hosting konzultácia"
+        ],
+        "cta": "Objednajte Expres Start",
+        "highlighted": false
+      },
+      {
+        "id": "business",
+        "name": "Business Pro",
+        "price": "549",
+        "currency": "€",
+        "badge": "Najpopulárnejší",
+        "desc": "Pre rastúce firmy, ktoré potrebujú silnú online prítomnosť s pokročilými funkciami.",
+        "features": [
+          "Až 10 strán",
+          "Dvojjazyčnosť EN/SK",
+          "Pokročilý rezervačný systém",
+          "Doručenie do 72 hodín",
+          "Pokročilá keyword stratégia",
+          "Custom video integrácia",
+          "Blog sekcia s CMS",
+          "Google Analytics 4 setup",
+          "3 mesiace podpory"
+        ],
+        "cta": "Objednajte Business Pro",
+        "highlighted": true
+      },
+      {
+        "id": "elite",
+        "name": "Agency Elite",
+        "price": "999",
+        "currency": "€",
+        "badge": "Premium",
+        "desc": "Komplexné riešenie pre zavedené firmy a agentúry s vysokými nárokmi na dizajn a funkčnosť.",
+        "features": [
+          "Neobmedzený počet strán",
+          "Podpora viacerých jazykov",
+          "Custom API rezervačný systém",
+          "Doručenie 2+ týždne",
+          "Profesionálne content SEO",
+          "Bespoke interakcie & animácie",
+          "E-commerce integrácia",
+          "Custom CRM prepojenie",
+          "6 mesiacov prioritnej podpory",
+          "Mesačný SEO reporting"
+        ],
+        "cta": "Objednajte Agency Elite",
+        "highlighted": false
+      }
+    ],
+    "faq": {
+      "headline": "Časté otázky",
+      "items": [
+        {
+          "q": "Čo je zahrnuté v cene?",
+          "a": "Všetky balíčky zahŕňajú dizajn, vývoj, testovanie a spustenie webu. Hosting a doména nie sú súčasťou balíčka, no vieme poradiť s ich nastavením."
+        },
+        {
+          "q": "Môžem si balíček rozšíriť?",
+          "a": "Áno! Každý balíček je možné doplniť o extra funkcie. Kontaktujte nás pre individuálnu cenovú ponuku."
+        },
+        {
+          "q": "Aké sú platobné podmienky?",
+          "a": "Požadujeme 50% zálohu pri podpise zmluvy a zvyšných 50% pri odovzdaní projektu."
+        },
+        {
+          "q": "Čo ak nie som spokojný?",
+          "a": "Ponúkame 2 kola revízií zadarmo. Váša spokojnosť je naša priorita."
+        }
+      ]
+    },
+    "cta": {
+      "headline": "Potrebujete niečo špeciálne?",
+      "sub": "Každý biznis je unikátny. Kontaktujte nás pre cenovú ponuku na mieru.",
+      "cta": "Získajte individuálnu ponuku"
+    }
+  },
+  "contact": {
+    "hero": {
+      "label": "Kontaktujte nás",
+      "headline": "Začnime váš projekt dnes",
+      "sub": "Sme tu pre vás. Napíšte nám, zavolajte alebo navštívte naše bratislavské štúdio."
+    },
+    "info": {
+      "address": "Dunajmedia s.r.o., Obchodná 12, 811 06 Bratislava",
+      "email": "info@dunajmedia.sk",
+      "phone": "+421 952 049 119",
+      "hours": "Po–Pi: 9:00 – 18:00"
+    },
+    "form": {
+      "headline": "Pošlite nám správu",
+      "name": "Vaše meno",
+      "email": "E-mailová adresa",
+      "company": "Firma (nepovinné)",
+      "service": "Záujem o službu",
+      "message": "Vaša správa",
+      "submit": "Odoslať správu",
+      "success": "Správa odoslaná! Ozveme sa do 24 hodín.",
+      "error": "Niečo sa pokazilo. Skúste znova.",
+      "services": [
+        "Tvorba web stránok",
+        "AI-Driven SEO",
+        "Správa sociálnych sietí",
+        "Growth Marketing",
+        "Branding & Dizajn",
+        "Analytika & Reporting",
+        "Iné"
+      ]
+    },
+    "map_label": "Nájdete nás v Bratislave"
+  },
+  "footer": {
+    "tagline": "Prémiová digitálna agentúra pre moderný biznis na Slovensku a v Európe.",
+    "links": {
+      "company": "Spoločnosť",
+      "services": "Služby",
+      "legal": "Právne info"
+    },
+    "company_links": ["O nás", "Blog", "Cenník", "Kontakt"],
+    "service_links": ["Tvorba webov", "SEO & AI", "Social Media", "Growth Marketing"],
+    "legal_links": ["Ochrana osobných údajov", "Podmienky používania", "Cookies"],
+    "copyright": "© 2025 Dunajmedia s.r.o. Všetky práva vyhradené.",
+    "social": "Sledujte nás"
+  },
+  "common": {
+    "loading": "Načítava sa...",
+    "error": "Nastala chyba",
+    "back": "Späť",
+    "read_more": "Čítať viac",
+    "learn_more": "Zistiť viac",
+    "get_started": "Začnite dnes",
+    "contact_us": "Kontaktujte nás"
+  }
+}
