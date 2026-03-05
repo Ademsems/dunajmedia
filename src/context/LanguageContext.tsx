@@ -6,11 +6,14 @@ import en from '@/messages/en.json';
 
 export type Locale = 'sk' | 'en';
 
-type DictionaryValue = string | DictionaryObject | DictionaryArray;
+type DictionaryValue = string | DictionaryObject | DictionaryArray | null;
 type DictionaryObject = { [key: string]: DictionaryValue };
 type DictionaryArray = DictionaryValue[];
 
-const dictionaries: Record<Locale, DictionaryObject> = { sk, en };
+const dictionaries: Record<Locale, DictionaryObject> = {
+  sk: sk as unknown as DictionaryObject,
+  en: en as unknown as DictionaryObject,
+};
 
 interface LanguageContextType {
   locale: Locale;
@@ -60,6 +63,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       const dict = dictionaries[locale];
       const value = getNestedValue(dict, path);
       if (typeof value === 'string') return value;
+      // Gracefully handle null
+      if (value === null) return fallback || '';
       // Fallback to other locale
       const fallbackDict = dictionaries[locale === 'sk' ? 'en' : 'sk'];
       const fallbackValue = getNestedValue(fallbackDict, path);
