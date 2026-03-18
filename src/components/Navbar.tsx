@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowRight } from 'lucide-react';
@@ -42,25 +43,43 @@ export default function Navbar() {
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link href="/" className="group flex items-center gap-2">
+
+          {/* Logo mark + wordmark */}
+          <Link href="/" className="group flex items-center gap-3">
             <motion.div
-              className="relative"
-              whileHover={{ scale: 1.05 }}
+              className="relative flex items-center gap-3"
+              whileHover={{ scale: 1.03 }}
               transition={{ type: 'spring', stiffness: 400, damping: 17 }}
             >
-              <span className="font-display text-xl font-bold text-slate-lightest tracking-tight">
-                dunaj
-              </span>
-              <span className="font-display text-xl font-bold text-aqua tracking-tight">
-                media
-              </span>
-              <motion.div
-                className="absolute -bottom-0.5 left-0 h-[2px] bg-gradient-to-r from-aqua to-aqua-electric"
-                initial={{ width: 0 }}
-                animate={{ width: '100%' }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              />
+              {/* DM logo image */}
+              <div className="relative w-9 h-9 flex-shrink-0">
+                <Image
+                  src="/logo.png"
+                  alt="Dunajmedia logo"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              </div>
+
+              {/* Divider */}
+              <span className="w-px h-5 bg-white/15 flex-shrink-0" />
+
+              {/* Wordmark */}
+              <div className="relative">
+                <span className="font-display text-xl font-bold text-slate-lightest tracking-tight">
+                  dunaj
+                </span>
+                <span className="font-display text-xl font-bold text-aqua tracking-tight">
+                  media
+                </span>
+                <motion.div
+                  className="absolute -bottom-0.5 left-0 h-[2px] bg-gradient-to-r from-aqua to-aqua-electric"
+                  initial={{ width: 0 }}
+                  animate={{ width: '100%' }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                />
+              </div>
             </motion.div>
           </Link>
 
