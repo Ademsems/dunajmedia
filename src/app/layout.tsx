@@ -50,6 +50,11 @@ export const metadata: Metadata = {
   authors: [{ name: 'Dunajmedia s.r.o.' }],
   creator: 'Dunajmedia',
   publisher: 'Dunajmedia s.r.o.',
+  icons: {
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
+  },
   robots: {
     index: true,
     follow: true,
@@ -82,13 +87,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     >
       <body className="bg-navy text-slate-light font-body antialiased">
         <LanguageProvider>
-          {/* Global Top Bar */}
           <TopBar />
-          {/* Sticky Navigation */}
           <Navbar />
-          {/* Page Content */}
           <main className="min-h-screen">{children}</main>
-          {/* Global Footer */}
           <Footer />
         </LanguageProvider>
       </body>
