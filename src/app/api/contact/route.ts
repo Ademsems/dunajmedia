@@ -16,7 +16,7 @@ export async function POST(request: Request) {
     }
 
     await resend.emails.send({
-      from: 'Dunajmedia Contact Form <noreply@dunajmedia.sk>',
+      from: 'Dunajmedia Contact Form <onboarding@resend.dev>',
       to: 'shams.alasha@gmail.com',
       reply_to: email,
       subject: `New contact form submission from ${name}`,
