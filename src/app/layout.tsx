@@ -85,7 +85,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${syne.variable} ${dmSans.variable} ${dmMono.variable}`}
       suppressHydrationWarning
     >
-      <body className="bg-navy text-slate-light font-body antialiased">
+      <body className="bg-navy text-slate-light font-body antialiased" suppressHydrationWarning>
         <LanguageProvider>
           <TopBar />
           <Navbar />
