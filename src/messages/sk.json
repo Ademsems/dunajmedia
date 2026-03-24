@@ -59,7 +59,7 @@
         },
         {
           "title": "Transparentné ceny",
-          "desc": "Žiadne skryté poplatky. Fixné ceny s jasnými výsledkami. Od €299 po €999."
+          "desc": "Žiadne skryté poplatky. Fixné ceny s jasnými výsledkami. Od €349 po €999."
         }
       ]
     },
@@ -334,7 +334,7 @@
       {
         "id": "expres",
         "name": "Expres Start",
-        "price": "299",
+        "price": "349",
         "currency": "€",
         "badge": null,
         "desc": "Ideálne pre štartupy a malé podniky, ktoré potrebujú profesionálnu online prítomnosť rýchlo.",
