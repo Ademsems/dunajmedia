@@ -18,7 +18,7 @@ export async function POST(request: Request) {
     await resend.emails.send({
       from: 'Dunajmedia Contact Form <onboarding@resend.dev>',
       to: 'info@dunajmedia.sk',
-      replyTo: email,
+      reply_to: email,
       subject: `New contact form submission from ${name}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
