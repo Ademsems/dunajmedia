@@ -21,6 +21,7 @@ interface LanguageContextType {
   t: (path: string, fallback?: string) => string;
   tArray: <T = DictionaryObject>(path: string) => T[];
   tObj: <T = DictionaryObject>(path: string) => T;
+  mounted: boolean;
 }
 
 const LanguageContext = createContext<LanguageContextType | null>(null);
@@ -45,12 +46,14 @@ function getNestedValue(obj: DictionaryObject, path: string): DictionaryValue | 
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>('sk');
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const saved = localStorage.getItem('dunajmedia-locale') as Locale | null;
     if (saved && (saved === 'sk' || saved === 'en')) {
       setLocaleState(saved);
     }
+    setMounted(true);
   }, []);
 
   const setLocale = useCallback((newLocale: Locale) => {
@@ -63,9 +66,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       const dict = dictionaries[locale];
       const value = getNestedValue(dict, path);
       if (typeof value === 'string') return value;
-      // Gracefully handle null
       if (value === null) return fallback || '';
-      // Fallback to other locale
       const fallbackDict = dictionaries[locale === 'sk' ? 'en' : 'sk'];
       const fallbackValue = getNestedValue(fallbackDict, path);
       if (typeof fallbackValue === 'string') return fallbackValue;
@@ -97,7 +98,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   );
 
   return (
-    <LanguageContext.Provider value={{ locale, setLocale, t, tArray, tObj }}>
+    <LanguageContext.Provider value={{ locale, setLocale, t, tArray, tObj, mounted }}>
       {children}
     </LanguageContext.Provider>
   );
