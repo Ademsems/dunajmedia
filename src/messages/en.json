@@ -59,7 +59,7 @@
         },
         {
           "title": "Transparent Pricing",
-          "desc": "No hidden fees. Fixed prices with clear deliverables. From €299 to €999."
+          "desc": "No hidden fees. Fixed prices with clear deliverables. From €349 to €999."
         }
       ]
     },
@@ -334,7 +334,7 @@
       {
         "id": "expres",
         "name": "Expres Start",
-        "price": "299",
+        "price": "349",
         "currency": "€",
         "badge": null,
         "desc": "Ideal for startups and small businesses that need a professional online presence fast.",
