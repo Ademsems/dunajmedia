@@ -35,16 +35,33 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: React.MouseEvent) => {
     e.preventDefault();
+
+    if (!form.name || !form.email || !form.message) {
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 4000);
+      return;
+    }
+
     setStatus('submitting');
-    // Simulate async submission
-    await new Promise(resolve => setTimeout(resolve, 1800));
-    if (form.email && form.name && form.message) {
-      setStatus('success');
-      setForm(initialState);
-    } else {
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setForm(initialState);
+      } else {
+        setStatus('error');
+      }
+    } catch {
       setStatus('error');
     }
-    setTimeout(() => setStatus('idle'), 4000);
+
+    setTimeout(() => setStatus('idle'), 5000);
   };
 
   const inputBase =
@@ -52,12 +69,12 @@ export default function ContactForm() {
 
   return (
     <section className="py-24 bg-navy relative overflow-hidden">
-      {/* Background elements */}
       <div className="absolute inset-0 grid-bg opacity-20 pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-aqua/3 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
+
           {/* Left: Copy */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -75,12 +92,11 @@ export default function ContactForm() {
               {t('contact.hero.sub')}
             </p>
 
-            {/* Contact info cards */}
             <div className="space-y-4">
               {[
-                { icon: Mail, label: t('contact.info.email'), value: 'info@dunajmedia.sk', href: 'mailto:info@dunajmedia.sk' },
-                { icon: null, label: t('contact.info.phone'), value: '+421 952 049 119', href: 'tel:+421952049119' },
-              ].map(({ icon: Icon, label, value, href }) => (
+                { label: t('contact.info.email'), value: 'info@dunajmedia.sk', href: 'mailto:info@dunajmedia.sk' },
+                { label: t('contact.info.phone'), value: '+421 952 049 119', href: 'tel:+421952049119' },
+              ].map(({ label, value, href }) => (
                 <motion.a
                   key={value}
                   href={href}
@@ -98,7 +114,6 @@ export default function ContactForm() {
               ))}
             </div>
 
-            {/* Decorative element */}
             <div className="mt-12 p-6 rounded-2xl border border-aqua/10 bg-gradient-to-br from-aqua/5 to-aqua-electric/5">
               <p className="text-slate-text text-sm font-body leading-relaxed">
                 <span className="text-aqua font-semibold">💡 </span>
@@ -116,9 +131,10 @@ export default function ContactForm() {
             className="bg-navy-light rounded-2xl border border-white/5 p-8"
           >
             <div className="space-y-5">
+
               {/* Name + Email */}
               <div className="grid sm:grid-cols-2 gap-5">
-                <div className="relative">
+                <div>
                   <label className="block text-xs font-mono text-slate-text uppercase tracking-wider mb-2">
                     {t('contact.form.name')} *
                   </label>
@@ -186,9 +202,9 @@ export default function ContactForm() {
                     name="service"
                     value={form.service}
                     onChange={handleChange}
-                    className={`${inputBase} appearance-none pr-10 ${focused === 'service' ? 'border-aqua/60' : 'border-white/8'}`}
                     onFocus={() => setFocused('service')}
                     onBlur={() => setFocused(null)}
+                    className={`${inputBase} appearance-none pr-10 ${focused === 'service' ? 'border-aqua/60' : 'border-white/8'}`}
                   >
                     <option value="">{t('contact.form.service')}</option>
                     {services.map((s) => (
@@ -262,6 +278,7 @@ export default function ContactForm() {
                   </motion.div>
                 )}
               </AnimatePresence>
+
             </div>
           </motion.div>
         </div>
