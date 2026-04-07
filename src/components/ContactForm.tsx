@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, CheckCircle, AlertCircle, User, Mail, Building2, MessageSquare, ChevronDown } from 'lucide-react';
+import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 
 interface FormState {
@@ -11,6 +12,7 @@ interface FormState {
   company: string;
   service: string;
   message: string;
+  consent: boolean;
 }
 
 const initialState: FormState = {
@@ -19,6 +21,7 @@ const initialState: FormState = {
   company: '',
   service: '',
   message: '',
+  consent: false,
 };
 
 export default function ContactForm() {
@@ -26,11 +29,18 @@ export default function ContactForm() {
   const [form, setForm] = useState<FormState>(initialState);
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [focused, setFocused] = useState<string | null>(null);
+  const [consentError, setConsentError] = useState(false);
 
   const services = tArray<string>('contact.form.services');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    const target = e.target;
+    if (target instanceof HTMLInputElement && target.type === 'checkbox') {
+      setForm(prev => ({ ...prev, [target.name]: target.checked }));
+      if (target.checked) setConsentError(false);
+    } else {
+      setForm(prev => ({ ...prev, [target.name]: target.value }));
+    }
   };
 
   const handleSubmit = async (e: React.MouseEvent) => {
@@ -39,6 +49,11 @@ export default function ContactForm() {
     if (!form.name || !form.email || !form.message) {
       setStatus('error');
       setTimeout(() => setStatus('idle'), 4000);
+      return;
+    }
+
+    if (!form.consent) {
+      setConsentError(true);
       return;
     }
 
@@ -233,6 +248,50 @@ export default function ContactForm() {
                     className={`${inputBase} pl-9 resize-none ${focused === 'message' ? 'border-aqua/60' : 'border-white/8'}`}
                   />
                 </div>
+              </div>
+
+              {/* GDPR Consent Checkbox */}
+              <div>
+                <label className={`flex items-start gap-3 cursor-pointer group ${consentError ? 'opacity-100' : ''}`}>
+                  <div className="relative flex-shrink-0 mt-0.5">
+                    <input
+                      type="checkbox"
+                      name="consent"
+                      checked={form.consent}
+                      onChange={handleChange}
+                      className="sr-only"
+                    />
+                    <div className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-all duration-200 ${
+                      form.consent
+                        ? 'bg-aqua border-aqua'
+                        : consentError
+                        ? 'border-red-400 bg-red-400/10'
+                        : 'border-white/20 bg-navy/60 group-hover:border-aqua/40'
+                    }`}>
+                      {form.consent && (
+                        <svg className="w-3 h-3 text-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                      )}
+                    </div>
+                  </div>
+                  <span className={`text-xs font-body leading-relaxed ${consentError ? 'text-red-400' : 'text-slate-text'}`}>
+                    Súhlasím so spracovaním osobných údajov v súlade so{' '}
+                    <Link
+                      href="/ochrana-udajov"
+                      className="text-aqua hover:underline"
+                      target="_blank"
+                    >
+                      Zásadami ochrany osobných údajov
+                    </Link>
+                    . *
+                  </span>
+                </label>
+                {consentError && (
+                  <p className="mt-2 text-xs text-red-400 font-body">
+                    Pre odoslanie formulára je potrebný váš súhlas.
+                  </p>
+                )}
               </div>
 
               {/* Submit */}
