@@ -113,7 +113,9 @@
     "hero": {
       "label": "Our Services",
       "headline": "Comprehensive Digital Services for Your Success in 2026 and Beyond.",
-      "sub": "We offer innovative and data-driven solutions in web development, AI-driven SEO, PPC campaigns, and growth marketing to ensure your brand dominates online."    "items": [
+      "sub": "We offer innovative and data-driven solutions in web development, AI-driven SEO, PPC campaigns, and growth marketing to ensure your brand dominates online."
+    },
+    "items": [
       {
         "slug": "web-development",
         "icon": "Code2",
