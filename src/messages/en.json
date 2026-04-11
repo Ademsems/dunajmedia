@@ -103,32 +103,6 @@
         }
       ]
     },
-    "team": {
-      "label": "Our Team",
-      "headline": "The people behind the results",
-      "members": [
-        {
-          "name": "Marek Novák",
-          "role": "CEO & Growth Strategist",
-          "bio": "10+ years in digital marketing. Specialist in growth marketing Bratislava and brand scaling."
-        },
-        {
-          "name": "Jana Kováčová",
-          "role": "Lead Web Developer",
-          "bio": "Full-stack expert focused on web development services and high-performance Next.js applications."
-        },
-        {
-          "name": "Tomáš Horváth",
-          "role": "SEO & AI Specialist",
-          "bio": "Pioneer in AI-driven SEO and advanced keyword strategies for the Slovak market."
-        },
-        {
-          "name": "Lucia Benková",
-          "role": "Social Media Manager",
-          "bio": "Creates brand stories that resonate. Expert in social media management for B2C and B2B."
-        }
-      ]
-    },
     "numbers": {
       "headline": "Dunajmedia by the numbers",
       "items": [
