@@ -168,7 +168,7 @@ export default function BlogPageClient() {
           >
             <h3 className="font-display text-3xl font-bold text-slate-lightest mb-3">
               {t('blog.newsletter.headline')}
-            </h2>
+            </h3>
             <p className="text-slate-text font-body mb-8">{t('blog.newsletter.sub')}</p>
             {subscribed ? (
               <motion.div
