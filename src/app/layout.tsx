@@ -1,3 +1,12 @@
+import type { Metadata } from 'next';
+import { Syne, DM_Sans, DM_Mono } from 'next/font/google';
+import './globals.css';
+import { LanguageProvider } from '@/context/LanguageContext';
+import TopBar from '@/components/TopBar';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import CookieBanner from '@/components/CookieBanner';
+
 const ViewportMeta = () => (
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 );
@@ -57,14 +66,6 @@ const SchemaOrg = () => (
       }}
     />
 );
-
-import { Syne, DM_Sans, DM_Mono } from 'next/font/google';
-import './globals.css';
-import { LanguageProvider } from '@/context/LanguageContext';
-import TopBar from '@/components/TopBar';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import CookieBanner from '@/components/CookieBanner';
 
 const syne = Syne({
   subsets: ['latin'],
