@@ -72,14 +72,14 @@
   "about": {
     "hero": {
       "label": "Náš príbeh",
-      "headline": "Vytvárame digitálne dedičstvo pre slovenské značky",
-      "sub": "Dunajmedia vznikla v Bratislave s jednou misiou: priniesť klientom najvyššiu úroveň digitálneho marketingu s dušou skutočného partnerstva."
+      "headline": "Inovujeme digitálne stratégie, tvoríme online úspechy.",
+      "sub": "Dunajmedia sa zrodila s cieľom priniesť firmám na Slovensku a v celej Európe najvyššiu kvalitu digitálnych služieb, postavených na partnerstve a merateľných výsledkoch.",
     },
     "story": {
       "headline": "Od malého štartu k prémiové agentúre",
-      "body1": "Dunajmedia bola založená skupinou digitálnych nadšencov s hlbokými koreňmi v Bratislave a víziou zmeniť, ako slovenské firmy prezentujú seba online. Od prvého projektu tvorby web stránok sme rástli do plnohodnotnej agentúry s portfóliom stoviek spokojných klientov.",
-      "body2": "Naša práca spája technickú precíznosť s kreatívnym myslením. Každý projekt, či ide o jednoduchú prezentačnú stránku alebo komplexnú e-commerce platformu, dostáva rovnakú úroveň starostlivosti a inovatívneho prístupu.",
-      "body3": "Dnes sme uznávanou marketingovou agentúrou Bratislava, ktorá obsluhuje klientov nielen na Slovensku, ale aj v Čechách, Rakúsku a ďalej. Náš tím špecialistov na tvorbu web stránok, správu sociálnych sietí a optimalizáciu pre AI pracuje s jediným cieľom — váš úspech."
+      "body1": "Od skromných začiatkov v Bratislave, s víziou transformovať digitálnu prítomnosť lokálnych firiem, Dunajmedia prešla cestu od prvých projektov tvorby web stránok až po komplexnú digitálnu agentúru s portfóliom desiatok spokojných klientov.",
+      "body2": "Naša filozofia kombinuje špičkovú technickú precíznosť s kreatívnym a strategickým myslením. Každý klient, či už potrebuje jednoduchú prezentačnú stránku alebo zložitú e-commerce platformu, získava od nás rovnakú mieru pozornosti a inovatívneho prístupu.",
+      "body3": "Ako dynamická a progresívna marketingová agentúra sa dnes v Bratislave venujeme klientom naprieč Slovenskom, Čechmi, Rakúskom a ďalšími krajinami. S jediným cieľom — váš digitálny úspech — prinášame najlepšie riešenia v oblasti tvorby web stránok, AI-riadeného SEO a efektívneho growth marketingu."
     },
     "values": {
       "label": "Naše hodnoty",
@@ -116,8 +116,8 @@
   "services": {
     "hero": {
       "label": "Naše služby",
-      "headline": "Každý aspekt vašej digitálnej prítomnosti",
-      "sub": "Od tvorby web stránok po pokročilú správu sociálnych sietí — ponúkame kompletný ekosystém digitálnych služieb pre moderné slovenské firmy."
+      "headline": "Komplexné digitálne služby pre váš úspech v roku 2026 a ďalej.",
+      "sub": "Ponúkame inovatívne a dátami podložené riešenia v oblasti tvorby web stránok, AI-riadeného SEO, PPC kampaní a growth marketingu, aby vaša značka dominovala online."
     },
     "items": [
       {
@@ -125,7 +125,7 @@
         "icon": "Code2",
         "title": "Tvorba Web Stránok",
         "short": "Prémiový vývoj webových stránok na mieru s Next.js a moderným tech-stackom.",
-        "desc": "Vaša webová stránka je vaša digitálna kancelária — a my ju stavíme tak, aby imponovala. Každý projekt tvorby web stránok začína hlbokou analýzou vašich potrieb, cieľovej skupiny a konkurencie. Výsledkom je rýchla, krásna a konverzne optimalizovaná stránka.",
+        "desc": "Vaša webová stránka je kľúčom k digitálnemu úspechu. My sa špecializujeme na tvorbu web stránok na mieru, ktoré sú rýchle, bezpečné, optimalizované pre mobilné zariadenia a AI, a zamerané na konverzie pre slovenské a európske trhy. Využívame moderné technológie ako Next.js a dbáme na bezchybnú UX pre maximálny dojem.",
         "features": [
           "Next.js 14 App Router",
           "Dvojjazyčnosť SK/EN natívne",
@@ -140,7 +140,7 @@
         "icon": "Brain",
         "title": "AI-Driven SEO",
         "short": "Optimalizácia pre AI vyhľadávanie a tradičné SEO stratégie pre dominanciu v Google.",
-        "desc": "Optimalizácia pre AI je nová hranica — a my sme na jej čele. Kombinujeme tradičné SEO techniky s pokročilou AI analýzou pre tvorbu obsahu, ktorý rankuje vyššie, rýchlejšie. Naša keyword stratégia cieli na zákazníkov so zámerom nakúpiť.",
+        "desc": "V Dunajmedia posúvame SEO na novú úroveň s AI. Kombinujeme pokročilé techniky optimalizácie pre vyhľadávače s umelou inteligenciou, aby sme zabezpečili špičkové pozície vo vyhľadávačoch, optimalizáciu pre AI citácie a zvýšili relevantnú návštevnosť. Sústreďujeme sa na dáta a merateľné výsledky pre váš digitálny rast.",
         "features": [
           "AI content optimization",
           "Technical SEO audit",
@@ -155,7 +155,7 @@
         "icon": "Share2",
         "title": "Správa Sociálnych Sietí",
         "short": "Kompletná správa sociálnych sietí vrátane tvorby obsahu a community managementu.",
-        "desc": "Správa sociálnych sietí je umenie aj veda. Tvoríme konzistentný obsah, manažujeme komunitu a analyzujeme výsledky pre neustále zlepšovanie. Od Instagramu po LinkedIn — budujeme vašu digitálnu komunitu.",
+        "desc": "Efektívna správa sociálnych sietí je nevyhnutná pre budovanie značky online. Od tvorby vizuálne pôsobivého obsahu, cez aktívny community management, až po cielené platené kampane na platformách ako Facebook, Instagram a LinkedIn — pomáhame vašej značke spojiť sa s cieľovým publikom a rásť.",
         "features": [
           "Mesačný content calendar",
           "Grafický dizajn pre social media",
@@ -170,7 +170,7 @@
         "icon": "TrendingUp",
         "title": "Growth Marketing",
         "short": "Dátami riadené stratégie rastu pre škálovanie vášho biznisu na slovenskom aj európskom trhu.",
-        "desc": "Growth marketing Bratislava je naša špeciálnosť. Kombinujeme email marketing, performance reklamu a konverzné optimalizácie do ucelenej stratégie, ktorá generuje predaje — nie len návštevnosť.",
+        "desc": "Zameriavame sa na rast prostredníctvom dát a inovácií. Naše growth marketing stratégie integrujú email marketing, SEO, PPC reklamu a CRO (optimalizáciu konverzného pomeru) do jedného silného celku, ktorý prináša trvalý a merateľný nárast predaja a angažovanosti pre slovenské a medzinárodné firmy.",
         "features": [
           "Funnel analýza a optimalizácia",
           "Email marketing automácie",
@@ -185,7 +185,7 @@
         "icon": "Palette",
         "title": "Branding & Dizajn",
         "short": "Vizuálna identita a brand stratégia pre nezabudnuteľný prvý dojem.",
-        "desc": "Silná značka je základ úspešného biznisu. Tvoríme komplexné vizuálne identity — od loga cez brand guidelines po kompletný dizajn systém, ktorý rastie spolu s vašou firmou.",
+        "desc": "Silný branding je základom pre nezabudnuteľnú značku. Od vytvárania jedinečného loga, cez kompletné vizuálne identity a brand manuály, až po UI/UX dizajn — pomáhame firmám na Slovensku a v celej EÚ vytvoriť silnú emocionálnu väzbu s ich zákazníkmi a vyniknúť na trhu.",
         "features": [
           "Logo dizajn a varianty",
           "Brand guidelines dokument",
@@ -200,7 +200,7 @@
         "icon": "BarChart3",
         "title": "Analytika & Reporting",
         "short": "Pokročilá dátová analytika a reporting pre informované obchodné rozhodnutia.",
-        "desc": "Bez dát je marketing len hadanie. Nastavujeme pokročilé sledovanie, vlastné dashboardy a pravidelné reporty, ktoré vám dávajú jasný obraz o každom euro investovanom do digitálneho marketingu.",
+        "desc": "Veríme, že každé rozhodnutie musí byť podložené dátami. Nastavujeme pokročilú webovú analytiku (Google Analytics 4), vytvárame custom dashboardy a poskytujeme detailné reporty, ktoré vám umožnia sledovať ROI, pochopiť správanie zákazníkov a robiť správne strategické rozhodnutia pre váš digitálny marketing.",
         "features": [
           "Google Analytics 4 setup",
           "Custom dashboard (Looker Studio)",
@@ -213,28 +213,28 @@
     ],
     "process": {
       "label": "Náš proces",
-      "headline": "Ako pracujeme",
+      "headline": "Ako Dunajmedia Strategizuje Váš Digitálny Úspech",
       "steps": [
-        { "number": "01", "title": "Discovery", "desc": "Hlboká analýza vášho biznisu, cieľov a konkurencie." },
-        { "number": "02", "title": "Stratégia", "desc": "Tvoríme na mieru šitú digitálnu stratégiu s jasnými KPI." },
-        { "number": "03", "title": "Realizácia", "desc": "Rýchla a kvalitná implementácia podľa dohodnutého plánu." },
-        { "number": "04", "title": "Optimalizácia", "desc": "Kontinuálne meranie a zlepšovanie pre maximálny ROI." }
+        { "number": "01", "title": "Discovery", "desc": "Dôkladná analýza vášho trhu, konkurencie a cieľov pre vytvorenie pevných základov." },
+        { "number": "02", "title": "Stratégia", "desc": "Precízna tvorba digitálnej stratégie na mieru, s jasne definovanými KPI a akčným plánom." },
+        { "number": "03", "title": "Realizácia", "desc": "Agilná implementácia s dôrazom na rýchlosť a kvalitu, dodávaná transparentne a efektívne." },
+        { "number": "04", "title": "Optimalizácia", "desc": "Kontinuálne monitorovanie, optimalizácia a A/B testovanie pre maximálny ROI a udržateľný rast." }
       ]
     }
   },
   "blog": {
     "hero": {
       "label": "Dunajmedia Blog",
-      "headline": "Insights z digitálneho sveta",
-      "sub": "Aktuálne trendy, stratégie a tipy od nášho tímu expertov na digitálny marketing Slovensko."
+      "headline": "Insights zo sveta digitálu: trendy, stratégie a AI.",
+      "sub": "Dunajmedia prináša najnovšie poznatky, analýzy a strategické tipy z oblasti SEO, AI, webdevu a growth marketingu, špeciálne pre slovenský a európsky trh."
     },
     "categories": ["Všetko", "SEO", "Web Dizajn", "Social Media", "AI & Tech", "Growth"],
     "posts": [
       {
         "slug": "ai-seo-2024",
         "category": "AI & Tech",
-        "title": "Optimalizácia pre AI: Ako ChatGPT mení pravidlá SEO",
-        "excerpt": "AI vyhľadávanie transformuje digitálny marketing. Zistite, ako optimalizovať váš web pre novú éru.",
+        "title": "AI a SEO 2026: Ako umelá inteligencia mení pravidlá hry a ako ju využiť.",
+        "excerpt": "Umelá inteligencia transformuje SEO. Optimalizujte svoj web pre budúcnosť vyhľadávania a získajte konkurenčnú výhodu s Dunajmedia. Náš pohľad na trendy a praktické rady.",
         "date": "15. januára 2025",
         "readTime": "7 min",
         "image": "/blog/ai-seo.jpg"
@@ -242,8 +242,8 @@
       {
         "slug": "web-development-slovakia",
         "category": "Web Dizajn",
-        "title": "Tvorba web stránok v roku 2025: Čo musí každá stránka mať",
-        "excerpt": "Next.js, Core Web Vitals, accessibility — moderná webstránka musí spĺňať vyššie štandardy ako kedykoľvek.",
+        "title": "Web Development 2026: Nevyhnutné vlastnosti pre moderné a úspešné webstránky.",
+        "excerpt": "S Next.js, Core Web Vitals a prístupnosťou stanovujeme nové štandardy. Zistite, čo musí mať váš web pre dominanciu na trhu. Tipy od Dunajmedia.",
         "date": "8. januára 2025",
         "readTime": "5 min",
         "image": "/blog/web-dev.jpg"
@@ -251,8 +251,8 @@
       {
         "slug": "social-media-trends",
         "category": "Social Media",
-        "title": "Správa sociálnych sietí v 2025: Trendy, ktoré nesmieš ignorovať",
-        "excerpt": "Krátke video, AI-generovaný obsah a micro-influenceri — sociálne siete sa menia rýchlo.",
+        "title": "Trendy v Sociálnych Médiách 2026: Ako udržať krok a angažovať publikum.",
+        "excerpt": "Krátke videá, AI-generovaný obsah a mikro-influenceri sú len začiatok. Prehľad najhorúcejších trendov a stratégie pre efektívnu správu sociálnych sietí.",
         "date": "2. januára 2025",
         "readTime": "6 min",
         "image": "/blog/social.jpg"
@@ -260,8 +260,8 @@
       {
         "slug": "growth-marketing-bratislava",
         "category": "Growth",
-        "title": "Growth Marketing Bratislava: Prečo lokálne firmy potrebujú globálne stratégie",
-        "excerpt": "Slovenské firmy, ktoré myslia globálne, rastú rýchlejšie. Ako na to s obmedzeným rozpočtom?",
+        "title": "Growth Marketing: Stratégie pre akcelerovaný rast a merateľné výsledky.",
+        "excerpt": "Dátami riadený prístup k e-mail marketingu, SEO a PPC kampaniam. Zistite, ako Dunajmedia pomáha firmám škálovať ich biznis s maximálnym ROI. Inšpirácia pre Bratislavu a širšie.",
         "date": "27. decembra 2024",
         "readTime": "8 min",
         "image": "/blog/growth.jpg"
@@ -269,8 +269,8 @@
       {
         "slug": "seo-slovakia",
         "category": "SEO",
-        "title": "SEO pre slovenský trh: Kompletný sprievodca 2025",
-        "excerpt": "Keyword research, technické SEO, link building — všetko čo potrebujete vedieť pre top pozície v Google.sk.",
+        "title": "Lokálne SEO 2026: Ako dominovať Google výsledky v Bratislave a na Slovensku.",
+        "excerpt": "Špecifiká SEO pre slovenský trh: kľúčové slová, lokálne faktory a AI optimalizácia. Váš kompletný sprievodca od Dunajmedia pre top pozície.",
         "date": "20. decembra 2024",
         "readTime": "10 min",
         "image": "/blog/seo.jpg"
@@ -278,8 +278,8 @@
       {
         "slug": "digital-marketing-agency",
         "category": "Growth",
-        "title": "Ako si vybrať správnu digitálnu agentúru pre váš biznis",
-        "excerpt": "Nie každá agentúra je rovnaká. Tu sú kritériá, podľa ktorých si vyberú múdre firmy.",
+        "title": "Výber Digitálnej Agentúry: Kľúčové faktory pre váš úspech v roku 2026.",
+        "excerpt": "Nie všetky digitálne agentúry sú rovnaké. Kritériá pre výber ideálneho partnera, ktorý vám pomôže maximalizovať ROI a dosiahnuť dlhodobý rast. Prečo je Dunajmedia vaša voľba.",
         "date": "15. decembra 2024",
         "readTime": "5 min",
         "image": "/blog/agency.jpg"
@@ -288,8 +288,8 @@
     "readMore": "Čítať viac",
     "allPosts": "Všetky články",
     "newsletter": {
-      "headline": "Dostávajte najnovšie insights na email",
-      "sub": "Žiadny spam. Len hodnotný obsah o digitálnom marketingu, SEO a AI trendoch.",
+      "headline": "Zostaňte v obraze: Odoberajte náš newsletter o digitálnom marketingu.",
+      "sub": "Exkluzívne analýzy, praktické tipy a najnovšie trendy z oblasti AI, SEO, web developmentu a growth marketingu. Prihláste sa a získajte náskok pred konkurenciou. Žiadny spam, len hodnotný obsah.",
       "placeholder": "váš@email.sk",
       "cta": "Prihlásiť sa"
     }

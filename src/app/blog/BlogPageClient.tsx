@@ -134,9 +134,9 @@ export default function BlogPageClient() {
                         {post.readTime}
                       </span>
                     </div>
-                    <h2 className="font-display font-bold text-slate-lightest text-lg leading-snug mb-3 group-hover:text-aqua transition-colors duration-200 line-clamp-2">
+                    <h3 className="font-display font-bold text-slate-lightest text-lg leading-snug mb-3 group-hover:text-aqua transition-colors duration-200 line-clamp-2">
                       {post.title}
-                    </h2>
+                    </h3>
                     <p className="text-slate-text text-sm font-body leading-relaxed mb-5 flex-1 line-clamp-3">
                       {post.excerpt}
                     </p>
@@ -166,7 +166,7 @@ export default function BlogPageClient() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-display text-3xl font-bold text-slate-lightest mb-3">
+            <h3 className="font-display text-3xl font-bold text-slate-lightest mb-3">
               {t('blog.newsletter.headline')}
             </h2>
             <p className="text-slate-text font-body mb-8">{t('blog.newsletter.sub')}</p>

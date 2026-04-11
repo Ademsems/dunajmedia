@@ -134,48 +134,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team */}
-      <section className="py-28 bg-navy-light relative overflow-hidden">
-        <div className="absolute inset-0 grid-bg opacity-20 pointer-events-none" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <span className="inline-block font-mono text-xs text-aqua uppercase tracking-widest mb-4 border border-aqua/20 px-3 py-1 rounded-full bg-aqua/5">
-              {t('about.team.label')}
-            </span>
-            <h2 className="font-display text-4xl font-bold text-slate-lightest">
-              {t('about.team.headline')}
-            </h2>
-          </motion.div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {teamMembers.map((member, i) => (
-              <motion.div
-                key={member.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="group p-6 rounded-2xl bg-navy border border-white/5 hover:border-aqua/25 transition-all duration-300 text-center"
-              >
-                {/* Avatar placeholder */}
-                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-aqua/20 to-aqua-electric/20 border border-aqua/30 flex items-center justify-center mx-auto mb-5 group-hover:border-aqua/50 transition-colors">
-                  <span className="font-display font-bold text-2xl text-aqua">
-                    {member.name.split(' ').map(n => n[0]).join('')}
-                  </span>
-                </div>
-                <h3 className="font-display font-bold text-slate-lightest text-base mb-1">{member.name}</h3>
-                <p className="text-aqua text-xs font-mono mb-3">{member.role}</p>
-                <p className="text-slate-text text-xs font-body leading-relaxed">{member.bio}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <CTABanner />
       <ContactForm />

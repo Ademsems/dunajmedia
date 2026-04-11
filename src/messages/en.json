@@ -72,14 +72,14 @@
   "about": {
     "hero": {
       "label": "Our Story",
-      "headline": "Building digital legacies for Slovak brands",
-      "sub": "Dunajmedia was founded in Bratislava with one mission: to bring clients the highest level of digital marketing with the soul of true partnership."
+      "headline": "Innovating Digital Strategies, Creating Online Success.",
+      "sub": "Dunajmedia was founded with the mission to provide businesses across Slovakia and Europe with the highest quality digital services, built on partnership and measurable results.",
     },
     "story": {
       "headline": "From a small start to a premium agency",
-      "body1": "Dunajmedia was founded by a group of digital enthusiasts with deep roots in Bratislava and a vision to transform how Slovak businesses present themselves online. From our first web development project, we've grown into a full-service agency with a portfolio of hundreds of satisfied clients.",
-      "body2": "Our work combines technical precision with creative thinking. Every project, whether a simple presentation site or a complex e-commerce platform, receives the same level of care and innovative approach.",
-      "body3": "Today, we are a recognized digital marketing agency Slovakia that serves clients not only in Slovakia but also in the Czech Republic, Austria, and beyond. Our team of specialists in web development services, social media management, and AI optimization works with one goal — your success."
+      "body1": "From humble beginnings in Bratislava, with a vision to transform the digital presence of local businesses, Dunajmedia has journeyed from its first web development projects to a comprehensive digital agency with a portfolio of dozens of satisfied clients.",
+      "body2": "Our philosophy combines cutting-edge technical precision with creative and strategic thinking. Every client, whether they need a simple presentation site or a complex e-commerce platform, receives the same level of attention and innovative approach from us.",
+      "body3": "As a dynamic and progressive marketing agency, we currently serve clients across Slovakia, the Czech Republic, Austria, and other countries from Bratislava. With a single goal — your digital success — we deliver the best solutions in web development, AI-driven SEO, and effective growth marketing."
     },
     "values": {
       "label": "Our Values",
@@ -116,8 +116,8 @@
   "services": {
     "hero": {
       "label": "Our Services",
-      "headline": "Every aspect of your digital presence",
-      "sub": "From web development services to advanced social media management — we offer a complete ecosystem of digital services for modern businesses."
+      "headline": "Comprehensive Digital Services for Your Success in 2026 and Beyond.",
+      "sub": "We offer innovative and data-driven solutions in web development, AI-driven SEO, PPC campaigns, and growth marketing to ensure your brand dominates online.",
     },
     "items": [
       {
@@ -125,7 +125,7 @@
         "icon": "Code2",
         "title": "Web Development",
         "short": "Premium custom web development with Next.js and modern tech stack.",
-        "desc": "Your website is your digital office — and we build it to impress. Every web development project starts with a deep analysis of your needs, target audience, and competition. The result is a fast, beautiful, and conversion-optimized site.",
+        "desc": "Your website is the key to digital success. We specialize in custom web development that delivers fast, secure, mobile-friendly, and AI-optimized sites focused on conversions for Slovak and European markets. Leveraging modern technologies like Next.js, we ensure flawless UX for maximum impact.",
         "features": [
           "Next.js 14 App Router",
           "Native SK/EN bilingual support",
@@ -140,7 +140,7 @@
         "icon": "Brain",
         "title": "AI-Driven SEO",
         "short": "AI-driven SEO and traditional SEO strategies for Google dominance.",
-        "desc": "AI-driven SEO is the new frontier — and we're at the forefront. We combine traditional SEO techniques with advanced AI analysis for content creation that ranks higher, faster. Our keyword strategy targets customers with purchase intent.",
+        "desc": "At Dunajmedia, we elevate SEO to a new level with AI. We combine advanced search engine optimization techniques with artificial intelligence to ensure top search rankings, optimization for AI citations, and increased relevant traffic. Our focus is on data and measurable results for your digital growth.",
         "features": [
           "AI content optimization",
           "Technical SEO audit",
@@ -155,7 +155,7 @@
         "icon": "Share2",
         "title": "Social Media Management",
         "short": "Complete social media management including content creation and community management.",
-        "desc": "Social media management is both art and science. We create consistent content, manage communities, and analyze results for continuous improvement. From Instagram to LinkedIn — we build your digital community.",
+        "desc": "Effective social media management is crucial for building a brand online. From creating visually appealing content, through active community management, to targeted paid campaigns on platforms like Facebook, Instagram, and LinkedIn — we help your brand connect with its target audience and grow.",
         "features": [
           "Monthly content calendar",
           "Graphic design for social media",
@@ -170,7 +170,7 @@
         "icon": "TrendingUp",
         "title": "Growth Marketing",
         "short": "Data-driven growth strategies for scaling your business in the Slovak and European market.",
-        "desc": "Growth marketing Bratislava is our specialty. We combine email marketing, performance advertising, and conversion optimization into a cohesive strategy that generates sales — not just traffic.",
+        "desc": "We focus on growth through data and innovation. Our growth marketing strategies integrate email marketing, SEO, PPC advertising, and CRO (Conversion Rate Optimization) into one powerful package that delivers sustained and measurable increases in sales and engagement for Slovak and international businesses.",
         "features": [
           "Funnel analysis and optimization",
           "Email marketing automation",
@@ -185,7 +185,7 @@
         "icon": "Palette",
         "title": "Branding & Design",
         "short": "Visual identity and brand strategy for an unforgettable first impression.",
-        "desc": "A strong brand is the foundation of a successful business. We create comprehensive visual identities — from logo to brand guidelines to complete design systems that grow with your company.",
+        "desc": "Strong branding is the foundation of an unforgettable brand. From creating a unique logo, through complete visual identities and brand manuals, to UI/UX design — we help companies in Slovakia and across the EU build a strong emotional connection with their customers and stand out in the market.",
         "features": [
           "Logo design and variants",
           "Brand guidelines document",
@@ -200,7 +200,7 @@
         "icon": "BarChart3",
         "title": "Analytics & Reporting",
         "short": "Advanced data analytics and reporting for informed business decisions.",
-        "desc": "Without data, marketing is just guessing. We set up advanced tracking, custom dashboards, and regular reports that give you a clear picture of every euro invested in digital marketing.",
+        "desc": "We believe every decision must be data-driven. We set up advanced web analytics (Google Analytics 4), create custom dashboards, and provide detailed reports that allow you to track ROI, understand customer behavior, and make sound strategic decisions for your digital marketing.",
         "features": [
           "Google Analytics 4 setup",
           "Custom dashboard (Looker Studio)",
@@ -213,28 +213,28 @@
     ],
     "process": {
       "label": "Our Process",
-      "headline": "How we work",
+      "headline": "How Dunajmedia Strategizes Your Digital Success",
       "steps": [
-        { "number": "01", "title": "Discovery", "desc": "Deep analysis of your business, goals, and competition." },
-        { "number": "02", "title": "Strategy", "desc": "We create a tailored digital strategy with clear KPIs." },
-        { "number": "03", "title": "Execution", "desc": "Fast, quality implementation according to the agreed plan." },
-        { "number": "04", "title": "Optimization", "desc": "Continuous measurement and improvement for maximum ROI." }
+        { "number": "01", "title": "Discovery", "desc": "Thorough analysis of your market, competition, and goals to build strong foundations." },
+        { "number": "02", "title": "Strategy", "desc": "Precise creation of tailor-made digital strategies, with clearly defined KPIs and an actionable plan." },
+        { "number": "03", "title": "Execution", "desc": "Agile implementation with an emphasis on speed and quality, delivered transparently and efficiently." },
+        { "number": "04", "title": "Optimization", "desc": "Continuous monitoring, optimization, and A/B testing for maximum ROI and sustainable growth." }
       ]
     }
   },
   "blog": {
     "hero": {
       "label": "Dunajmedia Blog",
-      "headline": "Insights from the digital world",
-      "sub": "Current trends, strategies, and tips from our team of digital marketing experts in Slovakia."
+      "headline": "Insights from the digital world: trends, strategies, and AI.",
+      "sub": "Dunajmedia brings the latest insights, analyses, and strategic tips in SEO, AI, web development, and growth marketing, tailored for the Slovak and European markets."
     },
     "categories": ["All", "SEO", "Web Design", "Social Media", "AI & Tech", "Growth"],
     "posts": [
       {
         "slug": "ai-seo-2024",
         "category": "AI & Tech",
-        "title": "AI-Driven SEO in 2025: How ChatGPT is Changing the Rules",
-        "excerpt": "AI search is transforming digital marketing. Find out how to optimize your website for the new era.",
+        "title": "AI and SEO in 2026: How Artificial Intelligence is Changing the Game and How to Leverage It.",
+        "excerpt": "Artificial intelligence is transforming SEO. Optimize your website for the future of search and gain a competitive edge with Dunajmedia. Our take on trends and practical advice.",
         "date": "January 15, 2025",
         "readTime": "7 min",
         "image": "/blog/ai-seo.jpg"
@@ -242,8 +242,8 @@
       {
         "slug": "web-development-slovakia",
         "category": "Web Design",
-        "title": "Web Development Services in 2025: What Every Site Must Have",
-        "excerpt": "Next.js, Core Web Vitals, accessibility — a modern website must meet higher standards than ever before.",
+        "title": "Web Development 2026: Essential Features for Modern and Successful Websites.",
+        "excerpt": "Next.js, Core Web Vitals, and accessibility are fundamental. Discover what your website needs to dominate the market. Tips by Dunajmedia.",
         "date": "January 8, 2025",
         "readTime": "5 min",
         "image": "/blog/web-dev.jpg"
@@ -251,8 +251,8 @@
       {
         "slug": "social-media-trends",
         "category": "Social Media",
-        "title": "Social Media Management in 2025: Trends You Can't Ignore",
-        "excerpt": "Short video, AI-generated content, and micro-influencers — social media is changing fast.",
+        "title": "Social Media Trends 2026: How to Keep Up and Engage Your Audience.",
+        "excerpt": "Short videos, AI-generated content, and micro-influencers are just the beginning. Get an overview of the hottest trends and strategies for effective social media management.",
         "date": "January 2, 2025",
         "readTime": "6 min",
         "image": "/blog/social.jpg"
@@ -260,8 +260,8 @@
       {
         "slug": "growth-marketing-bratislava",
         "category": "Growth",
-        "title": "Growth Marketing Bratislava: Why Local Businesses Need Global Strategies",
-        "excerpt": "Slovak businesses that think globally grow faster. How to do it on a limited budget?",
+        "title": "Growth Marketing: Strategies for Accelerated Growth and Measurable Results.",
+        "excerpt": "A data-driven approach to email marketing, SEO, and PPC campaigns. Discover how Dunajmedia helps businesses scale with maximum ROI. Inspiration for Bratislava and beyond.",
         "date": "December 27, 2024",
         "readTime": "8 min",
         "image": "/blog/growth.jpg"
@@ -269,8 +269,8 @@
       {
         "slug": "seo-slovakia",
         "category": "SEO",
-        "title": "SEO for the Slovak Market: A Complete Guide for 2025",
-        "excerpt": "Keyword research, technical SEO, link building — everything you need to know for top positions in Google.",
+        "title": "Local SEO 2026: How to Dominate Google Results in Bratislava and Slovakia.",
+        "excerpt": "Specifics of SEO for the Slovak market: keywords, local factors, and AI optimization. Your complete guide from Dunajmedia for top rankings.",
         "date": "December 20, 2024",
         "readTime": "10 min",
         "image": "/blog/seo.jpg"
@@ -278,8 +278,8 @@
       {
         "slug": "digital-marketing-agency",
         "category": "Growth",
-        "title": "How to Choose the Right Digital Marketing Agency for Your Business",
-        "excerpt": "Not all agencies are the same. Here are the criteria smart businesses use to choose.",
+        "title": "Choosing a Digital Agency: Key Factors for Your Success in 2026.",
+        "excerpt": "Not all digital agencies are the same. Criteria for choosing the ideal partner to help you maximize ROI and achieve long-term growth. Why Dunajmedia is your choice.",
         "date": "December 15, 2024",
         "readTime": "5 min",
         "image": "/blog/agency.jpg"
@@ -288,8 +288,8 @@
     "readMore": "Read More",
     "allPosts": "All Articles",
     "newsletter": {
-      "headline": "Get the latest insights in your inbox",
-      "sub": "No spam. Just valuable content on digital marketing, SEO, and AI trends.",
+      "headline": "Stay Informed: Subscribe to Our Digital Marketing Newsletter.",
+      "sub": "Exclusive analyses, practical tips, and the latest trends in AI, SEO, web development, and growth marketing. Sign up to get ahead of the competition. No spam, only valuable content.",
       "placeholder": "your@email.com",
       "cta": "Subscribe"
     }
