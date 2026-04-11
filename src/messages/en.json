@@ -15,31 +15,31 @@
   },
   "home": {
     "hero": {
-      "badge": "Digital Marketing Agency Slovakia",
-      "headline1": "Digital",
-      "headline2": "solutions",
-      "headline3": "of tomorrow.",
-      "sub": "We build premium websites, manage social media, and power your brand's growth using AI-driven SEO strategies. Your successful digital presence starts here.",
+      "badge": "Leading Digital Agency Bratislava",
+      "headline1": "Your Partner for",
+      "headline2": "Digital",
+      "headline3": "Success.",
+      "sub": "Dunajmedia is a leading digital marketing agency in Bratislava, Slovakia, dedicated to transforming your online presence. We specialize in web development, crafting premium websites using advanced tech stacks like Next.js, alongside expert social media management. Our AI-optimized SEO strategies drive measurable growth and ensure your brand excels in the competitive digital landscape. We use predictive analytics to fine-tune campaigns, helping you outperform competitors and achieve your business goals. For companies seeking significant return on investment through targeted PPC management and innovative online advertising solutions, Dunajmedia offers comprehensive expertise. Partner with us to navigate the complexities of digital marketing and secure your market leadership.",
       "cta_primary": "Get a Free Consultation",
       "cta_secondary": "View Our Work",
       "scroll": "Scroll down"
     },
     "stats": {
-      "projects": "Projects Completed",
-      "clients": "Happy Clients",
-      "years": "Years of Experience",
-      "countries": "Countries Served"
+      "projects": "Successful Projects Delivered",
+      "clients": "Satisfied Clients Worldwide",
+      "years": "Years of Industry Expertise",
+      "countries": "Global Reach (Countries)"
     },
     "about_snippet": {
-      "label": "Who We Are",
-      "headline": "Dunajmedia — where strategy meets design",
-      "body": "We're a Bratislava-based team of digital experts helping businesses dominate online. From web development services to social media management and AI-driven SEO — we deliver measurable results.",
+      "label": "About Our Agency",
+      "headline": "Dunajmedia: Innovating Digital Marketing in Bratislava",
+      "body": "Our team of digital marketing experts delivers a comprehensive suite of services designed for modern businesses. From strategic content marketing that builds authority, to robust email marketing campaigns that engage your audience, we cover every aspect of your digital journey. We understand the nuances of SEO services and implement cutting-edge AI-driven solutions for superior organic search performance. Our approach to web design integrates seamless user experience with powerful backend functionality. Whether you need an overarching digital strategy, targeted online advertising, or effective branding to create an unforgettable first impression, Dunajmedia provides tailored solutions. Our focus remains on delivering measurable, impactful growth for your business, both locally and internationally.",
       "cta": "Meet Our Team"
     },
     "services_snippet": {
-      "label": "Our Services",
-      "headline": "Complete digital services for the modern business",
-      "sub": "Every service is designed for maximum impact and measurable growth of your brand in the Slovak and international markets."
+      "label": "Our Core Digital Services",
+      "headline": "Holistic Digital Marketing Solutions for Modern European Businesses",
+      "sub": "Tailored strategies for web development, SEO, social media, and more, driving measurable growth in both local and international markets."
     },
     "why": {
       "label": "Why Dunajmedia",
