@@ -19,7 +19,7 @@
       "headline1": "Your Partner for",
       "headline2": "Digital",
       "headline3": "Success.",
-      "sub": "Dunajmedia is a leading digital marketing agency in Bratislava, Slovakia, dedicated to transforming your online presence. We specialize in web development, crafting premium websites using advanced tech stacks like Next.js, alongside expert social media management. Our AI-optimized SEO strategies drive measurable growth and ensure your brand excels in the competitive digital landscape. We use predictive analytics to fine-tune campaigns, helping you outperform competitors and achieve your business goals. For companies seeking significant return on investment through targeted PPC management and innovative online advertising solutions, Dunajmedia offers comprehensive expertise. Partner with us to navigate the complexities of digital marketing and secure your market leadership.",
+      "sub": "A leading digital marketing agency in Bratislava. We transform your online presence with premium Next.js web development, AI-optimized SEO, and data-driven growth strategies.",
       "cta_primary": "Get a Free Consultation",
       "cta_secondary": "View Our Work",
       "scroll": "Scroll down"
@@ -33,7 +33,7 @@
     "about_snippet": {
       "label": "About Our Agency",
       "headline": "Dunajmedia: Innovating Digital Marketing in Bratislava",
-      "body": "Our team of digital marketing experts delivers a comprehensive suite of services designed for modern businesses. From strategic content marketing that builds authority, to robust email marketing campaigns that engage your audience, we cover every aspect of your digital journey. We understand the nuances of SEO services and implement cutting-edge AI-driven solutions for superior organic search performance. Our approach to web design integrates seamless user experience with powerful backend functionality. Whether you need an overarching digital strategy, targeted online advertising, or effective branding to create an unforgettable first impression, Dunajmedia provides tailored solutions. Our focus remains on delivering measurable, impactful growth for your business, both locally and internationally.",
+      "body": "Dunajmedia is dedicated to transforming your online presence. We specialize in crafting premium websites using advanced tech stacks alongside expert social media management. Our AI-optimized SEO strategies drive measurable growth and ensure your brand excels in the competitive digital landscape. We use predictive analytics to fine-tune campaigns, helping you outperform competitors and achieve your business goals. For companies seeking significant ROI through targeted PPC management and innovative online advertising solutions, Dunajmedia offers comprehensive expertise.",
       "cta": "Meet Our Team"
     },
     "services_snippet": {
@@ -75,8 +75,7 @@
       "headline": "Innovating Digital Strategies, Creating Online Success.",
       "sub": "Dunajmedia was founded with the mission to provide businesses across Slovakia and Europe with the highest quality digital services, built on partnership and measurable results."
     },
-    "story": {
-    },
+    "story": {},
     "values": {
       "label": "Our Values",
       "headline": "The principles that define us",
