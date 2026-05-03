@@ -407,6 +407,7 @@
       "headline": "Send us a message",
       "name": "Your name",
       "email": "Email address",
+	"phone": "Phone number",
       "company": "Company (optional)",
       "service": "Service of interest",
       "message": "Your message",

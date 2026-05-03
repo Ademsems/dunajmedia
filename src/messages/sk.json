@@ -412,6 +412,7 @@
       "headline": "Pošlite nám správu",
       "name": "Vaše meno",
       "email": "E-mailová adresa",
+	"phone": "Phone number",
       "company": "Firma (nepovinné)",
       "service": "Záujem o službu",
       "message": "Vaša správa",
