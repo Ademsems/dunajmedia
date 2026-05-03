@@ -6,11 +6,11 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, company, service, message } = body;
+    const { name, email, phone, company, service, message } = body;
 
-    if (!name || !email || !message) {
+    if (!name || !email || !phone || !message) {
       return NextResponse.json(
-        { error: 'Name, email and message are required.' },
+        { error: 'Name, email, phone, and message are required.' },
         { status: 400 }
       );
     }
@@ -34,6 +34,12 @@ export async function POST(request: Request) {
               <td style="padding: 10px 0; color: #8892B0;"><strong>Email</strong></td>
               <td style="padding: 10px 0; color: #0A192F;">
                 <a href="mailto:${email}" style="color: #64FFDA;">${email}</a>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 10px 0; color: #8892B0;"><strong>Phone</strong></td>
+              <td style="padding: 10px 0; color: #0A192F;">
+                <a href="tel:${phone}" style="color: #64FFDA;">${phone}</a>
               </td>
             </tr>
             ${company ? `
