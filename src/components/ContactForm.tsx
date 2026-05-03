@@ -2,13 +2,14 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, CheckCircle, AlertCircle, User, Mail, Building2, MessageSquare, ChevronDown } from 'lucide-react';
+import { Send, CheckCircle, AlertCircle, User, Mail, Building2, MessageSquare, ChevronDown, Phone } from 'lucide-react';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 
 interface FormState {
   name: string;
   email: string;
+  phone: string;
   company: string;
   service: string;
   message: string;
@@ -18,6 +19,7 @@ interface FormState {
 const initialState: FormState = {
   name: '',
   email: '',
+  phone: '',
   company: '',
   service: '',
   message: '',
@@ -46,7 +48,7 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.MouseEvent) => {
     e.preventDefault();
 
-    if (!form.name || !form.email || !form.message) {
+    if (!form.name || !form.email || !form.phone || !form.message) {
       setStatus('error');
       setTimeout(() => setStatus('idle'), 4000);
       return;
@@ -187,23 +189,43 @@ export default function ContactForm() {
                 </div>
               </div>
 
-              {/* Company */}
-              <div>
-                <label className="block text-xs font-mono text-slate-text uppercase tracking-wider mb-2">
-                  {t('contact.form.company')}
-                </label>
-                <div className="relative">
-                  <Building2 size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-text/60 pointer-events-none" />
-                  <input
-                    name="company"
-                    type="text"
-                    value={form.company}
-                    onChange={handleChange}
-                    onFocus={() => setFocused('company')}
-                    onBlur={() => setFocused(null)}
-                    placeholder={t('contact.form.company')}
-                    className={`${inputBase} pl-9 ${focused === 'company' ? 'border-aqua/60' : 'border-white/8'}`}
-                  />
+              {/* Phone + Company */}
+              <div className="grid sm:grid-cols-2 gap-5">
+                <div>
+                  <label className="block text-xs font-mono text-slate-text uppercase tracking-wider mb-2">
+                    {t('contact.form.phone')} *
+                  </label>
+                  <div className="relative">
+                    <Phone size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-text/60 pointer-events-none" />
+                    <input
+                      name="phone"
+                      type="tel"
+                      value={form.phone}
+                      onChange={handleChange}
+                      onFocus={() => setFocused('phone')}
+                      onBlur={() => setFocused(null)}
+                      placeholder={t('contact.form.phone')}
+                      className={`${inputBase} pl-9 ${focused === 'phone' ? 'border-aqua/60' : 'border-white/8'}`}
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-xs font-mono text-slate-text uppercase tracking-wider mb-2">
+                    {t('contact.form.company')}
+                  </label>
+                  <div className="relative">
+                    <Building2 size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-text/60 pointer-events-none" />
+                    <input
+                      name="company"
+                      type="text"
+                      value={form.company}
+                      onChange={handleChange}
+                      onFocus={() => setFocused('company')}
+                      onBlur={() => setFocused(null)}
+                      placeholder={t('contact.form.company')}
+                      className={`${inputBase} pl-9 ${focused === 'company' ? 'border-aqua/60' : 'border-white/8'}`}
+                    />
+                  </div>
                 </div>
               </div>
 
