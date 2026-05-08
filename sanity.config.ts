@@ -8,6 +8,7 @@ export default defineConfig({
   title: 'Dunajmedia Blog',
   projectId: '8rfcu2ua',
   dataset: 'production',
+  basePath: '/studio',
   plugins: [structureTool(), visionTool()],
   schema: {
     types: schemaTypes,
