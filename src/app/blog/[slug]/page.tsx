@@ -5,23 +5,35 @@ import Link from 'next/link';
 import { ArrowLeft, Clock, Calendar } from 'lucide-react';
 import type { Metadata } from 'next';
 
+export const dynamic = 'force-dynamic';
+
 interface Props {
   params: { slug: string };
 }
 
 export async function generateStaticParams() {
-  const posts = await getAllPosts();
-  return posts.map((post: { slug: { current: string } }) => ({
-    slug: post.slug.current,
-  }));
+  try {
+    const posts = await getAllPosts();
+    if (!posts || posts.length === 0) return [];
+    return posts.map((post: { slug: { current: string } }) => ({
+      slug: post.slug.current,
+    }));
+  } catch (error) {
+    console.error('generateStaticParams error:', error);
+    return [];
+  }
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const post = await getPostBySlug(params.slug);
-  return {
-    title: post?.title ? `${post.title} | Dunajmedia Blog` : 'Blog | Dunajmedia',
-    description: post?.excerpt || '',
-  };
+  try {
+    const post = await getPostBySlug(params.slug);
+    return {
+      title: post?.title ? `${post.title} | Dunajmedia Blog` : 'Blog | Dunajmedia',
+      description: post?.excerpt || '',
+    };
+  } catch {
+    return { title: 'Blog | Dunajmedia' };
+  }
 }
 
 const portableTextComponents = {
@@ -52,15 +64,15 @@ const portableTextComponents = {
       <em className="text-slate-light italic">{children}</em>
     ),
     link: ({ value, children }: { value?: { href: string }; children?: React.ReactNode }) => (
-  
-    href={value ? value.href : '#'}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-aqua hover:underline"
-  >
-    {children}
-  </a>
-),
+      
+        href={value ? value.href : '#'}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-aqua hover:underline"
+      >
+        {children}
+      </a>
+    ),
   },
   list: {
     bullet: ({ children }: { children?: React.ReactNode }) => (
@@ -81,7 +93,13 @@ const portableTextComponents = {
 };
 
 export default async function BlogPostPage({ params }: Props) {
-  const post = await getPostBySlug(params.slug);
+  let post = null;
+
+  try {
+    post = await getPostBySlug(params.slug);
+  } catch (error) {
+    console.error('Error fetching post:', error);
+  }
 
   if (!post) {
     return (
@@ -126,7 +144,6 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
         )}
 
-        {/* Post header overlaid on image */}
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 -mt-32 pb-0 z-10">
           <Link
             href="/blog"
@@ -177,14 +194,13 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
         )}
 
-        {/* Back link */}
         <div className="mt-16 pt-10 border-t border-white/5">
           <Link
             href="/blog"
             className="inline-flex items-center gap-2 text-aqua font-display font-semibold hover:gap-3 transition-all"
           >
             <ArrowLeft size={16} />
-            {`Späť na blog`}
+            Späť na blog
           </Link>
         </div>
       </div>
