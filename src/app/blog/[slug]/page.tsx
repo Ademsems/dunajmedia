@@ -52,15 +52,15 @@ const portableTextComponents = {
       <em className="text-slate-light italic">{children}</em>
     ),
     link: ({ value, children }: { value?: { href: string }; children?: React.ReactNode }) => (
-      
-        href={value?.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-aqua hover:underline"
-      >
-        {children}
-      </a>
-    ),
+  
+    href={value ? value.href : '#'}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-aqua hover:underline"
+  >
+    {children}
+  </a>
+),
   },
   list: {
     bullet: ({ children }: { children?: React.ReactNode }) => (
