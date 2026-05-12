@@ -47,8 +47,8 @@ interface WorkShowcaseProps {
 }
 
 export default function WorkShowcase({ compact = false }: WorkShowcaseProps) {
-  const { language } = useLanguage();
-  const isSk = language === 'sk';
+  const { locale } = useLanguage();
+  const isSk = locale === 'sk';
 
   return (
     <div>

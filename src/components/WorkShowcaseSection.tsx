@@ -5,8 +5,8 @@ import { useLanguage } from '@/context/LanguageContext';
 import WorkShowcase from '@/components/WorkShowcase';
 
 export default function WorkShowcaseSection() {
-  const { language } = useLanguage();
-  const isSk = language === 'sk';
+  const { locale } = useLanguage();
+  const isSk = locale === 'sk';
 
   return (
     <section className="py-28 bg-navy relative overflow-hidden">

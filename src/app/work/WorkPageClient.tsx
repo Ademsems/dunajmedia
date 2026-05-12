@@ -40,8 +40,8 @@ const processSteps = [
 ];
 
 export default function WorkPageClient() {
-  const { language } = useLanguage();
-  const isSk = language === 'sk';
+  const { locale } = useLanguage();
+  const isSk = locale === 'sk';
 
   return (
     <>
