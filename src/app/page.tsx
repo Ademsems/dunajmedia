@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Hero from '@/components/Hero';
 import AboutSnippet from '@/components/AboutSnippet';
 import Services from '@/components/Services';
+import WorkShowcaseSection from '@/components/WorkShowcaseSection';
 import PricingTable from '@/components/PricingTable';
 import ContactForm from '@/components/ContactForm';
 import CTABanner from '@/components/CTABanner';
@@ -18,6 +19,7 @@ export default function HomePage() {
       <Hero />
       <AboutSnippet />
       <Services />
+      <WorkShowcaseSection />
       {/* Pricing teaser */}
       <section className="py-28 bg-navy-light relative overflow-hidden">
         <div className="absolute inset-0 grid-bg opacity-20 pointer-events-none" />
