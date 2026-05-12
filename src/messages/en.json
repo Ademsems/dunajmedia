@@ -2,6 +2,7 @@
   "nav": {
     "home": "Home",
     "about": "About",
+    "howWeWork": "How We Work",
     "services": "Services",
     "work": "Our Work",
     "blog": "Blog",
@@ -73,39 +74,39 @@
   "about": {
     "hero": {
       "label": "Our Story",
-      "headline": "Innovating Digital Strategies, Creating Online Success.",
-      "sub": "Dunajmedia was founded with the mission to provide businesses across Slovakia and Europe with the highest quality digital services, built on partnership and measurable results."
+      "headline": "Bratislava deserved better. So we built it.",
+      "sub": "Dunajmedia was born from frustration with the standard of digital services in Slovakia. We saw what businesses were getting for their money — and we knew it could be so much better."
     },
-    "story": {},
+    "story": {
+      "headline": "Why Dunajmedia exists",
+      "body1": "The Slovak digital agency market shocked us. Businesses were paying for websites that did not reflect their true value — generic designs, slow sites built on outdated technology, agencies that disappeared after sending the invoice.",
+      "body2": "We knew it could be different. A modern tech stack, precise design, AI-driven SEO and genuine dedication to every project — that is the standard that Bratislava and all of Slovakia deserves.",
+      "body3": "Dunajmedia exists with one mission: to raise the standard of digital services in Slovakia. Every project that leaves our studio must be better than anything the client has seen before."
+    },
     "values": {
       "label": "Our Values",
       "headline": "The principles that define us",
       "items": [
         {
-          "title": "Innovation",
-          "desc": "We constantly monitor AI trends, but apply only what genuinely delivers results for your business."
+          "title": "Quality without compromise",
+          "desc": "We could deliver faster. We choose not to if it means compromising quality. Every pixel, every line of code must be intentional."
         },
         {
-          "title": "Transparency",
-          "desc": "Clear communication, real reports, and no surprises on the invoice."
+          "title": "Technology that performs",
+          "desc": "We build on a modern tech stack — Next.js, AI-driven SEO, Framer Motion. Because your website's speed and reliability directly impact your business."
         },
         {
-          "title": "Partnership",
-          "desc": "We don't work for clients — we work with them. Your business is our business."
-        },
-        {
-          "title": "Excellence",
-          "desc": "Every pixel, every word, every line of code — designed for maximum impact."
+          "title": "Your success is our standard",
+          "desc": "We don't finish a project and disappear. Your digital success is a long-term commitment. When your business grows, our work has meaning."
         }
       ]
     },
     "numbers": {
       "headline": "Dunajmedia by the numbers",
       "items": [
-        { "value": "250+", "label": "Projects" },
-        { "value": "98%", "label": "Client Satisfaction" },
-        { "value": "6", "label": "Years in Business" },
-        { "value": "12", "label": "Team Experts" }
+        { "value": "11+", "label": "Years in Marketing" },
+        { "value": "48h", "label": "Fastest Website Delivery" },
+        { "value": "100%", "label": "Modern Tech Stack" }
       ]
     }
   },

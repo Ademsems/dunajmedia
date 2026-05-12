@@ -2,6 +2,7 @@
   "nav": {
     "home": "Domov",
     "about": "O nás",
+    "howWeWork": "Ako pracujeme",
     "services": "Služby",
     "work": "Ukážky",
     "blog": "Blog",
@@ -73,44 +74,39 @@
   "about": {
     "hero": {
       "label": "Náš príbeh",
-      "headline": "Inovujeme digitálne stratégie, tvoríme online úspechy.",
-      "sub": "Dunajmedia sa zrodila s cieľom priniesť firmám na Slovensku a v celej Európe najvyššiu kvalitu digitálnych služieb, postavených na partnerstve a merateľných výsledkoch."
+      "headline": "Bratislava si zaslúžila lepšie. Tak sme to postavili.",
+      "sub": "Dunajmedia vznikla z frustrácie so štandardom digitálnych služieb na Slovensku. Videli sme, čo firmy dostávajú za svoje peniaze — a vedeli sme, že to môže byť oveľa lepšie."
     },
     "story": {
-      "headline": "Od malého štartu k prémiové agentúre",
-      "body1": "Od skromných začiatkov v Bratislave, s víziou transformovať digitálnu prítomnosť lokálnych firiem, Dunajmedia prešla cestu od prvých projektov tvorby web stránok až po komplexnú digitálnu agentúru s portfóliom desiatok spokojných klientov.",
-      "body2": "Naša filozofia kombinuje špičkovú technickú precíznosť s kreatívnym a strategickým myslením. Každý klient, či už potrebuje jednoduchú prezentačnú stránku alebo zložitú e-commerce platformu, získava od nás rovnakú mieru pozornosti a inovatívneho prístupu.",
-      "body3": "Ako dynamická a progresívna marketingová agentúra sa dnes v Bratislave venujeme klientom naprieč Slovenskom, Čechmi, Rakúskom a ďalšími krajinami. S jediným cieľom — váš digitálny úspech — prinášame najlepšie riešenia v oblasti tvorby web stránok, AI-riadeného SEO a efektívneho growth marketingu."
+      "headline": "Prečo vznikla Dunajmedia",
+      "body1": "Slovenský trh digitálnych agentúr nás šokoval. Firmy platili za webstránky, ktoré nereflektovali ich skutočnú hodnotu — generické dizajny, pomalé weby postavené na zastaralých technológiách, agentúry, ktoré zmizli po vystavení faktúry.",
+      "body2": "Vedeli sme, že to môže byť inak. Moderný tech-stack, precízny dizajn, AI-riadené SEO a skutočná dedikácia každému projektu — to je štandard, ktorý Bratislava a celé Slovensko zaslúži.",
+      "body3": "Dunajmedia existuje s jednou misiou: posunúť štandard digitálnych služieb na Slovensku. Každý projekt, ktorý opustí naše štúdio, musí byť lepší než čokoľvek, čo klient videl predtým."
     },
     "values": {
       "label": "Naše hodnoty",
       "headline": "Princípy, ktoré nás definujú",
       "items": [
         {
-          "title": "Inovácia",
-          "desc": "Neustále sledujeme trendy AI, no aplikujeme len to, čo skutočne prináša výsledky vašej firme."
+          "title": "Kvalita bez kompromisov",
+          "desc": "Mohli by sme dodávať rýchlejšie. Rozhodujeme sa inak, ak by to znamenalo kompromis v kvalite. Každý pixel, každý riadok kódu musí byť zámerný."
         },
         {
-          "title": "Transparentnosť",
-          "desc": "Jasná komunikácia, reálne reporty a žiadne prekvapenia na faktúre."
+          "title": "Technológia, ktorá funguje",
+          "desc": "Stavíme na modernom tech-stacku — Next.js, AI-driven SEO, Framer Motion. Pretože rýchlosť a spoľahlivosť vášho webu priamo ovplyvňujú váš biznis."
         },
         {
-          "title": "Partnerstvo",
-          "desc": "Nepracujeme pre klientov — pracujeme s nimi. Váš biznis je aj náš biznis."
-        },
-        {
-          "title": "Excelencia",
-          "desc": "Každý pixel, každé slovo, každý kód — navrhnutý pre maximálny dopad."
+          "title": "Váš úspech je náš štandard",
+          "desc": "Nepracujeme na projekte a nezmiznem. Váš digitálny úspech je dlhodobý záväzok. Keď váš biznis rastie, naša práca má zmysel."
         }
       ]
     },
     "numbers": {
       "headline": "Dunajmedia v číslach",
       "items": [
-        { "value": "250+", "label": "Projektov" },
-        { "value": "98%", "label": "Spokojnosť klientov" },
-        { "value": "6", "label": "Rokov na trhu" },
-        { "value": "12", "label": "Expertov v tíme" }
+        { "value": "11+", "label": "Rokov v marketingu" },
+        { "value": "48h", "label": "Najrýchlejšie doručenie webu" },
+        { "value": "100%", "label": "Moderný tech-stack" }
       ]
     }
   },

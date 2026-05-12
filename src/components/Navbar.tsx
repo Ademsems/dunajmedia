@@ -11,6 +11,7 @@ import { useLanguage } from '@/context/LanguageContext';
 const navLinks = [
   { href: '/', key: 'nav.home' },
   { href: '/about', key: 'nav.about' },
+  { href: '/how-we-work', key: 'nav.howWeWork' },
   { href: '/services', key: 'nav.services' },
   { href: '/work', key: 'nav.work' },
   { href: '/blog', key: 'nav.blog' },
