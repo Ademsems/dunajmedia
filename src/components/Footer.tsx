@@ -6,9 +6,9 @@ import { Mail, Phone, MapPin, Clock, Linkedin, Instagram, Facebook, Twitter, Arr
 import { useLanguage } from '@/context/LanguageContext';
 
 const serviceLinks = [
-  { label_sk: 'Tvorba webov', label_en: 'Web Development', href: '/services' },
-  { label_sk: 'SEO & AI', label_en: 'SEO & AI', href: '/services' },
-  { label_sk: 'Social Media', label_en: 'Social Media', href: '/services' },
+  { label_sk: 'Tvorba Web Stránok', label_en: 'Web Design', href: '/services/tvorba-web-stranok' },
+  { label_sk: 'SEO Optimalizácia', label_en: 'SEO Optimization', href: '/services/seo-optimalizacia' },
+  { label_sk: 'Správa Sociálnych Sietí', label_en: 'Social Media', href: '/services/sprava-socialnych-sieti' },
   { label_sk: 'Growth Marketing', label_en: 'Growth Marketing', href: '/services' },
 ];
 

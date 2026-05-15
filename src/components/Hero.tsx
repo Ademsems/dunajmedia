@@ -128,7 +128,7 @@ export default function Hero() {
             </Link>
 
             <Link
-              href="/services"
+              href="/work"
               className="group flex items-center gap-2 border border-white/20 backdrop-blur-sm text-slate-lightest font-display font-semibold px-8 py-4 rounded-xl hover:border-aqua/40 hover:bg-white/5 transition-all duration-300 text-base"
             >
               <Play size={14} className="text-aqua" />

@@ -5,14 +5,25 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowRight } from 'lucide-react';
+import { Menu, X, ArrowRight, ChevronDown } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
-const navLinks = [
+type NavChild = { href: string; labelSk: string; labelEn: string };
+type NavLink = { href: string; key: string; children?: NavChild[] };
+
+const navLinks: NavLink[] = [
   { href: '/', key: 'nav.home' },
   { href: '/about', key: 'nav.about' },
   { href: '/how-we-work', key: 'nav.howWeWork' },
-  { href: '/services', key: 'nav.services' },
+  {
+    href: '/services',
+    key: 'nav.services',
+    children: [
+      { href: '/services/tvorba-web-stranok', labelSk: 'Tvorba Web Stránok', labelEn: 'Web Design' },
+      { href: '/services/seo-optimalizacia', labelSk: 'SEO Optimalizácia', labelEn: 'SEO Optimization' },
+      { href: '/services/sprava-socialnych-sieti', labelSk: 'Správa Sociálnych Sietí', labelEn: 'Social Media' },
+    ],
+  },
   { href: '/work', key: 'nav.work' },
   { href: '/blog', key: 'nav.blog' },
   { href: '/pricing', key: 'nav.pricing' },
@@ -20,10 +31,12 @@ const navLinks = [
 ];
 
 export default function Navbar() {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
+  const isSk = locale === 'sk';
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -33,6 +46,7 @@ export default function Navbar() {
 
   useEffect(() => {
     setMobileOpen(false);
+    setMobileServicesOpen(false);
   }, [pathname]);
 
   return (
@@ -46,14 +60,13 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
 
-          {/* Logo mark + wordmark */}
+          {/* Logo */}
           <Link href="/" className="group flex items-center gap-3">
             <motion.div
               className="relative flex items-center gap-3"
               whileHover={{ scale: 1.03 }}
               transition={{ type: 'spring', stiffness: 400, damping: 17 }}
             >
-              {/* DM logo image */}
               <div className="relative w-9 h-9 flex-shrink-0">
                 <Image
                   src="/logo.png"
@@ -63,18 +76,10 @@ export default function Navbar() {
                   priority
                 />
               </div>
-
-              {/* Divider */}
               <span className="w-px h-5 bg-white/15 flex-shrink-0" />
-
-              {/* Wordmark */}
               <div className="relative">
-                <span className="font-display text-xl font-bold text-slate-lightest tracking-tight">
-                  dunaj
-                </span>
-                <span className="font-display text-xl font-bold text-aqua tracking-tight">
-                  media
-                </span>
+                <span className="font-display text-xl font-bold text-slate-lightest tracking-tight">dunaj</span>
+                <span className="font-display text-xl font-bold text-aqua tracking-tight">media</span>
                 <motion.div
                   className="absolute -bottom-0.5 left-0 h-[2px] bg-gradient-to-r from-aqua to-aqua-electric"
                   initial={{ width: 0 }}
@@ -87,27 +92,77 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <ul className="hidden lg:flex items-center gap-1">
-            {navLinks.map(({ href, key }) => {
-              const isActive = pathname === href;
+            {navLinks.map(({ href, key, children }) => {
+              const isActive =
+                pathname === href ||
+                (children != null && pathname.startsWith('/services'));
+              const hasChildren = children && children.length > 0;
+
               return (
-                <li key={href}>
-                  <Link
-                    href={href}
-                    className={`relative px-3 py-2 text-sm font-body transition-colors duration-200 rounded-md group ${
-                      isActive
-                        ? 'text-aqua'
-                        : 'text-slate-text hover:text-slate-lightest'
-                    }`}
-                  >
-                    {isActive && (
-                      <motion.span
-                        layoutId="navbar-indicator"
-                        className="absolute inset-0 bg-aqua/5 rounded-md border border-aqua/20"
-                        transition={{ type: 'spring', stiffness: 350, damping: 30 }}
-                      />
-                    )}
-                    <span className="relative z-10">{t(key)}</span>
-                  </Link>
+                <li key={href} className="relative group">
+                  {hasChildren ? (
+                    <>
+                      {/* Services: clickable link + hover dropdown trigger */}
+                      <Link
+                        href={href}
+                        className={`relative inline-flex items-center gap-1 px-3 py-2 text-sm font-body transition-colors duration-200 rounded-md ${
+                          isActive
+                            ? 'text-aqua'
+                            : 'text-slate-text hover:text-slate-lightest'
+                        }`}
+                      >
+                        {isActive && (
+                          <motion.span
+                            layoutId="navbar-indicator"
+                            className="absolute inset-0 bg-aqua/5 rounded-md border border-aqua/20"
+                            transition={{ type: 'spring', stiffness: 350, damping: 30 }}
+                          />
+                        )}
+                        <span className="relative z-10">{t(key)}</span>
+                        <ChevronDown
+                          size={12}
+                          className="relative z-10 transition-transform duration-200 group-hover:rotate-180"
+                        />
+                      </Link>
+
+                      {/* Dropdown card */}
+                      <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <motion.div
+                          initial={{ opacity: 0, y: -6 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          className="bg-[#0d1a2e] border border-white/10 rounded-xl shadow-2xl overflow-hidden min-w-[230px]"
+                        >
+                          {children.map((child) => (
+                            <Link
+                              key={child.href}
+                              href={child.href}
+                              className="group/item flex items-center gap-3 px-4 py-3 text-sm font-body text-slate-text hover:text-slate-lightest hover:bg-white/5 transition-all duration-150 border-l-2 border-transparent hover:border-aqua"
+                            >
+                              <span>{isSk ? child.labelSk : child.labelEn}</span>
+                            </Link>
+                          ))}
+                        </motion.div>
+                      </div>
+                    </>
+                  ) : (
+                    <Link
+                      href={href}
+                      className={`relative px-3 py-2 text-sm font-body transition-colors duration-200 rounded-md group/link ${
+                        isActive
+                          ? 'text-aqua'
+                          : 'text-slate-text hover:text-slate-lightest'
+                      }`}
+                    >
+                      {isActive && (
+                        <motion.span
+                          layoutId="navbar-indicator"
+                          className="absolute inset-0 bg-aqua/5 rounded-md border border-aqua/20"
+                          transition={{ type: 'spring', stiffness: 350, damping: 30 }}
+                        />
+                      )}
+                      <span className="relative z-10">{t(key)}</span>
+                    </Link>
+                  )}
                 </li>
               );
             })}
@@ -158,8 +213,75 @@ export default function Navbar() {
             className="lg:hidden overflow-hidden bg-navy-light border-t border-white/5"
           >
             <div className="max-w-7xl mx-auto px-4 py-6 space-y-1">
-              {navLinks.map(({ href, key }, i) => {
-                const isActive = pathname === href;
+              {navLinks.map(({ href, key, children }, i) => {
+                const isActive =
+                  pathname === href ||
+                  (children != null && pathname.startsWith('/services'));
+                const hasChildren = children && children.length > 0;
+
+                if (hasChildren) {
+                  return (
+                    <motion.div
+                      key={href}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.06 }}
+                    >
+                      {/* Accordion trigger */}
+                      <button
+                        onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                        className={`w-full flex items-center justify-between px-4 py-3 rounded-lg text-base font-body transition-all duration-200 ${
+                          isActive
+                            ? 'text-aqua bg-aqua/10 border border-aqua/20'
+                            : 'text-slate-light hover:text-aqua hover:bg-white/5'
+                        }`}
+                      >
+                        <span>{t(key)}</span>
+                        <ChevronDown
+                          size={16}
+                          className={`transition-transform duration-200 ${
+                            mobileServicesOpen ? 'rotate-180' : ''
+                          }`}
+                        />
+                      </button>
+
+                      {/* Sub-links accordion */}
+                      <AnimatePresence>
+                        {mobileServicesOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.25, ease: 'easeInOut' }}
+                            className="overflow-hidden pl-4 mt-1 space-y-1"
+                          >
+                            {/* Link to main /services */}
+                            <Link
+                              href={href}
+                              className="block px-4 py-2.5 rounded-lg text-sm font-body text-slate-text hover:text-aqua hover:bg-white/5 transition-all duration-200"
+                            >
+                              {isSk ? 'Všetky služby' : 'All Services'}
+                            </Link>
+                            {children.map((child) => (
+                              <Link
+                                key={child.href}
+                                href={child.href}
+                                className={`block px-4 py-2.5 rounded-lg text-sm font-body transition-all duration-200 border-l-2 ${
+                                  pathname === child.href
+                                    ? 'text-aqua border-aqua bg-aqua/5'
+                                    : 'text-slate-light border-transparent hover:text-aqua hover:border-aqua/40 hover:bg-white/5'
+                                }`}
+                              >
+                                {isSk ? child.labelSk : child.labelEn}
+                              </Link>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </motion.div>
+                  );
+                }
+
                 return (
                   <motion.div
                     key={href}
@@ -180,6 +302,7 @@ export default function Navbar() {
                   </motion.div>
                 );
               })}
+
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}

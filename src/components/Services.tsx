@@ -9,6 +9,12 @@ const iconMap: Record<string, React.ElementType> = {
   Code2, Brain, Share2, TrendingUp, Palette, BarChart3,
 };
 
+const slugToHref: Record<string, string> = {
+  'web-development': '/services/tvorba-web-stranok',
+  'seo-ai': '/services/seo-optimalizacia',
+  'social-media': '/services/sprava-socialnych-sieti',
+};
+
 interface ServiceItem {
   slug: string;
   icon: string;
@@ -57,7 +63,7 @@ export default function Services() {
                 transition={{ duration: 0.5, delay: i * 0.08 }}
               >
                 <Link
-                  href="/services"
+                  href={slugToHref[service.slug] ?? '/services'}
                   className="group block h-full p-7 rounded-2xl border border-white/6 bg-navy/60 card-hover"
                   style={{ borderColor: 'rgba(255,255,255,0.06)' }}
                 >
