@@ -20,7 +20,7 @@ const projects = [
   },
   {
     image: '/hairsalon-preview.jpg',
-    url: 'https://hair-salon-ebon-seven.vercel.app/',
+    url: 'https://hairsalon.dunajmedia.sk/',
     titleSk: 'Luxusný Hair Salón',
     titleEn: 'Luxury Hair Salon',
     categorySk: 'Kadernícke štúdio',
