@@ -88,6 +88,30 @@ const portableTextComponents: Record<string, any> = {
       )
     ),
   },
+  types: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    image: ({ value }: { value: any }) => {
+      if (!value || !value.asset) return null;
+      const imageUrl = urlFor(value).width(1200).url();
+      return React.createElement(
+        'figure',
+        { className: 'my-8' },
+        React.createElement('img', {
+          src: imageUrl,
+          alt: value.alt || '',
+          className: 'w-full rounded-xl object-cover',
+          loading: 'lazy',
+        }),
+        value.caption
+          ? React.createElement(
+              'figcaption',
+              { className: 'text-center text-sm text-gray-400 mt-3' },
+              value.caption
+            )
+          : null
+      );
+    },
+  },
 };
 
 export default async function BlogPostPage({ params }: Props) {
