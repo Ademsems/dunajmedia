@@ -11,7 +11,6 @@ export default function CookieBanner() {
   useEffect(() => {
     const consent = localStorage.getItem('dunajmedia-cookie-consent');
     if (!consent) {
-      // Small delay so it doesn't flash immediately on load
       const timer = setTimeout(() => setVisible(true), 1500);
       return () => clearTimeout(timer);
     }
@@ -31,13 +30,15 @@ export default function CookieBanner() {
     <AnimatePresence>
       {visible && (
         <motion.div
-          initial={{ opacity: 0, y: 80 }}
+          initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 80 }}
+          exit={{ opacity: 0, y: 60 }}
           transition={{ duration: 0.4, ease: 'easeOut' }}
-          className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-xl px-4"
+          // Mobile: full-width bar pinned to bottom edge
+          // Desktop (md+): floating card anchored bottom-right
+          className="fixed bottom-0 inset-x-0 z-50 md:bottom-4 md:inset-x-auto md:right-4 md:w-full md:max-w-sm"
         >
-          <div className="bg-navy-light border border-white/10 rounded-2xl p-5 shadow-navy backdrop-blur-xl">
+          <div className="bg-navy-light border border-white/10 rounded-t-2xl md:rounded-2xl p-5 shadow-navy backdrop-blur-xl">
             <div className="flex items-start gap-4">
               {/* Icon */}
               <div className="w-10 h-10 rounded-xl bg-aqua/10 border border-aqua/20 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -59,17 +60,17 @@ export default function CookieBanner() {
               </div>
             </div>
 
-            {/* Buttons */}
-            <div className="flex items-center gap-3 mt-4 justify-end">
+            {/* Buttons — stacked on mobile, inline on desktop */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 mt-4 sm:justify-end">
               <button
                 onClick={handleReject}
-                className="px-5 py-2 text-xs font-display font-semibold text-slate-text border border-white/10 rounded-lg hover:border-white/20 hover:text-slate-lightest transition-all duration-200"
+                className="min-h-[44px] px-5 py-2.5 text-xs font-display font-semibold text-slate-text border border-white/10 rounded-lg hover:border-white/20 hover:text-slate-lightest transition-all duration-200"
               >
                 Odmietnuť
               </button>
               <button
                 onClick={handleAccept}
-                className="px-5 py-2 text-xs font-display font-semibold bg-aqua text-navy rounded-lg hover:bg-aqua-electric transition-all duration-200"
+                className="min-h-[44px] px-5 py-2.5 text-xs font-display font-semibold bg-aqua text-navy rounded-lg hover:bg-aqua-electric transition-all duration-200"
               >
                 Prijať všetky
               </button>

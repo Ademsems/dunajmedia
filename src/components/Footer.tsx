@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Clock, Linkedin, Instagram, Facebook, Twitter, ArrowUpRight } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, Linkedin, ArrowUpRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
 const serviceLinks = [
@@ -24,11 +24,9 @@ const legalLinks = [
   { label_sk: 'Všeobecné obchodné podmienky', label_en: 'Terms & Conditions', href: '/vop' },
 ];
 
-const socials = [
-  { icon: Linkedin, href: '#', label: 'LinkedIn' },
-  { icon: Instagram, href: '#', label: 'Instagram' },
-  { icon: Facebook, href: '#', label: 'Facebook' },
-  { icon: Twitter, href: '#', label: 'X / Twitter' },
+// Only platforms with active accounts are linked
+const activeSocials = [
+  { icon: Linkedin, href: 'https://www.linkedin.com/company/dunajmedia', label: 'LinkedIn' },
 ];
 
 export default function Footer() {
@@ -53,10 +51,12 @@ export default function Footer() {
               {t('footer.tagline')}
             </p>
             <div className="flex items-center gap-3">
-              {socials.map(({ icon: Icon, href, label }) => (
+              {activeSocials.map(({ icon: Icon, href, label }) => (
                 <motion.a
                   key={label}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={label}
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
