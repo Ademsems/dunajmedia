@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
-import PricingTable from '@/components/PricingTable';
 import CTABanner from '@/components/CTABanner';
 import ContactForm from '@/components/ContactForm';
 import ServiceFAQ from '@/components/ServiceFAQ';
@@ -88,7 +87,7 @@ const whyPoints = [
   {
     titleSk: 'Sociálne Siete Integrované s Webom a SEO',
     titleEn: 'Social Media Integrated with Website and SEO',
-    descSk: 'Správa sociálnych sietí pre firmy u Dunajmedia nie je izolovaná služba — je prepojená s vašou webovou stránkou a SEO stratégiou. Sociálne siete a web fungujú ako jeden celok.',
+    descSk: 'Sociálne siete a web fungujú ako jeden celok — preto každú social media stratégiu navrhujeme v kontexte vašej webovej stránky. Zaujíma vás aj tvorba webu? Pozrite si naše služby tvorby web stránok.',
     descEn: 'Social media management for businesses at Dunajmedia is not an isolated service — it is integrated with your website and SEO strategy. Social media and website work as one unit.',
     hasWebLink: true,
   },
@@ -119,7 +118,7 @@ const processSteps = [
     number: '03',
     titleSk: 'Publikovanie a Community Management',
     titleEn: 'Publishing and Community Management',
-    descSk: 'Príspevky publikujeme v optimálnom čase pre váš typ publika. Community management prebieha priebežne — komentáre, správy a reakcie sú riadené promptne a profesionálne.',
+    descSk: 'Príspevky publikujeme v optimálnom čase pre váš typ publika. Community management prebieha priebežne — komentáre, správy a reakcie sú vybavované rýchlo a profesionálne.',
     descEn: 'Posts are published at the optimal time for your audience type. Community management runs continuously — comments, messages and reactions are handled promptly and professionally.',
   },
   {
@@ -319,17 +318,21 @@ export default function SocialMediaPageClient() {
       <section className="py-24 bg-navy-light relative overflow-hidden">
         <div className="absolute inset-0 grid-bg opacity-10 pointer-events-none" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-12">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-8">
             <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
               {isSk ? 'Cena Správy Sociálnych Sietí' : 'Social Media Management Pricing'}
             </h2>
             <p className="text-slate-text text-lg font-body mt-4 max-w-2xl">
               {isSk
-                ? 'Správa sociálnych sietí cena je transparentná a fixná. Vyberte si balíček, ktorý zodpovedá vašim potrebám a rozpočtu.'
-                : 'Social media management price is transparent and fixed. Choose the package that matches your needs and budget.'}
+                ? 'Správa sociálnych sietí je individuálna služba — cena závisí od počtu platforiem, frekvencie obsahu a rozsahu. Kontaktujte nás pre bezplatnú konzultáciu a cenovú ponuku na mieru.'
+                : 'Social media management is an individual service — the price depends on the number of platforms, content frequency and scope. Contact us for a free consultation and a custom quote.'}
             </p>
           </motion.div>
-          <PricingTable />
+          <Link href="/contact"
+            className="group inline-flex items-center gap-2 bg-aqua text-navy font-display font-bold px-7 py-3.5 rounded-xl hover:bg-aqua-electric transition-all duration-300 shadow-aqua">
+            {isSk ? 'Získajte cenovú ponuku' : 'Get a quote'}
+            <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
+          </Link>
         </div>
       </section>
 

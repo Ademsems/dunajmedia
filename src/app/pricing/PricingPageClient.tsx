@@ -62,7 +62,8 @@ function FaqAccordion({ item, index }: { item: FaqItem; index: number }) {
 }
 
 export default function PricingPageClient() {
-  const { t, tArray } = useLanguage();
+  const { t, tArray, locale } = useLanguage();
+  const isSk = locale === 'sk';
   const faqItems = tArray<FaqItem>('pricing.faq.items');
 
   return (
@@ -90,7 +91,19 @@ export default function PricingPageClient() {
       {/* Pricing Table */}
       <section className="py-12 bg-navy-light relative overflow-hidden">
         <div className="absolute inset-0 grid-bg opacity-20 pointer-events-none" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
+          <span className="inline-block font-mono text-xs text-aqua uppercase tracking-widest border border-aqua/20 px-3 py-1 rounded-full bg-aqua/5">
+            {isSk ? 'Tvorba Web Stránok — Cenník' : 'Web Design — Pricing'}
+          </span>
+        </div>
         <PricingTable compact />
+        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 text-center">
+          <p className="text-slate-text text-sm font-body leading-relaxed">
+            {isSk
+              ? 'K každému balíčku je dostupný mesačný plán starostlivosti — zahŕňa hosting na Vercel, pravidelné aktualizácie, bezpečnostný monitoring a technickú podporu za fixný mesačný poplatok.'
+              : 'A monthly care plan is available with every package — it includes Vercel hosting, regular updates, security monitoring and technical support for a fixed monthly fee.'}
+          </p>
+        </div>
       </section>
 
       {/* Comparison note */}

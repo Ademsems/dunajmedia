@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
-import PricingTable from '@/components/PricingTable';
 import CTABanner from '@/components/CTABanner';
 import ContactForm from '@/components/ContactForm';
 import ServiceFAQ from '@/components/ServiceFAQ';
@@ -60,7 +59,7 @@ const whyPoints = [
   {
     titleSk: 'SEO pre Next.js — technický základ, ktorý WordPress nedokáže dosiahnuť',
     titleEn: 'SEO for Next.js — a technical foundation WordPress cannot achieve',
-    descSk: 'Naše weby sú stavané na Next.js, čo znamená nadpriemerné Core Web Vitals skóre od spustenia. SEO pre Next.js nie je len o obsahu — je o architektúre webu, ktorá je technicky nadradenou platformou pre Google optimalizáciu oproti WordPress konkurencii. Ak váš web ešte nemáme stavali my, vieme urobiť technickú SEO optimalizáciu aj na existujúcom webe.',
+    descSk: 'Naše weby sú stavané na Next.js, čo znamená nadpriemerné Core Web Vitals skóre od spustenia. SEO pre Next.js nie je len o obsahu — je o architektúre webu, ktorá je technicky nadradenou platformou pre Google optimalizáciu oproti WordPress konkurencii. Aj keď váš web nestavala Dunajmedia, vieme urobiť technickú SEO optimalizáciu aj na existujúcom webe.',
     descEn: 'Our websites are built on Next.js, which means above-average Core Web Vitals scores from launch. SEO for Next.js is not just about content — it is about website architecture that is a technically superior platform for Google optimization compared to WordPress competition. If we did not build your website, we can still perform technical SEO optimization on your existing site.',
     linkSk: true,
   },
@@ -199,7 +198,7 @@ export default function SEOPageClient() {
             </h2>
             <p className="text-slate-text text-lg font-body leading-relaxed max-w-3xl">
               {isSk
-                ? 'SEO — optimalizácia pre vyhľadávače — je súbor techník, ktoré zvyšujú pozície vo vyhľadávačoch ako Google. Keď niekto vyhľadá službu alebo produkt, ktorý ponúkate, Google rozhodne, ktoré weby zobrazí na prvej stránke. Cieľom SEO optimalizácie webstránok je zabezpečiť, aby bol váš web medzi prvými výsledkami — nie na strane 3, kde ho nikto nevidí. Google optimalizácia dnes zahŕňa technické aspekty webu, kvalitu obsahu, spätné odkazy aj rýchlosť načítania. Správna SEO stratégia od Dunajmedia pokrýva všetky tieto oblasti.'
+                ? 'SEO — optimalizácia pre vyhľadávače — je súbor techník, ktoré zvyšujú pozície vo vyhľadávačoch ako Google. Keď niekto vyhľadá službu alebo produkt, ktorý ponúkate, Google rozhodne, ktoré weby zobrazí na prvej stránke. Cieľom SEO optimalizácie webstránok je zabezpečiť, aby bol váš web medzi prvými výsledkami — nie na stránke 3 vyhľadávania, kde ho nikto nevidí. Google optimalizácia dnes zahŕňa technické aspekty webu, kvalitu obsahu, spätné odkazy aj rýchlosť načítania. Správna SEO stratégia od Dunajmedia pokrýva všetky tieto oblasti.'
                 : 'SEO — search engine optimization — is a set of techniques that improve positions in search engines like Google. When someone searches for a service or product you offer, Google decides which websites to show on the first page. The goal of SEO optimization of websites is to ensure your site is among the top results — not on page 3 where nobody sees it. Google optimization today includes technical aspects of the website, content quality, backlinks and loading speed. A proper SEO strategy from Dunajmedia covers all of these areas.'}
             </p>
           </motion.div>
@@ -331,15 +330,21 @@ export default function SEOPageClient() {
       <section className="py-24 bg-navy relative overflow-hidden">
         <div className="absolute inset-0 grid-bg opacity-15 pointer-events-none" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-12">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-8">
             <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
               {isSk ? 'Cena SEO Optimalizácie' : 'SEO Optimization Pricing'}
             </h2>
             <p className="text-slate-text text-lg font-body mt-4 max-w-2xl">
-              {isSk ? 'Transparentné SEO balíčky pre firmy každej veľkosti.' : 'Transparent SEO packages for businesses of every size.'}
+              {isSk
+                ? 'SEO optimalizácia je individuálna služba — cena závisí od rozsahu projektu, konkurenčnosti odvetvia a vašich cieľov. Kontaktujte nás pre bezplatnú konzultáciu a cenovú ponuku na mieru.'
+                : 'SEO optimization is an individual service — the price depends on the project scope, industry competitiveness and your goals. Contact us for a free consultation and a custom quote.'}
             </p>
           </motion.div>
-          <PricingTable />
+          <Link href="/contact"
+            className="group inline-flex items-center gap-2 bg-aqua text-navy font-display font-bold px-7 py-3.5 rounded-xl hover:bg-aqua-electric transition-all duration-300 shadow-aqua">
+            {isSk ? 'Získajte cenovú ponuku' : 'Get a quote'}
+            <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
+          </Link>
         </div>
       </section>
 

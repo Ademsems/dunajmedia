@@ -27,10 +27,9 @@
       "scroll": "Scroll nadol"
     },
     "stats": {
-      "projects": "Projektov dokončených",
-      "clients": "Spokojných klientov",
-      "years": "Rokov skúseností",
-      "countries": "Krajín pôsobnosti"
+      "marketing_years": "Rokov v marketingu",
+      "delivery": "Doručenie webu",
+      "techstack": "Moderný tech-stack"
     },
     "about_snippet": {
       "label": "Kto sme",
@@ -97,7 +96,7 @@
         },
         {
           "title": "Váš úspech je náš štandard",
-          "desc": "Nepracujeme na projekte a nezmiznem. Váš digitálny úspech je dlhodobý záväzok. Keď váš biznis rastie, naša práca má zmysel."
+          "desc": "Projekt dodáme a zostaneme. Váš digitálny úspech je dlhodobý záväzok. Keď váš biznis rastie, naša práca má zmysel."
         }
       ]
     },
@@ -114,7 +113,7 @@
     "hero": {
       "label": "Naše služby",
       "headline": "Komplexné digitálne služby pre váš úspech v roku 2026 a ďalej.",
-      "sub": "Ponúkame inovatívne a dátami podložené riešenia v oblasti tvorby web stránok, AI-riadeného SEO, PPC kampaní a growth marketingu, aby vaša značka dominovala online."
+      "sub": "Ponúkame inovatívne a dátami podložené riešenia v oblasti tvorby web stránok, AI-riadeného SEO a growth marketingu, aby vaša značka dominovala online."
     },
     "items": [
       {
@@ -139,12 +138,12 @@
         "short": "Optimalizácia pre AI vyhľadávanie a tradičné SEO stratégie pre dominanciu v Google.",
         "desc": "V Dunajmedia posúvame SEO na novú úroveň s AI. Kombinujeme pokročilé techniky optimalizácie pre vyhľadávače s umelou inteligenciou, aby sme zabezpečili špičkové pozície vo vyhľadávačoch, optimalizáciu pre AI citácie a zvýšili relevantnú návštevnosť. Sústreďujeme sa na dáta a merateľné výsledky pre váš digitálny rast.",
         "features": [
-          "AI content optimization",
-          "Technical SEO audit",
+          "Optimalizácia obsahu s AI",
+          "Technický SEO audit",
           "Keyword research pre SK/EN",
           "Link building stratégie",
           "Google Search Console management",
-          "Monthly performance reporting"
+          "Mesačný výkonnostný report"
         ]
       },
       {
@@ -172,7 +171,7 @@
           "Funnel analýza a optimalizácia",
           "Email marketing automácie",
           "A/B testovanie",
-          "CRO (Conversion Rate Optimization)",
+          "CRO (optimalizácia konverzného pomeru)",
           "Retargeting kampane",
           "Cohort analýza zákazníkov"
         ]
@@ -212,7 +211,7 @@
       "label": "Náš proces",
       "headline": "Ako Dunajmedia Strategizuje Váš Digitálny Úspech",
       "steps": [
-        { "number": "01", "title": "Discovery", "desc": "Dôkladná analýza vášho trhu, konkurencie a cieľov pre vytvorenie pevných základov." },
+        { "number": "01", "title": "Analýza", "desc": "Dôkladná analýza vášho trhu, konkurencie a cieľov pre vytvorenie pevných základov." },
         { "number": "02", "title": "Stratégia", "desc": "Precízna tvorba digitálnej stratégie na mieru, s jasne definovanými KPI a akčným plánom." },
         { "number": "03", "title": "Realizácia", "desc": "Agilná implementácia s dôrazom na rýchlosť a kvalitu, dodávaná transparentne a efektívne." },
         { "number": "04", "title": "Optimalizácia", "desc": "Kontinuálne monitorovanie, optimalizácia a A/B testovanie pre maximálny ROI a udržateľný rast." }
@@ -317,7 +316,7 @@
           "Základná AI-SEO optimalizácia",
           "Fluid animácie (Framer Motion)",
           "Responzívny dizajn",
-          "1 rok hosting konzultácia"
+          "Poradenstvo pri výbere hostingu"
         ],
         "cta": "Objednajte Expres Start",
         "highlighted": false
@@ -397,10 +396,10 @@
     "hero": {
       "label": "Kontaktujte nás",
       "headline": "Začnime váš projekt dnes",
-      "sub": "Sme tu pre vás. Napíšte nám, zavolajte alebo navštívte naše bratislavské štúdio."
+      "sub": "Sme tu pre vás. Napíšte nám alebo zavolajte."
     },
     "info": {
-      "address": "Dunajmedia s.r.o., Obchodná 12, 811 06 Bratislava",
+      "address": "Adem Sems Asha — Dunajmedia, Obchodná 12, 811 06 Bratislava",
       "email": "info@dunajmedia.sk",
       "phone": "+421 952 049 119",
       "hours": "Po–Pi: 9:00 – 18:00"
@@ -409,7 +408,7 @@
       "headline": "Pošlite nám správu",
       "name": "Vaše meno",
       "email": "E-mailová adresa",
-	"phone": "Phone number",
+	"phone": "Telefónne číslo",
       "company": "Firma (nepovinné)",
       "service": "Záujem o službu",
       "message": "Vaša správa",
@@ -426,7 +425,7 @@
         "Iné"
       ]
     },
-    "map_label": "Nájdete nás v Bratislave"
+    "map_label": "Sídlime v Bratislave. Stretnutia po dohode."
   },
   "footer": {
     "tagline": "Prémiová digitálna agentúra pre moderný biznis na Slovensku a v Európe.",
@@ -438,8 +437,11 @@
     "company_links": ["O nás", "Blog", "Cenník", "Kontakt"],
     "service_links": ["Tvorba webov", "SEO & AI", "Social Media", "Growth Marketing"],
     "legal_links": ["Ochrana osobných údajov", "Podmienky používania", "Cookies"],
-    "copyright": "© 2025 Dunajmedia s.r.o. Všetky práva vyhradené.",
+    "copyright": "© 2026 Dunajmedia. Všetky práva vyhradené.",
     "social": "Sledujte nás"
+  },
+  "cta": {
+    "label": "Bezplatná konzultácia"
   },
   "common": {
     "loading": "Načítava sa...",

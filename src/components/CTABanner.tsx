@@ -36,7 +36,7 @@ export default function CTABanner() {
           <div className="inline-flex items-center gap-2 mb-6">
             <Sparkles size={14} className="text-aqua" />
             <span className="font-mono text-xs text-aqua uppercase tracking-widest">
-              Free Consultation
+              {t('cta.label')}
             </span>
           </div>
           <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest mb-6 leading-tight">

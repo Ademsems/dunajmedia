@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Shield, User, TrendingUp } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import ContactForm from '@/components/ContactForm';
 
@@ -11,44 +11,50 @@ const processSteps = [
     number: '01',
     titleSk: 'Bezplatná konzultácia',
     titleEn: 'Free Consultation',
-    descSk: 'Začíname rozhovorom. Spoznám váš biznis, ciele a výzvy. Žiadne záväzky, žiadny predaj — len otvorená diskusia o tom, ako vám môžem pomôcť.',
+    descSk: 'Začíname rozhovorom. Spoznáme váš biznis, ciele a výzvy. Žiadne záväzky, žiadny predaj — len otvorená diskusia o tom, ako vám vieme pomôcť.',
     descEn: 'We start with a conversation. We learn about your business, goals and challenges. No commitments, no sales pitch — just an open discussion about how we can help.',
   },
   {
     number: '02',
     titleSk: 'Stratégia & Plán',
     titleEn: 'Strategy & Plan',
-    descSk: 'Pripravím konkrétny plán — štruktúru stránky, obsah, technické riešenia a časový harmonogram. Všetko transparentne a pred podpisom čohokoľvek.',
+    descSk: 'Pripravíme konkrétny plán — štruktúru stránky, obsah, technické riešenia a časový harmonogram. Všetko transparentne a pred podpisom čohokoľvek.',
     descEn: 'We prepare a concrete plan — site structure, content, technical solutions and timeline. Everything transparently, before signing anything.',
   },
   {
     number: '03',
     titleSk: 'Dizajn na mieru',
     titleEn: 'Custom Design',
-    descSk: 'Každý dizajn tvorím od nuly podľa vašej značky a cieľovej skupiny. Predložím návrh na schválenie — váš feedback formuje výsledok.',
+    descSk: 'Každý dizajn tvoríme od nuly podľa vašej značky a cieľovej skupiny. Predložíme návrh na schválenie — váš feedback formuje výsledok.',
     descEn: 'Every design is created from scratch based on your brand and audience. We present a proposal for approval — your feedback shapes the result.',
   },
   {
     number: '04',
     titleSk: 'Vývoj & Implementácia',
     titleEn: 'Development & Implementation',
-    descSk: 'Rýchly, výkonný a bezpečný vývoj s moderným tech-stackom. Počas celého procesu vás informujem o postupe. Pred spustením testujeme každý detail.',
+    descSk: 'Rýchly, výkonný a bezpečný vývoj s moderným tech-stackom. Počas celého procesu vás informujeme o postupe. Pred spustením testujeme každý detail.',
     descEn: 'Fast, performant and secure development with a modern tech stack. We keep you informed throughout. Before launch, we test every detail.',
   },
   {
     number: '05',
     titleSk: 'SEO & Spustenie',
     titleEn: 'SEO & Launch',
-    descSk: 'Optimalizujeme pre vyhľadávače od základov — nie ako dodatočný krok. Stránka ide live, sledujeme výsledky a som k dispozícii po spustení.',
+    descSk: 'Optimalizujeme pre vyhľadávače od základov — nie ako dodatočný krok. Stránka ide live, sledujeme výsledky a sme k dispozícii po spustení.',
     descEn: 'We optimize for search engines from the ground up — not as an afterthought. The site goes live, we track results and we remain available after launch.',
   },
   {
     number: '06',
     titleSk: 'Dlhodobá podpora',
     titleEn: 'Long-term Support',
-    descSk: 'Nepracujem na projekte a nezmiznem. Som dostupný pre aktualizácie, otázky a ďalší rast vášho digitálneho projektu.',
+    descSk: 'Nepracujeme na projekte a nezmizneme. Sme dostupní pre aktualizácie, otázky a ďalší rast vášho digitálneho projektu.',
     descEn: 'We don\'t finish a project and disappear. We are available for updates, questions and the continued growth of your digital project.',
   },
+];
+
+const valueIcons = [
+  <Shield key="shield" className="w-5 h-5 text-aqua" />,
+  <User key="user" className="w-5 h-5 text-aqua" />,
+  <TrendingUp key="trending" className="w-5 h-5 text-aqua" />,
 ];
 
 const values = [
@@ -188,6 +194,9 @@ export default function HowWeWorkPageClient() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="p-7 rounded-2xl bg-navy-light border border-white/8 hover:border-aqua/25 transition-all duration-300 group"
               >
+                <div className="w-10 h-10 rounded-lg bg-aqua/10 border border-aqua/20 flex items-center justify-center mb-4 group-hover:bg-aqua/15 transition-colors">
+                  {valueIcons[i]}
+                </div>
                 <div className="w-8 h-0.5 bg-aqua mb-5 group-hover:w-12 transition-all duration-300" />
                 <h3 className="font-display font-bold text-slate-lightest text-lg mb-3">
                   {isSk ? val.titleSk : val.titleEn}

@@ -34,7 +34,7 @@ const features = [
   {
     titleSk: 'Rýchla tvorba web stránok — doručenie do 48 hodín',
     titleEn: 'Fast website creation — delivery in 48 hours',
-    descSk: 'Náš Expres Start balíček zaručuje rýchlu tvorbu web stránok — plne funkčný jednostránkový web doručíme do 48 hodín od potvrdenia objednávky. Ideálne pre nové biznisy, relaunch alebo urgent projekty.',
+    descSk: 'Náš Expres Start balíček zaručuje rýchlu tvorbu web stránok — plne funkčný jednostránkový web doručíme do 48 hodín od potvrdenia objednávky. Ideálne pre nové biznisy, relaunch alebo naliehavé projekty.',
     descEn: 'Our Expres Start package guarantees fast website creation — a fully functional one-page website delivered within 48 hours of order confirmation. Ideal for new businesses, relaunches or urgent projects.',
   },
   {
@@ -73,7 +73,7 @@ const types = [
   {
     titleSk: 'Dvojjazyčné weby SK/EN na mieru',
     titleEn: 'Custom bilingual SK/EN websites',
-    descSk: 'Pre firmy, ktoré obsluhujú slovenský aj medzinárodný trh. Tvorba web stránok na mieru Bratislava s natívnou dvojjazyčnosťou a Google-odmenovanou štruktúrou.',
+    descSk: 'Pre firmy, ktoré obsluhujú slovenský aj medzinárodný trh. Tvorba web stránok na mieru Bratislava s natívnou dvojjazyčnosťou a štruktúrou, ktorú Google odmeňuje vyššími pozíciami.',
     descEn: 'For businesses serving both Slovak and international markets. Custom website creation in Bratislava with native bilingual support and a Google-rewarded structure.',
   },
 ];
@@ -113,7 +113,7 @@ const processSteps = [
     number: '02',
     titleSk: 'Dizajn na mieru',
     titleEn: 'Custom design',
-    descSk: 'Navrhujeme profesionálny web dizajn od nuly podľa vašej značky. Predložíme na schválenie pred vývojom — bez surprises.',
+    descSk: 'Navrhujeme profesionálny web dizajn od nuly podľa vašej značky. Predložíme na schválenie pred vývojom — bez prekvapení.',
     descEn: 'We design professional web design from scratch based on your brand. We present for approval before development — no surprises.',
   },
   {
@@ -257,7 +257,13 @@ export default function WebDesignPageClient() {
             {techs.map((tech, i) => (
               <motion.div key={tech.name} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.08 }}
                 className="p-6 rounded-2xl bg-navy border border-white/8 hover:border-aqua/25 transition-all duration-300 group">
-                <p className="font-display font-bold text-2xl text-aqua mb-3">{tech.name}</p>
+                {/* TODO: Replace with actual tech logo SVG for {tech.name} */}
+                <div className="w-10 h-10 rounded-lg bg-aqua/10 border border-aqua/20 flex items-center justify-center mb-4">
+                  <span className="font-mono text-[10px] font-bold text-aqua uppercase tracking-wider">
+                    {tech.name.split(' ')[0].slice(0, 3)}
+                  </span>
+                </div>
+                <p className="font-display font-bold text-lg text-slate-lightest mb-2">{tech.name}</p>
                 <p className="text-slate-text text-sm font-body leading-relaxed">{isSk ? tech.descSk : tech.descEn}</p>
               </motion.div>
             ))}

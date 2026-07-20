@@ -27,7 +27,8 @@ interface ProcessStep {
 }
 
 export default function ServicesPage() {
-  const { t, tArray } = useLanguage();
+  const { t, tArray, locale } = useLanguage();
+  const isSk = locale === 'sk';
   const services = tArray<ServiceItem>('services.items');
   const steps = tArray<ProcessStep>('services.process.steps');
 
@@ -94,7 +95,7 @@ export default function ServicesPage() {
                   style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
                   <h3 className="font-display font-bold text-slate-lightest text-sm uppercase tracking-wider mb-5 flex items-center gap-2">
                     <span className="w-4 h-px bg-aqua" />
-                    Features
+                    {isSk ? 'Čo zahŕňa' : "What's included"}
                   </h3>
                   <ul className="space-y-3">
                     {service.features.map((feature) => (

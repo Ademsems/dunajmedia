@@ -31,7 +31,7 @@ export default function HomePage() {
             Transparentné ceny pre každý biznis
           </h2>
           <p className="text-slate-text text-lg max-w-2xl mx-auto font-body">
-            Fixné ceny bez skrytých poplatkov. Od €299 po €999 — nájdite balíček pre váš rast.
+            Fixné ceny bez skrytých poplatkov. Od €349 po €999 — nájdite balíček pre váš rast.
           </p>
         </div>
         <PricingTable compact />

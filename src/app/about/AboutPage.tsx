@@ -27,7 +27,7 @@ const values = [
   {
     titleSk: 'Váš úspech je náš štandard',
     titleEn: 'Your success is our standard',
-    descSk: 'Nepracujeme na projekte a nezmiznem. Váš digitálny úspech je dlhodobý záväzok. Keď váš biznis rastie, naša práca má zmysel.',
+    descSk: 'Projekt dodáme a zostaneme. Váš digitálny úspech je dlhodobý záväzok. Keď váš biznis rastie, naša práca má zmysel.',
     descEn: 'We don\'t finish a project and disappear. Your digital success is a long-term commitment. When your business grows, our work has meaning.',
   },
 ];
@@ -190,7 +190,7 @@ export default function AboutPage() {
                 : 'Dunajmedia was founded by Adem Sems Asha in Bratislava with one vision — to bring world-class digital services to Slovak businesses.'}
             </p>
             <p className="font-mono text-xs text-aqua uppercase tracking-widest mt-4">
-              Adem Sems Asha — Founder, Dunajmedia
+              {isSk ? 'Adem Sems Asha — Zakladateľ, Dunajmedia' : 'Adem Sems Asha — Founder, Dunajmedia'}
             </p>
           </div>
         </motion.div>

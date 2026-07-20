@@ -27,10 +27,9 @@
       "scroll": "Scroll down"
     },
     "stats": {
-      "projects": "Successful Projects Delivered",
-      "clients": "Satisfied Clients Worldwide",
-      "years": "Years of Industry Expertise",
-      "countries": "Global Reach (Countries)"
+      "marketing_years": "Years in Marketing",
+      "delivery": "Website Delivery",
+      "techstack": "Modern Tech Stack"
     },
     "about_snippet": {
       "label": "About Our Agency",
@@ -97,7 +96,7 @@
         },
         {
           "title": "Your success is our standard",
-          "desc": "We don't finish a project and disappear. Your digital success is a long-term commitment. When your business grows, our work has meaning."
+          "desc": "We deliver the project and stay. Your digital success is a long-term commitment. When your business grows, our work has meaning."
         }
       ]
     },
@@ -114,7 +113,7 @@
     "hero": {
       "label": "Our Services",
       "headline": "Comprehensive Digital Services for Your Success in 2026 and Beyond.",
-      "sub": "We offer innovative and data-driven solutions in web development, AI-driven SEO, PPC campaigns, and growth marketing to ensure your brand dominates online."
+      "sub": "We offer innovative and data-driven solutions in web development, AI-driven SEO and growth marketing to ensure your brand dominates online."
     },
     "items": [
       {
@@ -317,7 +316,7 @@
           "Basic AI-SEO optimization",
           "Fluid animations (Framer Motion)",
           "Responsive design",
-          "1 year hosting consultation"
+          "Hosting setup guidance"
         ],
         "cta": "Order Expres Start",
         "highlighted": false
@@ -397,10 +396,10 @@
     "hero": {
       "label": "Contact Us",
       "headline": "Let's start your project today",
-      "sub": "We're here for you. Write to us, call, or visit our Bratislava studio."
+      "sub": "We're here for you. Send us a message or call us."
     },
     "info": {
-      "address": "Dunajmedia s.r.o., Obchodná 12, 811 06 Bratislava",
+      "address": "Adem Sems Asha — Dunajmedia, Obchodná 12, 811 06 Bratislava",
       "email": "info@dunajmedia.sk",
       "phone": "+421 952 049 119",
       "hours": "Mon–Fri: 9:00 AM – 6:00 PM"
@@ -426,7 +425,7 @@
         "Other"
       ]
     },
-    "map_label": "Find us in Bratislava"
+    "map_label": "Based in Bratislava. Meetings by appointment."
   },
   "footer": {
     "tagline": "Premium digital agency for modern businesses in Slovakia and Europe.",
@@ -438,8 +437,11 @@
     "company_links": ["About", "Blog", "Pricing", "Contact"],
     "service_links": ["Web Development", "SEO & AI", "Social Media", "Growth Marketing"],
     "legal_links": ["Privacy Policy", "Terms of Use", "Cookies"],
-    "copyright": "© 2025 Dunajmedia s.r.o. All rights reserved.",
+    "copyright": "© 2026 Dunajmedia. All rights reserved.",
     "social": "Follow us"
+  },
+  "cta": {
+    "label": "Free Consultation"
   },
   "common": {
     "loading": "Loading...",

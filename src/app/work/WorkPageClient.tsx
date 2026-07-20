@@ -65,8 +65,8 @@ export default function WorkPageClient() {
             </h1>
             <p className="text-slate-text text-lg max-w-2xl mx-auto font-body leading-relaxed">
               {isSk
-                ? 'Každý projekt je navrhnutý od nuly — žiadne šablóny. Toto sú ukážky reálnych stránok, ktoré môžeme vytvoriť pre váš biznis.'
-                : 'Every project is designed from scratch — no templates. These are examples of real sites we can build for your business.'}
+                ? 'Každý projekt je navrhnutý od nuly — žiadne šablóny. Toto sú funkčné demo stránky, ktoré ilustrujú, čo vieme vytvoriť pre váš biznis.'
+                : 'Every project is designed from scratch — no templates. These are functional demo sites that show what we can build for your business.'}
             </p>
           </motion.div>
         </div>

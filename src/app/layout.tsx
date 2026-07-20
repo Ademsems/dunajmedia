@@ -108,9 +108,9 @@ export const metadata: Metadata = {
     'growth marketing Bratislava',
     'AI-driven SEO',
   ],
-  authors: [{ name: 'Dunajmedia s.r.o.' }],
+  authors: [{ name: 'Dunajmedia' }],
   creator: 'Dunajmedia',
-  publisher: 'Dunajmedia s.r.o.',
+  publisher: 'Dunajmedia',
   icons: {
     icon: '/logo.png',
     shortcut: '/logo.png',

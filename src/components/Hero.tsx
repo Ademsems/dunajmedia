@@ -17,10 +17,9 @@ const itemVariants = {
 };
 
 const stats = [
-  { value: '250+', key: 'home.stats.projects' },
-  { value: '98%', key: 'home.stats.clients' },
-  { value: '6', key: 'home.stats.years' },
-  { value: '8+', key: 'home.stats.countries' },
+  { value: '11+', key: 'home.stats.marketing_years' },
+  { value: '48h', key: 'home.stats.delivery' },
+  { value: '100%', key: 'home.stats.techstack' },
 ];
 
 export default function Hero() {
@@ -142,7 +141,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.1 }}
-          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-px bg-white/5 rounded-2xl overflow-hidden border border-white/5"
+          className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-px bg-white/5 rounded-2xl overflow-hidden border border-white/5"
         >
           {stats.map(({ value, key }) => (
             <div key={key} className="bg-navy/60 backdrop-blur-sm px-6 py-5 text-center">

@@ -18,7 +18,7 @@ const whyIcons = [
 ];
 
 export default function AboutSnippet() {
-  const { t, tArray } = useLanguage();
+  const { t, tArray, locale } = useLanguage();
   const whyItems = tArray<WhyItem>('home.why.items');
 
   return (
@@ -57,16 +57,16 @@ export default function AboutSnippet() {
             {/* Trust indicators */}
             <div className="flex items-center gap-6 mt-10 pt-10 border-t border-white/5">
               <div className="flex items-center gap-2">
-                <Users size={16} className="text-aqua" />
-                <span className="text-slate-light text-sm font-body">250+ klientov</span>
+                <Award size={16} className="text-aqua" />
+                <span className="text-slate-light text-sm font-body">11+ {locale === 'sk' ? 'rokov v marketingu' : 'years in marketing'}</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 size={16} className="text-aqua" />
-                <span className="text-slate-light text-sm font-body">98% spokojnosť</span>
+                <span className="text-slate-light text-sm font-body">48h {locale === 'sk' ? 'doručenie webu' : 'website delivery'}</span>
               </div>
               <div className="flex items-center gap-2">
-                <Award size={16} className="text-aqua" />
-                <span className="text-slate-light text-sm font-body">6+ rokov</span>
+                <Users size={16} className="text-aqua" />
+                <span className="text-slate-light text-sm font-body">100% {locale === 'sk' ? 'moderný tech-stack' : 'modern tech-stack'}</span>
               </div>
             </div>
           </motion.div>
