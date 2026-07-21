@@ -40,6 +40,8 @@ src/
     about/page.tsx + AboutPage.tsx
     how-we-work/page.tsx + HowWeWorkPageClient.tsx
     work/page.tsx + WorkPageClient.tsx
+    work/rkc-technology/page.tsx    — case study placeholder, links to advancednavigation.sk
+    work/grand-apartman/page.tsx   — case study placeholder, links to grandapartman.sk
     services/
       page.tsx + ServicesPage.tsx — services overview
       tvorba-web-stranok/page.tsx + WebDesignPageClient.tsx
@@ -50,8 +52,9 @@ src/
     blog/                         — fetches from Sanity
   components/
     Hero.tsx                      — homepage hero with stats bar
-    AboutSnippet.tsx              — homepage "who we are" section with trust indicators
-    WorkShowcase.tsx              — demo card grid (used on /work and homepage section)
+    AboutSnippet.tsx              — homepage "who we are": Row 1 text+mockup image, Row 2 4-card strip
+    HomePricingTeaser.tsx         — 'use client' wrapper for homepage pricing section (bilingual)
+    WorkShowcase.tsx              — demo-only card grid; compact prop for homepage; client cards live in WorkPageClient
     WorkShowcaseSection.tsx       — wrapper for homepage work section
     Footer.tsx                    — shared footer with legal info
     CTABanner.tsx                 — shared CTA banner
@@ -71,11 +74,21 @@ src/
 - **Agency Elite**: €999 (unlimited pages, 2+ weeks)
 - Starting price is **€349**, not €299 — never write €299 for Dunajmedia pricing
 
-## Demo Sites (WorkShowcase)
-1. Barbershop → https://barber.dunajmedia.sk/
-2. Hair Salon → https://hairsalon.dunajmedia.sk/
-3. Beauty & Wellness → https://salon.dunajmedia.sk/demo
-4. Law Firm → https://lawfirm.dunajmedia.sk/novak-partners (image: `/public/lawfirm-preview.jpg` — needs to be added)
+## Real Client Work (/work page — Group A)
+- **RKC Technology** → https://advancednavigation.sk | image: `/public/our-work/advancednavigation.png` | case study: `/work/rkc-technology`
+- **Grand Apartman** → https://grandapartman.sk | image: `/public/our-work/grandapartman.png` | case study: `/work/grand-apartman`
+
+## Demo Sites (WorkShowcase — Group B, also homepage + web design page)
+All images moved to `/public/our-work/`:
+1. Barbershop → https://barber.dunajmedia.sk/ | `/public/our-work/barber-preview.jpg`
+2. Hair Salon → https://hairsalon.dunajmedia.sk/ | `/public/our-work/hairsalon-preview.jpg`
+3. Beauty & Wellness → https://salon.dunajmedia.sk/demo | `/public/our-work/salon-preview.jpg`
+4. Law Firm → https://lawfirm.dunajmedia.sk/ | `/public/our-work/lawfirm-preview.png`
+
+## Image Assets
+- `/public/mockup.PNG` — website mockup shown in AboutSnippet (homepage)
+- `/public/about/adem.jpg` — founder photo shown in AboutPage story section
+- `/public/web-design/nextjs.jpg`, `tailwindcss.png`, `Framer-Motion.png`, `logo-vercel.png` — tech logos in WebDesignPageClient
 
 ## Services Offered (current)
 - Tvorba web stránok (Web Design)
@@ -102,7 +115,9 @@ src/
 ## Key Decisions & Patterns
 - All page-level components follow Server Component (page.tsx exports metadata) + Client Component (PageClient.tsx with 'use client') pattern
 - Most service/about pages use inline SK/EN strings (`isSk ? 'Slovak' : 'English'`) rather than JSON keys
-- WorkShowcase.tsx holds all demo project data — edit there for both /work and homepage
+- WorkShowcase.tsx holds demo-only project data (Group B) — used on homepage (compact) and web design page
+- Real client cards (Group A) are defined inline in WorkPageClient.tsx — edit there to add/update client projects
+- Server Components (case study pages) cannot use useLanguage() — use inline bilingual text or extract a 'use client' child
 - Footer legal info is hardcoded in Footer.tsx (not in JSON) — Identifikačné údaje and SOI section
 - Blog listing uses Sanity GROQ query with revalidation; `/studio` is noindexed
 - Cookie banner is a shared client component — test at 375px after any footer/layout changes
