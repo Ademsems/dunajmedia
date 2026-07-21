@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
@@ -81,21 +82,25 @@ const types = [
 const techs = [
   {
     name: 'Next.js 14',
+    logo: '/web-design/nextjs.jpg',
     descSk: 'Moderný React framework — základ každej výkonnej webstránky, ktorú tvoríme. Rýchlejší ako WordPress, bezpečnejší a lepšie hodnotený Googlom.',
     descEn: 'A modern React framework — the foundation of every high-performance website we create. Faster than WordPress, more secure and better rated by Google.',
   },
   {
     name: 'Tailwind CSS',
+    logo: '/web-design/tailwindcss.png',
     descSk: 'Utility-first CSS framework pre konzistentný, responzívny web dizajn s minimálnym kódom a maximálnym výkonom.',
     descEn: 'Utility-first CSS framework for consistent, responsive web design with minimal code and maximum performance.',
   },
   {
     name: 'Framer Motion',
+    logo: '/web-design/Framer-Motion.png',
     descSk: 'Profesionálne animácie a interakcie, ktoré robia váš moderný web dizajn pamätateľným — bez spomalenia rýchlosti načítania.',
     descEn: 'Professional animations and interactions that make your modern web design memorable — without slowing down loading speed.',
   },
   {
     name: 'Vercel Hosting',
+    logo: '/web-design/logo-vercel.png',
     descSk: 'Každý web hostujeme na Vercel — najrýchlejšej a najspoľahlivejšej platforme pre Next.js projekty. Hosting je súčasťou mesačného plánu starostlivosti.',
     descEn: 'We host every website on Vercel — the fastest and most reliable platform for Next.js projects. Hosting is included in the monthly care plan.',
   },
@@ -257,11 +262,14 @@ export default function WebDesignPageClient() {
             {techs.map((tech, i) => (
               <motion.div key={tech.name} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.08 }}
                 className="p-6 rounded-2xl bg-navy border border-white/8 hover:border-aqua/25 transition-all duration-300 group">
-                {/* TODO: Replace with actual tech logo SVG for {tech.name} */}
-                <div className="w-10 h-10 rounded-lg bg-aqua/10 border border-aqua/20 flex items-center justify-center mb-4">
-                  <span className="font-mono text-[10px] font-bold text-aqua uppercase tracking-wider">
-                    {tech.name.split(' ')[0].slice(0, 3)}
-                  </span>
+                <div className="w-12 h-12 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center mb-4 overflow-hidden">
+                  <Image
+                    src={tech.logo}
+                    alt={tech.name}
+                    width={40}
+                    height={40}
+                    className="w-10 h-10 object-contain"
+                  />
                 </div>
                 <p className="font-display font-bold text-lg text-slate-lightest mb-2">{tech.name}</p>
                 <p className="text-slate-text text-sm font-body leading-relaxed">{isSk ? tech.descSk : tech.descEn}</p>

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle2, Users, Award, Globe } from 'lucide-react';
@@ -23,13 +24,12 @@ export default function AboutSnippet() {
 
   return (
     <section className="py-28 bg-navy relative overflow-hidden">
-      {/* Decorative */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-aqua/3 to-transparent pointer-events-none" />
       <div className="absolute inset-0 grid-bg opacity-15 pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left: About text */}
+        {/* Row 1: text left + mockup image right */}
+        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -54,8 +54,7 @@ export default function AboutSnippet() {
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>
 
-            {/* Trust indicators */}
-            <div className="flex items-center gap-6 mt-10 pt-10 border-t border-white/5">
+            <div className="flex flex-wrap items-center gap-6 mt-10 pt-10 border-t border-white/5">
               <div className="flex items-center gap-2">
                 <Award size={16} className="text-aqua" />
                 <span className="text-slate-light text-sm font-body">11+ {locale === 'sk' ? 'rokov v marketingu' : 'years in marketing'}</span>
@@ -71,29 +70,46 @@ export default function AboutSnippet() {
             </div>
           </motion.div>
 
-          {/* Right: Why us grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {whyItems.map((item, i) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="p-6 rounded-2xl bg-navy-light border border-white/5 hover:border-aqua/20 transition-all duration-300 group"
-              >
-                <div className="w-10 h-10 rounded-lg bg-aqua/10 border border-aqua/20 flex items-center justify-center mb-4 group-hover:bg-aqua/15 transition-colors">
-                  {whyIcons[i]}
-                </div>
-                <h3 className="font-display font-bold text-slate-lightest text-sm mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-slate-text text-xs font-body leading-relaxed">
-                  {item.desc}
-                </p>
-              </motion.div>
-            ))}
-          </div>
+          {/* Mockup image — no border/frame, blends with dark navy bg */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            className="flex items-center justify-center"
+          >
+            <Image
+              src="/mockup.PNG"
+              alt={locale === 'sk' ? 'Ukážka webu vytvoreného Dunajmedia' : 'Website mockup created by Dunajmedia'}
+              width={700}
+              height={500}
+              className="w-full h-auto object-contain"
+            />
+          </motion.div>
+        </div>
+
+        {/* Row 2: 4 feature cards as full-width strip */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {whyItems.map((item, i) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="p-6 rounded-2xl bg-navy-light border border-white/5 hover:border-aqua/20 transition-all duration-300 group"
+            >
+              <div className="w-10 h-10 rounded-lg bg-aqua/10 border border-aqua/20 flex items-center justify-center mb-4 group-hover:bg-aqua/15 transition-colors">
+                {whyIcons[i]}
+              </div>
+              <h3 className="font-display font-bold text-slate-lightest text-sm mb-2">
+                {item.title}
+              </h3>
+              <p className="text-slate-text text-xs font-body leading-relaxed">
+                {item.desc}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

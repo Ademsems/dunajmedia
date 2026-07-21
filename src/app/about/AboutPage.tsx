@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import ContactForm from '@/components/ContactForm';
@@ -94,20 +95,21 @@ export default function AboutPage() {
       <section className="py-28 bg-navy relative overflow-hidden">
         <div className="absolute inset-0 grid-bg opacity-15 pointer-events-none" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-12"
+          >
+            <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
+              {isSk ? 'Prečo vznikla Dunajmedia' : 'Why Dunajmedia exists'}
+            </h2>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-            >
-              <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest sticky top-28">
-                {isSk ? 'Prečo vznikla Dunajmedia' : 'Why Dunajmedia exists'}
-              </h2>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
@@ -126,6 +128,24 @@ export default function AboutPage() {
                   <p>Dunajmedia exists with one mission: to raise the standard of digital services in Slovakia. Every project that leaves our studio must be better than anything the client has seen before.</p>
                 </>
               )}
+            </motion.div>
+
+            {/* Founder photo */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+            >
+              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-aqua/20 shadow-[0_0_40px_rgba(100,255,218,0.08)]">
+                <Image
+                  src="/about/adem.jpg"
+                  alt={isSk ? 'Adem Sems Asha, zakladateľ Dunajmedia' : 'Adem Sems Asha, founder of Dunajmedia'}
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
             </motion.div>
           </div>
         </div>

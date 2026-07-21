@@ -8,7 +8,7 @@ import { useLanguage } from '@/context/LanguageContext';
 
 const projects = [
   {
-    image: '/barber-preview.jpg',
+    image: '/our-work/barber-preview.jpg',
     url: 'https://barber.dunajmedia.sk/',
     titleSk: 'Prémiový Barbershop',
     titleEn: 'Premium Barbershop',
@@ -20,7 +20,7 @@ const projects = [
     tagsEn: ['Video Hero', 'Booking System', 'Gallery', 'SK/EN'],
   },
   {
-    image: '/hairsalon-preview.jpg',
+    image: '/our-work/hairsalon-preview.jpg',
     url: 'https://hairsalon.dunajmedia.sk/',
     titleSk: 'Luxusný Hair Salón',
     titleEn: 'Luxury Hair Salon',
@@ -32,7 +32,7 @@ const projects = [
     tagsEn: ['Elegant Design', 'Booking System', 'Gallery', 'SK/EN'],
   },
   {
-    image: '/salon-preview.jpg',
+    image: '/our-work/salon-preview.jpg',
     url: 'https://salon.dunajmedia.sk/demo',
     titleSk: 'Beauty & Wellness Salón',
     titleEn: 'Beauty & Wellness Salon',
@@ -44,9 +44,8 @@ const projects = [
     tagsEn: ['Premium Design', 'Booking System', 'Gallery', 'SK/EN'],
   },
   {
-    // TODO: Add /lawfirm-preview.jpg once screenshot is created
-    image: null,
-    url: null,
+    image: '/our-work/lawfirm-preview.png',
+    url: 'https://lawfirm.dunajmedia.sk/',
     titleSk: 'Advokátska kancelária',
     titleEn: 'Law Firm',
     categorySk: 'Právne služby',
@@ -72,82 +71,53 @@ export default function WorkShowcase({ compact = false }: WorkShowcaseProps) {
         {projects.map((project, i) => {
           const tags = isSk ? project.tagsSk : project.tagsEn;
           const title = isSk ? project.titleSk : project.titleEn;
-          const CardWrapper = project.url
-            ? ({ children }: { children: React.ReactNode }) => (
-                <motion.a
-                  href={project.url!}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  whileHover={{ scale: 1.05 }}
-                  style={{ transition: 'transform 0.4s ease' }}
-                  className="group block bg-[#0d1a2e] border border-white/8 rounded-2xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl hover:border-aqua/20"
-                >
-                  {children}
-                </motion.a>
-              )
-            : ({ children }: { children: React.ReactNode }) => (
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="group block bg-[#0d1a2e] border border-white/8 rounded-2xl overflow-hidden shadow-lg"
-                >
-                  {children}
-                </motion.div>
-              );
 
           return (
-            <CardWrapper key={project.titleEn}>
+            <motion.a
+              key={project.titleEn}
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              whileHover={{ scale: 1.05 }}
+              style={{ transition: 'transform 0.4s ease' }}
+              className="group block bg-[#0d1a2e] border border-white/8 rounded-2xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl hover:border-aqua/20"
+            >
               {/* Image area */}
-              <div className="relative h-52 overflow-hidden bg-navy-light flex items-center justify-center">
-                {project.image ? (
-                  <>
-                    <motion.div
-                      className="relative w-full h-full"
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.4, ease: 'easeOut' }}
-                    >
-                      <Image
-                        src={project.image}
-                        alt={title}
-                        fill
-                        className="object-cover object-top"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      />
-                    </motion.div>
+              <div className="relative h-52 overflow-hidden bg-navy-light">
+                <motion.div
+                  className="relative w-full h-full"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.4, ease: 'easeOut' }}
+                >
+                  <Image
+                    src={project.image}
+                    alt={title}
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </motion.div>
 
-                    {/* Hover overlay */}
-                    <div className="absolute inset-0 bg-navy/80 opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex flex-col items-center justify-center gap-2 p-6">
-                      <p className="font-display text-xl font-bold text-white text-center">{title}</p>
-                      <p className="font-mono text-xs text-aqua uppercase tracking-widest">
-                        {isSk ? project.categorySk : project.categoryEn}
-                      </p>
-                      <div className="mt-3 flex items-center gap-1.5 text-white/80 text-sm font-body">
-                        <ExternalLink size={14} />
-                        <span>{isSk ? 'Otvoriť live demo' : 'Open live demo'}</span>
-                      </div>
-                    </div>
-
-                    {/* Live Demo badge */}
-                    <div className="absolute top-3 right-3 bg-emerald-500/90 text-white font-mono text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full backdrop-blur-sm z-10">
-                      Live Demo
-                    </div>
-                  </>
-                ) : (
-                  <div className="flex flex-col items-center justify-center gap-3 text-slate-text/40 p-8 text-center">
-                    <div className="w-12 h-12 rounded-xl border border-white/10 flex items-center justify-center">
-                      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-                    </div>
-                    <span className="font-mono text-xs uppercase tracking-widest">
-                      {isSk ? 'Demo čoskoro' : 'Demo coming soon'}
-                    </span>
+                {/* Hover overlay */}
+                <div className="absolute inset-0 bg-navy/80 opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex flex-col items-center justify-center gap-2 p-6">
+                  <p className="font-display text-xl font-bold text-white text-center">{title}</p>
+                  <p className="font-mono text-xs text-aqua uppercase tracking-widest">
+                    {isSk ? project.categorySk : project.categoryEn}
+                  </p>
+                  <div className="mt-3 flex items-center gap-1.5 text-white/80 text-sm font-body">
+                    <ExternalLink size={14} />
+                    <span>{isSk ? 'Otvoriť live demo' : 'Open live demo'}</span>
                   </div>
-                )}
+                </div>
+
+                {/* Live Demo badge */}
+                <div className="absolute top-3 right-3 bg-emerald-500/90 text-white font-mono text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full backdrop-blur-sm z-10">
+                  Live Demo
+                </div>
               </div>
 
               {/* Card body */}
@@ -165,7 +135,6 @@ export default function WorkShowcase({ compact = false }: WorkShowcaseProps) {
                   </p>
                 )}
 
-                {/* Tags */}
                 <div className="flex flex-wrap gap-1.5">
                   {tags.map((tag) => (
                     <span
@@ -177,7 +146,7 @@ export default function WorkShowcase({ compact = false }: WorkShowcaseProps) {
                   ))}
                 </div>
               </div>
-            </CardWrapper>
+            </motion.a>
           );
         })}
       </div>
