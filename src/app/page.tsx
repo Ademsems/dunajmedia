@@ -3,6 +3,7 @@ import Hero from '@/components/Hero';
 import AboutSnippet from '@/components/AboutSnippet';
 import Services from '@/components/Services';
 import WorkShowcaseSection from '@/components/WorkShowcaseSection';
+import HomeTestimonial from '@/components/HomeTestimonial';
 import HomePricingTeaser from '@/components/HomePricingTeaser';
 import ContactForm from '@/components/ContactForm';
 import CTABanner from '@/components/CTABanner';
@@ -20,6 +21,7 @@ export default function HomePage() {
       <AboutSnippet />
       <Services />
       <WorkShowcaseSection />
+      <HomeTestimonial />
       <HomePricingTeaser />
       <CTABanner />
       <ContactForm />
