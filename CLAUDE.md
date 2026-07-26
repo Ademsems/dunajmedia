@@ -36,7 +36,7 @@ Dunajmedia is a **sole trader (živnosť)**, NOT an s.r.o.
 src/
   app/
     layout.tsx                    — root metadata (authors, publisher, OG tags)
-    page.tsx                      — homepage (imports Hero, AboutSnippet, Services, WorkShowcaseSection, PricingTable, CTABanner, ContactForm)
+    page.tsx                      — homepage (imports Hero, AboutSnippet, Services, WorkShowcaseSection, HomeTestimonial, HomePricingTeaser, CTABanner, ContactForm)
     about/page.tsx + AboutPage.tsx
     how-we-work/page.tsx + HowWeWorkPageClient.tsx
     work/page.tsx + WorkPageClient.tsx
@@ -54,6 +54,7 @@ src/
     Hero.tsx                      — homepage hero with stats bar
     AboutSnippet.tsx              — homepage "who we are": Row 1 text+mockup image, Row 2 4-card strip
     HomePricingTeaser.tsx         — 'use client' wrapper for homepage pricing section (bilingual)
+    HomeTestimonial.tsx           — 'use client' featured testimonial section (between Work and Pricing on homepage); quote always in English; Simon Wheeler, Grand Apartman
     WorkShowcase.tsx              — demo-only card grid; compact prop for homepage; client cards live in WorkPageClient
     WorkShowcaseSection.tsx       — wrapper for homepage work section
     Footer.tsx                    — shared footer with legal info
