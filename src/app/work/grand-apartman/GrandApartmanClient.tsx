@@ -152,7 +152,7 @@ export default function GrandApartmanClient() {
             >
               <div className="relative w-full max-w-md aspect-square rounded-2xl overflow-hidden border border-aqua/20 shadow-[0_0_50px_rgba(100,255,218,0.08)]">
                 <Image
-                  src="/our-work/grandapartman-mockup.PNG"
+                  src="/our-work/grandapartman-mockup.png"
                   alt="Grand Apartman website mockup"
                   fill
                   className="object-contain"
