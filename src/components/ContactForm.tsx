@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Send, CheckCircle, AlertCircle, User, Mail, Building2, MessageSquare, ChevronDown, Phone } from 'lucide-react';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
+import { gaEvent } from '@/lib/gtag';
 
 interface FormState {
   name: string;
@@ -71,6 +72,10 @@ export default function ContactForm() {
       if (response.ok) {
         setStatus('success');
         setForm(initialState);
+        gaEvent('generate_lead', {
+          event_category: 'contact_form',
+          event_label: 'contact_form_submission',
+        });
       } else {
         setStatus('error');
       }
@@ -117,6 +122,10 @@ export default function ContactForm() {
                 <motion.a
                   key={value}
                   href={href}
+                  onClick={href.startsWith('tel:') ? () => gaEvent('contact_click', {
+                    event_category: 'phone_or_whatsapp',
+                    event_label: 'phone_click',
+                  }) : undefined}
                   whileHover={{ x: 4 }}
                   className="flex items-center gap-4 p-4 rounded-xl border border-white/5 bg-navy-light/60 hover:border-aqua/30 transition-all duration-200 group"
                 >

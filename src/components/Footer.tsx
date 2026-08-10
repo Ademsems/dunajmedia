@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Clock, Linkedin, ArrowUpRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import { gaEvent } from '@/lib/gtag';
 
 const serviceLinks = [
   { label_sk: 'Tvorba Web Stránok', label_en: 'Web Design', href: '/services/tvorba-web-stranok' },
@@ -125,7 +126,14 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="tel:+421952049119" className="flex items-center gap-3 text-sm text-slate-text hover:text-aqua transition-colors font-body">
+                <a
+                  href="tel:+421952049119"
+                  onClick={() => gaEvent('contact_click', {
+                    event_category: 'phone_or_whatsapp',
+                    event_label: 'phone_click',
+                  })}
+                  className="flex items-center gap-3 text-sm text-slate-text hover:text-aqua transition-colors font-body"
+                >
                   <Phone size={14} className="text-aqua flex-shrink-0" />
                   <span>{t('contact.info.phone')}</span>
                 </a>

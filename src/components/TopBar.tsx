@@ -3,6 +3,7 @@
 import { Mail, Phone, Globe } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import { motion } from 'framer-motion';
+import { gaEvent } from '@/lib/gtag';
 
 export default function TopBar() {
   const { t, locale, setLocale } = useLanguage();
@@ -30,6 +31,10 @@ export default function TopBar() {
 
             <a
               href={`tel:${t('topbar.phone').replace(/\s/g, '')}`}
+              onClick={() => gaEvent('contact_click', {
+                event_category: 'phone_or_whatsapp',
+                event_label: 'phone_click',
+              })}
               className="flex items-center gap-1.5 text-slate-text hover:text-aqua transition-colors duration-200"
             >
               <Phone size={11} />

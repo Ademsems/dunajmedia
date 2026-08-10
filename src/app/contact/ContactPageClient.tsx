@@ -5,6 +5,7 @@ import { Mail, Phone, MapPin, Clock, MessageCircle, ArrowRight } from 'lucide-re
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import ContactForm from '@/components/ContactForm';
+import { gaEvent } from '@/lib/gtag';
 
 const contactItems = [
   {
@@ -84,6 +85,10 @@ export default function ContactPageClient() {
                       href={href}
                       target={href.startsWith('http') ? '_blank' : undefined}
                       rel="noopener noreferrer"
+                      onClick={href.startsWith('tel:') ? () => gaEvent('contact_click', {
+                        event_category: 'phone_or_whatsapp',
+                        event_label: 'phone_click',
+                      }) : undefined}
                       className="group block p-5 rounded-2xl bg-navy-light border border-white/5 hover:border-aqua/30 transition-all duration-300 h-full"
                     >
                       <div className="w-10 h-10 rounded-xl bg-aqua/10 border border-aqua/20 flex items-center justify-center mb-3 group-hover:bg-aqua/20 transition-colors">

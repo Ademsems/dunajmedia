@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Syne, DM_Sans, DM_Mono } from 'next/font/google';
 import './globals.css';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import { LanguageProvider } from '@/context/LanguageContext';
 import TopBar from '@/components/TopBar';
 import Navbar from '@/components/Navbar';
@@ -140,6 +141,8 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const gaId = process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID;
+
   return (
     <html
       lang="sk"
@@ -159,6 +162,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <CookieBanner />
         </LanguageProvider>
       </body>
+      {gaId && <GoogleAnalytics gaId={gaId} />}
     </html>
   );
 }

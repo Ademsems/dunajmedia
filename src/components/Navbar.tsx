@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowRight, ChevronDown } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import { gaEvent } from '@/lib/gtag';
 
 type NavChild = { href: string; labelSk: string; labelEn: string };
 type NavLink = { href: string; key: string; children?: NavChild[] };
@@ -173,6 +174,10 @@ export default function Navbar() {
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Link
                 href="/contact"
+                onClick={() => gaEvent('cta_click', {
+                  event_category: 'engagement',
+                  event_label: 'cta_button_click',
+                })}
                 className="group flex items-center gap-2 bg-aqua text-navy font-display font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-aqua-electric transition-all duration-300 shadow-aqua"
               >
                 {t('nav.cta')}
@@ -311,6 +316,10 @@ export default function Navbar() {
               >
                 <Link
                   href="/contact"
+                  onClick={() => gaEvent('cta_click', {
+                    event_category: 'engagement',
+                    event_label: 'cta_button_click',
+                  })}
                   className="flex items-center justify-center gap-2 bg-aqua text-navy font-display font-semibold px-6 py-3 rounded-lg w-full hover:bg-aqua-electric transition-all"
                 >
                   {t('nav.cta')}

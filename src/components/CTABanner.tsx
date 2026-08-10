@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import { gaEvent } from '@/lib/gtag';
 
 export default function CTABanner() {
   const { t } = useLanguage();
@@ -52,6 +53,10 @@ export default function CTABanner() {
           >
             <Link
               href="/contact"
+              onClick={() => gaEvent('cta_click', {
+                event_category: 'engagement',
+                event_label: 'cta_button_click',
+              })}
               className="group inline-flex items-center gap-3 bg-gradient-to-r from-aqua to-aqua-electric text-navy font-display font-bold text-lg px-10 py-5 rounded-2xl hover:shadow-aqua-lg transition-all duration-300"
             >
               {t('home.cta_banner.cta')}

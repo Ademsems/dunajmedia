@@ -67,6 +67,8 @@ src/
     en.json                       — English translations
   context/
     LanguageContext.tsx           — i18n provider
+  lib/
+    gtag.ts                       — gaEvent() helper for firing GA4 custom events client-side
 ```
 
 ## Pricing (correct as of 2026)
@@ -112,6 +114,16 @@ All images moved to `/public/our-work/`:
 - Phone: +421 952 049 119
 - Hours: Mon–Fri 9:00–18:00
 - Based in Bratislava — **"stretnutia po dohode"**, not "navštívte naše štúdio"
+
+## Analytics (GA4)
+- Google Analytics 4 is wired via `@next/third-parties/google` (`GoogleAnalytics` component) in the root layout (`src/app/layout.tsx`)
+- Measurement ID comes from `process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID` (set in Vercel) — **never hardcode a GA ID**; component is skipped entirely if the env var is unset (safe for local dev, which has no `.env` file)
+- Event helper: `src/lib/gtag.ts` exports `gaEvent(action, params)` — no-ops safely if `window.gtag` isn't loaded
+- Three custom events in use, fired via `gaEvent()` from `onClick` handlers:
+  - `generate_lead` — fires in `ContactForm.tsx` only after `/api/contact` responds `ok` (not on open/failure); GA4-recommended name, importable as a Google Ads conversion
+  - `contact_click` — fires on every `tel:` link click (TopBar, Footer, ContactForm info card, ContactPageClient info card); `event_label: 'phone_click'`
+  - `cta_click` — secondary engagement signal on primary "/contact" CTA buttons (CTABanner, Hero, Navbar desktop + mobile)
+- `@next/third-parties` was installed at `^16.3.0` against Next.js 14.2.5 — a large major-version gap upstream; if GA stops working after a Next.js upgrade, check this package's changelog first
 
 ## Key Decisions & Patterns
 - All page-level components follow Server Component (page.tsx exports metadata) + Client Component (PageClient.tsx with 'use client') pattern

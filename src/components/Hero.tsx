@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight, Play, ChevronDown } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import { gaEvent } from '@/lib/gtag';
 
 const containerVariants = {
   hidden: {},
@@ -120,6 +121,10 @@ export default function Hero() {
           >
             <Link
               href="/contact"
+              onClick={() => gaEvent('cta_click', {
+                event_category: 'engagement',
+                event_label: 'cta_button_click',
+              })}
               className="group flex items-center gap-2 bg-aqua text-navy font-display font-bold px-8 py-4 rounded-xl hover:bg-aqua-electric transition-all duration-300 shadow-aqua-lg text-base"
             >
               {t('home.hero.cta_primary')}
