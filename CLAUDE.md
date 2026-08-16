@@ -7,6 +7,7 @@
 - **Deployed via**: Vercel (auto-deploy on push to `main`)
 - **Local dev**: `npm run dev` → http://localhost:3000
 - **Build check**: `npm run build` — must pass with zero errors before any push
+- **Node.js version**: not pinned in code — no `engines` field in `package.json`, no `.nvmrc`/`.node-version`/`.tool-versions`, no `vercel.json`. Version is controlled entirely via the Vercel dashboard's Node.js Version setting. Checked 2026-08-16 ahead of Vercel's Node 20 deprecation (2026-10-01) — dashboard should be set to 24.x there; no code change was needed since nothing pins a version.
 
 ## Legal Entity
 Dunajmedia is a **sole trader (živnosť)**, NOT an s.r.o.
