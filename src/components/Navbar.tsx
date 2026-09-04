@@ -169,8 +169,8 @@ export default function Navbar() {
             })}
           </ul>
 
-          {/* CTA Button */}
-          <div className="hidden lg:flex items-center gap-3">
+          {/* CTA Button — visible on all breakpoints, compact on mobile */}
+          <div className="flex items-center gap-2 lg:gap-3">
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Link
                 href="/contact"
@@ -178,32 +178,32 @@ export default function Navbar() {
                   event_category: 'engagement',
                   event_label: 'cta_button_click',
                 })}
-                className="group flex items-center gap-2 bg-aqua text-navy font-display font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-aqua-electric transition-all duration-300 shadow-aqua"
+                className="group flex items-center gap-1.5 lg:gap-2 bg-aqua text-navy font-display font-semibold text-xs lg:text-sm px-3.5 lg:px-5 py-2 lg:py-2.5 rounded-lg hover:bg-aqua-electric transition-all duration-300 shadow-aqua whitespace-nowrap"
               >
                 {t('nav.cta')}
-                <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+                <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform" />
               </Link>
             </motion.div>
-          </div>
 
-          {/* Mobile toggle */}
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden p-2 text-slate-text hover:text-slate-lightest transition-colors"
-            aria-label="Toggle mobile menu"
-          >
-            <AnimatePresence mode="wait" initial={false}>
-              <motion.div
-                key={mobileOpen ? 'close' : 'open'}
-                initial={{ opacity: 0, rotate: -90 }}
-                animate={{ opacity: 1, rotate: 0 }}
-                exit={{ opacity: 0, rotate: 90 }}
-                transition={{ duration: 0.15 }}
-              >
-                {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-              </motion.div>
-            </AnimatePresence>
-          </button>
+            {/* Mobile toggle */}
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="lg:hidden p-2 text-slate-text hover:text-slate-lightest transition-colors"
+              aria-label="Toggle mobile menu"
+            >
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.div
+                  key={mobileOpen ? 'close' : 'open'}
+                  initial={{ opacity: 0, rotate: -90 }}
+                  animate={{ opacity: 1, rotate: 0 }}
+                  exit={{ opacity: 0, rotate: 90 }}
+                  transition={{ duration: 0.15 }}
+                >
+                  {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+                </motion.div>
+              </AnimatePresence>
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -307,25 +307,6 @@ export default function Navbar() {
                   </motion.div>
                 );
               })}
-
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: navLinks.length * 0.06 }}
-                className="pt-4"
-              >
-                <Link
-                  href="/contact"
-                  onClick={() => gaEvent('cta_click', {
-                    event_category: 'engagement',
-                    event_label: 'cta_button_click',
-                  })}
-                  className="flex items-center justify-center gap-2 bg-aqua text-navy font-display font-semibold px-6 py-3 rounded-lg w-full hover:bg-aqua-electric transition-all"
-                >
-                  {t('nav.cta')}
-                  <ArrowRight size={16} />
-                </Link>
-              </motion.div>
             </div>
           </motion.div>
         )}

@@ -126,6 +126,17 @@ All images moved to `/public/our-work/`:
   - `cta_click` — secondary engagement signal on primary "/contact" CTA buttons (CTABanner, Hero, Navbar desktop + mobile)
 - `@next/third-parties` was installed at `^16.3.0` against Next.js 14.2.5 — a large major-version gap upstream; if GA stops working after a Next.js upgrade, check this package's changelog first
 
+## Navbar CTA (mobile visibility — 2026-09-04)
+- The "Get Started"/"Začnime" CTA (`t('nav.cta')`, from `sk.json`/`en.json`) used to be wrapped in `hidden lg:flex` in `Navbar.tsx` — invisible on mobile except inside the opened hamburger menu, which meant no CTA was visible above the fold on mobile without opening the menu first
+- Fixed: the CTA `Link` now sits in the same always-visible flex group as the mobile hamburger toggle, with responsive Tailwind sizing (`text-xs lg:text-sm`, `px-3.5 lg:px-5`, `py-2 lg:py-2.5`) so it renders as a compact button in the sticky header at all breakpoints — desktop appearance is unchanged (the `lg:` values match the old fixed values exactly)
+- The old duplicate CTA link inside the expanded mobile dropdown menu was removed since the header CTA is now always visible — don't re-add it there, it would be a redundant duplicate
+- This is a global Navbar change, so it affects every page's mobile header, not just `/services/tvorba-web-stranok`
+
+## Web Design Page (/services/tvorba-web-stranok) — testimonial swap (2026-09-04)
+- The old "See Our Live Demos" section (rendered `<WorkShowcase />`) was removed from `WebDesignPageClient.tsx` — this page's Google Ads traffic should land on a conversion-focused testimonial, not the demo template grid
+- Replaced in the same position (between the Process section and Pricing) with `<HomeTestimonial />` — the same component and content used on the homepage (Simon Wheeler / Grand Apartman quote, always-English quote, links to `/work/grand-apartman`); reused as-is, not duplicated or rewritten
+- `WorkShowcase` demo grid remains on the homepage and `/work` page — only removed from this one service page
+
 ## Key Decisions & Patterns
 - All page-level components follow Server Component (page.tsx exports metadata) + Client Component (PageClient.tsx with 'use client') pattern
 - Most service/about pages use inline SK/EN strings (`isSk ? 'Slovak' : 'English'`) rather than JSON keys

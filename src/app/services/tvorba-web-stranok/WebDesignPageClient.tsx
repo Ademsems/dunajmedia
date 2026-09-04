@@ -9,7 +9,7 @@ import PricingTable from '@/components/PricingTable';
 import CTABanner from '@/components/CTABanner';
 import ContactForm from '@/components/ContactForm';
 import ServiceFAQ from '@/components/ServiceFAQ';
-import WorkShowcase from '@/components/WorkShowcase';
+import HomeTestimonial from '@/components/HomeTestimonial';
 
 /* ─── data ─────────────────────────────────────────────────── */
 
@@ -314,23 +314,8 @@ export default function WebDesignPageClient() {
         </div>
       </section>
 
-      {/* Live Demos */}
-      <section className="py-24 bg-navy-light relative overflow-hidden">
-        <div className="absolute inset-0 grid-bg opacity-10 pointer-events-none" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-12">
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
-              {isSk ? 'Pozrite Si Naše Živé Ukážky' : 'See Our Live Demos'}
-            </h2>
-            <p className="text-slate-text text-lg font-body mt-4 max-w-2xl">
-              {isSk
-                ? 'Každá ukážka nižšie je plne funkčná webstránka na mieru Bratislava od Dunajmedia. Toto je štandard kvality, ktorý dostane aj váš biznis.'
-                : 'Every demo below is a fully custom website from Dunajmedia Bratislava. This is the quality standard your business gets too.'}
-            </p>
-          </motion.div>
-          <WorkShowcase />
-        </div>
-      </section>
+      {/* Testimonial */}
+      <HomeTestimonial />
 
       {/* Pricing */}
       <section className="py-24 bg-navy relative overflow-hidden">
