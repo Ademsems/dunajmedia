@@ -114,10 +114,10 @@ const processSteps = [
   },
   {
     number: '05',
-    titleSk: 'Reporting a Optimalizácia',
-    titleEn: 'Reporting and Optimization',
-    descSk: 'Mesačné reporty s reálnymi číslami — organická návštevnosť, pozície vo vyhľadávačoch, konverzie. Neustála optimalizácia na základe dát, nie dojmov.',
-    descEn: 'Monthly reports with real numbers — organic traffic, search engine rankings, conversions. Continuous optimization based on data, not impressions.',
+    titleSk: 'Správa SEO a Reporting',
+    titleEn: 'SEO Management and Reporting',
+    descSk: 'Pravidelná mesačná správa SEO a transparentný reporting: Každý mesiac analyzujeme posun pozícií, konverzie a priebežne optimalizujeme obsah pre nové vyhľadávané dopyty na slovenskom trhu.',
+    descEn: 'Ongoing monthly SEO management and transparent reporting: Every month we track ranking movements, analyze conversions, and continuously optimize content for emerging search queries across the market.',
   },
 ];
 
@@ -181,8 +181,8 @@ export default function SEOPageClient() {
             </p>
             <p className="text-slate-text text-lg font-body leading-relaxed max-w-3xl">
               {isSk
-                ? 'SEO optimalizácia webstránok je dnes základná podmienka digitálneho úspechu — nie výhoda. Profesionálna SEO optimalizácia Bratislava od Dunajmedia spája technickú precíznosť s obsahovou stratégiou a ako prví na slovenskom trhu integrujeme AI SEO optimalizáciu pre vyhľadávanie budúcnosti. Bez ohľadu na to, či ste malá firma alebo zavedený biznis — zvýšenie organickej návštevnosti prostredníctvom správnej optimalizácie pre vyhľadávače je investícia s najvyšším dlhodobým ROI v digitálnom marketingu.'
-                : 'SEO optimization of websites is today a basic condition of digital success — not an advantage. Professional SEO optimization in Bratislava from Dunajmedia combines technical precision with content strategy, and as the first on the Slovak market we integrate AI SEO optimization for the future of search. Whether you are a small business or an established company — increasing organic traffic through proper search engine optimization is the highest long-term ROI investment in digital marketing.'}
+                ? 'DunajMedia je moderná SEO firma v Bratislave. Poskytujeme komplexné SEO služby a GEO optimalizáciu pre slovenské firmy, ktoré chcú stabilné dopyty z prvej strany Google bez zastaraných trikov.'
+                : 'DunajMedia is a modern SEO firm in Bratislava. We deliver comprehensive SEO services and GEO optimization for Slovak businesses seeking consistent inbound leads from page one of Google without outdated tactics.'}
             </p>
           </motion.div>
         </div>
@@ -242,8 +242,8 @@ export default function SEOPageClient() {
             </h2>
             <p className="text-slate-text text-lg font-body mt-4 max-w-2xl">
               {isSk
-                ? 'Väčšina SEO agentúr robí rovnaké veci rovnakým spôsobom. Tu je to, čo nás odlišuje.'
-                : 'Most SEO agencies do the same things the same way. Here is what makes us different.'}
+                ? 'Väčšina tradičných SEO firiem na Slovensku stále ponúka postupy z roku 2018 — preplnené kľúčové slová a pomalé WordPress weby. Naša moderná mediálna agentúra stavia na bleskovej rýchlosti Next.js a pokročilej GEO optimalizácii pre umelú inteligenciu.'
+                : 'Most traditional SEO firms in Slovakia still rely on 2018 playbooks—keyword stuffing and sluggish WordPress sites. Our modern media agency builds on lightning-fast Next.js architecture and advanced GEO optimization for AI search engines.'}
             </p>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -371,8 +371,8 @@ export default function SEOPageClient() {
           </h2>
           <p className="text-slate-text text-lg font-body mb-10">
             {isSk
-              ? 'SEO pre firmy Bratislava nikdy nebolo dostupnejšie. Prvý krok je bezplatný — SEO audit vášho webu, ktorý vám ukáže presne, kde stojíte a čo je potrebné zmeniť. Konzultácia zadarmo, bez záväzkov.'
-              : 'SEO for businesses in Bratislava has never been more accessible. The first step is free — a website SEO audit that shows you exactly where you stand and what needs to change. Free consultation, no commitment.'}
+              ? 'Každý projekt vyžaduje inú stratégiu podľa konkurencie a cieľového trhu. Pripravíme vám bezplatnú analýzu a individuálnu cenovú ponuku presne pre potreby vašej firmy.'
+              : 'Every project requires a distinct strategy tailored to industry competition and target market. We will prepare a free analysis and a custom proposal built specifically for your business needs.'}
           </p>
           <Link href="/contact"
             className="group inline-flex items-center gap-2 bg-aqua text-navy font-display font-bold px-8 py-4 rounded-xl hover:bg-aqua-electric transition-all duration-300 shadow-aqua">

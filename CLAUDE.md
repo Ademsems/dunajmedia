@@ -137,6 +137,12 @@ All images moved to `/public/our-work/`:
 - Replaced in the same position (between the Process section and Pricing) with `<HomeTestimonial />` — the same component and content used on the homepage (Simon Wheeler / Grand Apartman quote, always-English quote, links to `/work/grand-apartman`); reused as-is, not duplicated or rewritten
 - `WorkShowcase` demo grid remains on the homepage and `/work` page — only removed from this one service page
 
+## SEO Page (/services/seo-optimalizacia) — GSC keyword refresh (2026-10-05)
+- Copy lives inline in `SEOPageClient.tsx` (not in `sk.json`/`en.json` — there are no `services.seo` keys); edit it there
+- Refreshed to target Search Console striking-distance queries: `seo firma bratislava`, `seo firmy`/`seo firma`, `seo služby`, `seo na slovensku`, `správa seo`, `mediálna agentúra`
+- Changed: hero paragraph ("moderná SEO firma v Bratislave…"), "Why Different" intro (modern media agency / Next.js / GEO), process step 05 (now "Správa SEO a Reporting" / "SEO Management and Reporting"), and the closing CTA paragraph
+- **No fixed SEO pricing, ever** — SEO stays audit-driven / custom quote ("individuálna cenová ponuka"). All pricing touchpoints on this page must point to a free audit or custom quote, never packages or tiers
+
 ## Key Decisions & Patterns
 - All page-level components follow Server Component (page.tsx exports metadata) + Client Component (PageClient.tsx with 'use client') pattern
 - Most service/about pages use inline SK/EN strings (`isSk ? 'Slovak' : 'English'`) rather than JSON keys
