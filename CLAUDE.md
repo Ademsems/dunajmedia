@@ -37,7 +37,7 @@ Dunajmedia is a **sole trader (živnosť)**, NOT an s.r.o.
 src/
   app/
     layout.tsx                    — root metadata (authors, publisher, OG tags)
-    page.tsx                      — homepage (imports Hero, AboutSnippet, Services, WorkShowcaseSection, HomeTestimonial, HomePricingTeaser, CTABanner, ContactForm)
+    page.tsx                      — homepage (imports Hero, AboutSnippet, Services, HomeTestimonial, WeAreGlocalSection, HomePricingTeaser, CTABanner, ContactForm)
     about/page.tsx + AboutPage.tsx
     how-we-work/page.tsx + HowWeWorkPageClient.tsx
     work/page.tsx + WorkPageClient.tsx
@@ -56,8 +56,8 @@ src/
     AboutSnippet.tsx              — homepage "who we are": Row 1 text+mockup image, Row 2 4-card strip
     HomePricingTeaser.tsx         — 'use client' wrapper for homepage pricing section (bilingual)
     HomeTestimonial.tsx           — 'use client' featured testimonial section (between Work and Pricing on homepage); quote always in English; Simon Wheeler, Grand Apartman
-    WorkShowcase.tsx              — demo-only card grid; compact prop for homepage; client cards live in WorkPageClient
-    WorkShowcaseSection.tsx       — wrapper for homepage work section
+    WorkShowcase.tsx              — demo-only card grid (used on /work only; client cards live in WorkPageClient)
+    WeAreGlocalSection.tsx        — 'use client' homepage section: Dunajmedia as Founding Agency of WeAreGlocal; strings in sk/en.json under `home.weareglocal.*`
     Footer.tsx                    — shared footer with legal info
     CTABanner.tsx                 — shared CTA banner
     ContactForm.tsx               — shared contact form (used on most pages)
@@ -82,7 +82,7 @@ src/
 - **RKC Technology** → https://advancednavigation.sk | image: `/public/our-work/advancednavigation.png` | case study: `/work/rkc-technology`
 - **Grand Apartman** → https://grandapartman.sk | image: `/public/our-work/grandapartman.png` | case study: `/work/grand-apartman`
 
-## Demo Sites (WorkShowcase — Group B, also homepage + web design page)
+## Demo Sites (WorkShowcase — Group B, /work page only)
 All images moved to `/public/our-work/`:
 1. Barbershop → https://barber.dunajmedia.sk/ | `/public/our-work/barber-preview.jpg`
 2. Hair Salon → https://hairsalon.dunajmedia.sk/ | `/public/our-work/hairsalon-preview.jpg`
@@ -143,10 +143,17 @@ All images moved to `/public/our-work/`:
 - Changed: hero paragraph ("moderná SEO firma v Bratislave…"), "Why Different" intro (modern media agency / Next.js / GEO), process step 05 (now "Správa SEO a Reporting" / "SEO Management and Reporting"), and the closing CTA paragraph
 - **No fixed SEO pricing, ever** — SEO stays audit-driven / custom quote ("individuálna cenová ponuka"). All pricing touchpoints on this page must point to a free audit or custom quote, never packages or tiers
 
+## Homepage demo removal + WeAreGlocal, CTA consolidation (2026-10-15)
+- Homepage demo section (`WorkShowcaseSection.tsx`) deleted — demos live only on `/work`
+- New `WeAreGlocalSection.tsx` (after `HomeTestimonial`, before pricing): Dunajmedia is a **Founding Agency** of WeAreGlocal, a curated global network of independent digital agencies; outbound link to https://weareglocal.com (`target=_blank`, `rel=noopener noreferrer`). Copy is bilingual via `home.weareglocal.*` in `sk.json`/`en.json`
+- Service pages (Web Design, SEO, Social Media) previously stacked 4 CTAs at the bottom (closing CTA section, `CTABanner`, then the form). Now each ends with **one** unified CTA: `<ContactForm headline=… subtitle=… />`
+- `ContactForm` accepts optional `headline`/`subtitle` props (falls back to the generic `contact.form.headline`/`contact.hero.sub` elsewhere). Per-page keyworded headlines: "Custom Next.js web design" / "AI-driven SEO" / "Data-driven social media management" — keep keywords in these, not generic "Contact us"
+- Don't re-add `CTABanner` or a separate closing CTA section to these three service pages. Homepage and other pages still use `CTABanner` + `ContactForm`
+
 ## Key Decisions & Patterns
 - All page-level components follow Server Component (page.tsx exports metadata) + Client Component (PageClient.tsx with 'use client') pattern
 - Most service/about pages use inline SK/EN strings (`isSk ? 'Slovak' : 'English'`) rather than JSON keys
-- WorkShowcase.tsx holds demo-only project data (Group B) — used on homepage (compact) and web design page
+- WorkShowcase.tsx holds demo-only project data (Group B) — now used on /work only (removed from homepage and web design page)
 - Real client cards (Group A) are defined inline in WorkPageClient.tsx — edit there to add/update client projects
 - Server Components (case study pages) cannot use useLanguage() — use inline bilingual text or extract a 'use client' child
 - Footer legal info is hardcoded in Footer.tsx (not in JSON) — Identifikačné údaje and SOI section

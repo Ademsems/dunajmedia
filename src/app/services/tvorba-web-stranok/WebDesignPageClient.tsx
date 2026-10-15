@@ -2,11 +2,8 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import PricingTable from '@/components/PricingTable';
-import CTABanner from '@/components/CTABanner';
 import ContactForm from '@/components/ContactForm';
 import ServiceFAQ from '@/components/ServiceFAQ';
 import HomeTestimonial from '@/components/HomeTestimonial';
@@ -353,31 +350,13 @@ export default function WebDesignPageClient() {
         </div>
       </section>
 
-      {/* Closing CTA */}
-      <section className="py-20 bg-navy relative overflow-hidden">
-        <div className="absolute inset-0 grid-bg opacity-15 pointer-events-none" />
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
-          className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest mb-5">
-            {isSk
-              ? 'Začnime vašu profesionálnu tvorbu web stránok dnes'
-              : "Let's start your professional website creation today"}
-          </h2>
-          <p className="text-slate-text text-lg font-body mb-10">
-            {isSk
-              ? 'Prvá konzultácia je bezplatná a nezáväzná. Povieme vám presne, čo vaša moderná web stránka pre firmu potrebuje a za koľko ju doručíme.'
-              : 'The first consultation is free and non-binding. We will tell you exactly what your modern company website needs and at what price we will deliver it.'}
-          </p>
-          <Link href="/contact"
-            className="group inline-flex items-center gap-2 bg-aqua text-navy font-display font-bold px-8 py-4 rounded-xl hover:bg-aqua-electric transition-all duration-300 shadow-aqua">
-            {isSk ? 'Získajte bezplatnú konzultáciu' : 'Get a free consultation'}
-            <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
-          </Link>
-        </motion.div>
-      </section>
-
-      <CTABanner />
-      <ContactForm />
+      {/* Single unified CTA — keyworded heading + lead form */}
+      <ContactForm
+        headline={isSk ? 'Tvorba webu na mieru v Next.js — začnime dnes' : 'Custom Next.js web design — let\'s start today'}
+        subtitle={isSk
+          ? 'Prvá konzultácia je bezplatná a nezáväzná. Povieme vám presne, čo vaša moderná web stránka pre firmu potrebuje a za koľko ju doručíme.'
+          : 'The first consultation is free and non-binding. We will tell you exactly what your modern company website needs and at what price we will deliver it.'}
+      />
     </>
   );
 }

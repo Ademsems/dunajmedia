@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
-import CTABanner from '@/components/CTABanner';
 import ContactForm from '@/components/ContactForm';
 import ServiceFAQ from '@/components/ServiceFAQ';
 
@@ -349,29 +348,13 @@ export default function SocialMediaPageClient() {
         </div>
       </section>
 
-      {/* Closing CTA */}
-      <section className="py-20 bg-navy-light relative overflow-hidden">
-        <div className="absolute inset-0 grid-bg opacity-10 pointer-events-none" />
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
-          className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest mb-5">
-            {isSk ? 'Začnite Premieňať Sledovateľov na Zákazníkov' : 'Start Turning Followers Into Customers'}
-          </h2>
-          <p className="text-slate-text text-lg font-body mb-10">
-            {isSk
-              ? 'Profesionálna správa sociálnych sietí Bratislava od Dunajmedia — s AI tvorbou obsahu, dvojjazyčnou komunikáciou a merateľnými výsledkami. Prvá konzultácia je bezplatná.'
-              : 'Professional social media management Bratislava from Dunajmedia — with AI content creation, bilingual communication and measurable results. First consultation is free.'}
-          </p>
-          <Link href="/contact"
-            className="group inline-flex items-center gap-2 bg-aqua text-navy font-display font-bold px-8 py-4 rounded-xl hover:bg-aqua-electric transition-all duration-300 shadow-aqua">
-            {isSk ? 'Získajte bezplatnú konzultáciu' : 'Get a free consultation'}
-            <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
-          </Link>
-        </motion.div>
-      </section>
-
-      <CTABanner />
-      <ContactForm />
+      {/* Single unified CTA — keyworded heading + lead form */}
+      <ContactForm
+        headline={isSk ? 'Správa sociálnych sietí založená na dátach — začnime' : 'Data-driven social media management — let\'s start'}
+        subtitle={isSk
+          ? 'Profesionálna správa sociálnych sietí Bratislava od Dunajmedia — s AI tvorbou obsahu, dvojjazyčnou komunikáciou a merateľnými výsledkami. Prvá konzultácia je bezplatná.'
+          : 'Professional social media management Bratislava from Dunajmedia — with AI content creation, bilingual communication and measurable results. First consultation is free.'}
+      />
     </>
   );
 }

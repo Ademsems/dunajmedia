@@ -27,7 +27,12 @@ const initialState: FormState = {
   consent: false,
 };
 
-export default function ContactForm() {
+interface ContactFormProps {
+  headline?: string;
+  subtitle?: string;
+}
+
+export default function ContactForm({ headline, subtitle }: ContactFormProps = {}) {
   const { t, tArray } = useLanguage();
   const [form, setForm] = useState<FormState>(initialState);
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
@@ -108,10 +113,10 @@ export default function ContactForm() {
               {t('contact.hero.label')}
             </span>
             <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest leading-tight mb-6">
-              {t('contact.form.headline')}
+              {headline ?? t('contact.form.headline')}
             </h2>
             <p className="text-slate-text text-lg font-body leading-relaxed mb-10">
-              {t('contact.hero.sub')}
+              {subtitle ?? t('contact.hero.sub')}
             </p>
 
             <div className="space-y-4">

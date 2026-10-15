@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
-import CTABanner from '@/components/CTABanner';
 import ContactForm from '@/components/ContactForm';
 import ServiceFAQ from '@/components/ServiceFAQ';
 
@@ -361,29 +360,13 @@ export default function SEOPageClient() {
         </div>
       </section>
 
-      {/* Closing CTA */}
-      <section className="py-20 bg-navy relative overflow-hidden">
-        <div className="absolute inset-0 grid-bg opacity-15 pointer-events-none" />
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
-          className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest mb-5">
-            {isSk ? 'Začnite so SEO Dnes — Bezplatná Konzultácia' : 'Start With SEO Today — Free Consultation'}
-          </h2>
-          <p className="text-slate-text text-lg font-body mb-10">
-            {isSk
-              ? 'Každý projekt vyžaduje inú stratégiu podľa konkurencie a cieľového trhu. Pripravíme vám bezplatnú analýzu a individuálnu cenovú ponuku presne pre potreby vašej firmy.'
-              : 'Every project requires a distinct strategy tailored to industry competition and target market. We will prepare a free analysis and a custom proposal built specifically for your business needs.'}
-          </p>
-          <Link href="/contact"
-            className="group inline-flex items-center gap-2 bg-aqua text-navy font-display font-bold px-8 py-4 rounded-xl hover:bg-aqua-electric transition-all duration-300 shadow-aqua">
-            {isSk ? 'Získajte bezplatný SEO audit' : 'Get your free SEO audit'}
-            <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
-          </Link>
-        </motion.div>
-      </section>
-
-      <CTABanner />
-      <ContactForm />
+      {/* Single unified CTA — keyworded heading + lead form */}
+      <ContactForm
+        headline={isSk ? 'AI-driven SEO na mieru — bezplatný audit' : 'AI-driven SEO — get your free audit'}
+        subtitle={isSk
+          ? 'Každý projekt vyžaduje inú stratégiu podľa konkurencie a cieľového trhu. Pripravíme vám bezplatnú analýzu a individuálnu cenovú ponuku presne pre potreby vašej firmy.'
+          : 'Every project requires a distinct strategy tailored to industry competition and target market. We will prepare a free analysis and a custom proposal built specifically for your business needs.'}
+      />
     </>
   );
 }
