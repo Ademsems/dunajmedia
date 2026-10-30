@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Clock, Linkedin, ArrowUpRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
@@ -44,9 +45,15 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" className="inline-block mb-4">
-              <span className="font-display text-2xl font-bold text-slate-lightest">dunaj</span>
-              <span className="font-display text-2xl font-bold text-aqua">media</span>
+            <Link href="/" className="inline-block mb-5">
+              <Image
+                src="/branding/dunajmedia-logo.svg"
+                alt="Dunajmedia"
+                width={193}
+                height={32}
+                unoptimized
+                className="h-8 w-auto"
+              />
             </Link>
             <p className="text-slate-text text-sm leading-relaxed mb-6 font-body">
               {t('footer.tagline')}

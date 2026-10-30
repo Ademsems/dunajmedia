@@ -112,11 +112,6 @@ export const metadata: Metadata = {
   authors: [{ name: 'Dunajmedia' }],
   creator: 'Dunajmedia',
   publisher: 'Dunajmedia',
-  icons: {
-    icon: '/logo.png',
-    shortcut: '/logo.png',
-    apple: '/logo.png',
-  },
   robots: {
     index: true,
     follow: true,

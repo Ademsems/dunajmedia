@@ -62,32 +62,20 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
 
           {/* Logo */}
-          <Link href="/" className="group flex items-center gap-3">
+          <Link href="/" className="flex items-center flex-shrink-0">
             <motion.div
-              className="relative flex items-center gap-3"
               whileHover={{ scale: 1.03 }}
               transition={{ type: 'spring', stiffness: 400, damping: 17 }}
             >
-              <div className="relative w-9 h-9 flex-shrink-0">
-                <Image
-                  src="/logo.png"
-                  alt="Dunajmedia logo"
-                  fill
-                  className="object-contain"
-                  priority
-                />
-              </div>
-              <span className="w-px h-5 bg-white/15 flex-shrink-0" />
-              <div className="relative">
-                <span className="font-display text-xl font-bold text-slate-lightest tracking-tight">dunaj</span>
-                <span className="font-display text-xl font-bold text-aqua tracking-tight">media</span>
-                <motion.div
-                  className="absolute -bottom-0.5 left-0 h-[2px] bg-gradient-to-r from-aqua to-aqua-electric"
-                  initial={{ width: 0 }}
-                  animate={{ width: '100%' }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                />
-              </div>
+              <Image
+                src="/branding/dunajmedia-logo.svg"
+                alt="Dunajmedia"
+                width={181}
+                height={30}
+                priority
+                unoptimized
+                className="h-6 sm:h-7 w-auto"
+              />
             </motion.div>
           </Link>
 

@@ -89,6 +89,18 @@ All images moved to `/public/our-work/`:
 3. Beauty & Wellness → https://salon.dunajmedia.sk/demo | `/public/our-work/salon-preview.jpg`
 4. Law Firm → https://lawfirm.dunajmedia.sk/ | `/public/our-work/lawfirm-preview.png`
 
+## Branding (new logo + brandmark — 2026-10-30)
+- Files in `public/branding/` (SVG masters extracted from the vector `.ai`; trimmed viewBox, no background, `fill`s explicit — they do NOT inherit `currentColor` because they're loaded via `<img>`):
+  - `dunajmedia-logo.svg` — **wordmark, two-tone** (white "Dunaj" + cyan `#00f0ff` "Media"); aspect 6.02:1 (viewBox 989.91×164.35). Default for the dark navy site. Variants: `-white.svg` (all white), `-dark.svg` (`#1e293b`, for light backgrounds)
+  - `dunajmedia-brandmark.svg` — **icon/swoosh symbol**, cyan; aspect 1.56:1 (328.08×209.85). Variants: `-white.svg`, `-dark.svg`
+  - `dunajmedia-logo.png` (1601×267) and `dunajmedia-brandmark.png` (801×513) — transparent PNG fallbacks
+- Terminology: designer's "Brandmark-*.png" files = the wordmark; "Icon-*.png" = the symbol. The `Artboard*.png` exports were blank and not used. The master `DunajMedia- Brandmark.ai` (PDF-based, 6 artboards) is kept outside the repo — regenerate assets from it with PyMuPDF (`page.get_svg_image()`), artboards: 0/2/4 = wordmark white/dark/two-tone, 1/3/5 = icon white/dark/cyan
+- **Navbar** (`Navbar.tsx`): `next/image` of `dunajmedia-logo.svg`, intrinsic `width=181 height=30`, rendered `h-6` (24px, 145px wide) on mobile / `sm:h-7` (28px, 169px wide), `priority`, `unoptimized` (SVG). Old icon+divider+text wordmark and animated underline removed
+- **Footer** (`Footer.tsx`): same SVG, intrinsic `193×32`, rendered `h-8` (32px)
+- **Favicon/metadata** use Next file conventions in `src/app/`: `favicon.ico` (16/32/48), `icon.png` (512×512, cyan brandmark on navy `#0A192F` rounded square), `apple-icon.png` (180×180, opaque navy). The old `icons: {...}` block in `layout.tsx` and `public/logo.png` were removed — don't re-add (an explicit `icons` entry overrides the file convention)
+- **OG image**: `public/og-image.jpg` (1200×630, navy gradient + two-tone wordmark). Referenced by `layout.tsx` (OpenGraph, Twitter, JSON-LD) — this file did not exist before, so social previews were broken until now
+- No "Built by DunajMedia" badges or other logo placements exist in the codebase (checked: only Navbar, Footer, layout metadata)
+
 ## Image Assets
 - `/public/mockup.PNG` — website mockup shown in AboutSnippet (homepage)
 - `/public/about/adem.jpg` — founder photo shown in AboutPage story section
