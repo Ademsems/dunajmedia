@@ -47,6 +47,36 @@ export default defineType({
       title: 'Body',
       type: 'blockContent',
     }),
+    defineField({
+      name: 'faq',
+      title: 'FAQ',
+      type: 'array',
+      description:
+        'Optional. Question/answer pairs published as FAQPage structured data (JSON-LD). Keep them in sync with the FAQ shown in the article body.',
+      of: [
+        {
+          type: 'object',
+          name: 'faqItem',
+          title: 'FAQ item',
+          fields: [
+            defineField({
+              name: 'question',
+              title: 'Question',
+              type: 'string',
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: 'answer',
+              title: 'Answer',
+              type: 'text',
+              rows: 4,
+              validation: (Rule) => Rule.required(),
+            }),
+          ],
+          preview: { select: { title: 'question', subtitle: 'answer' } },
+        },
+      ],
+    }),
   ],
   preview: {
     select: {

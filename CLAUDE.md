@@ -63,6 +63,7 @@ src/
     ContactForm.tsx               — shared contact form (used on most pages)
     PricingTable.tsx              — pricing cards (used on /pricing, /services/tvorba-web-stranok, homepage)
     ServiceFAQ.tsx                — accordion FAQ component
+    JsonLd.tsx                    — server component: renders <script type="application/ld+json"> from a data object (escapes `<` as <)
   messages/
     sk.json                       — Slovak translations
     en.json                       — English translations
@@ -70,6 +71,8 @@ src/
     LanguageContext.tsx           — i18n provider
   lib/
     gtag.ts                       — gaEvent() helper for firing GA4 custom events client-side
+    jsonld.ts                     — pure builders: blogPostingJsonLd(), faqPageJsonLd(), SITE_URL
+    sanity.ts                     — Sanity client + GROQ queries (getPostBySlug also fetches _updatedAt and faq)
 ```
 
 ## Pricing (correct as of 2026)
@@ -161,6 +164,14 @@ All images moved to `/public/our-work/`:
 - Service pages (Web Design, SEO, Social Media) previously stacked 4 CTAs at the bottom (closing CTA section, `CTABanner`, then the form). Now each ends with **one** unified CTA: `<ContactForm headline=… subtitle=… />`
 - `ContactForm` accepts optional `headline`/`subtitle` props (falls back to the generic `contact.form.headline`/`contact.hero.sub` elsewhere). Per-page keyworded headlines: "Custom Next.js web design" / "AI-driven SEO" / "Data-driven social media management" — keep keywords in these, not generic "Contact us"
 - Don't re-add `CTABanner` or a separate closing CTA section to these three service pages. Homepage and other pages still use `CTABanner` + `ContactForm`
+
+## Blog structured data (JSON-LD — 2026-11-05)
+- `src/app/blog/[slug]/page.tsx` renders `<JsonLd>` scripts built by `src/lib/jsonld.ts`. They are plain `<script type="application/ld+json">` tags (NOT `next/script`, NOT `generateMetadata`) via the server component `src/components/JsonLd.tsx`, which does `JSON.stringify(data).replace(/</g, '\u003c')` so post text can never close the script tag
+- **BlogPosting** is always emitted: headline = `title`; description = `excerpt` (trimmed — there is no separate meta-description field in the schema; `generateMetadata` also uses `excerpt`); image = hero `mainImage` (1400×700 crop, same as the on-page hero); `datePublished` = `publishedAt`; `dateModified` = Sanity `_updatedAt`, **clamped to `publishedAt` if it would be earlier** (editors can backdate `publishedAt` — this happened on `web-dizajn-trendy`); `inLanguage` `sk-SK`; author and publisher = Organization "Dunajmedia"; `mainEntityOfPage` = `https://dunajmedia.sk/blog/<slug>`. Fields that are empty are omitted
+- **FAQPage** is emitted only when the post has FAQ items. New optional Sanity field `faq` (array of `{question, answer}`) in `src/sanity/schemas/post.ts`; items with a blank question or answer are dropped. Editors fill it in `/studio` (Studio is part of this app, so schema changes ship with the push)
+- Google's rule: FAQ markup must match content **visible on the page**. The `faq` field is not rendered visibly by the template — authors must also include the same Q&A in the article body
+- The site-wide LocalBusiness JSON-LD in `layout.tsx` is separate and untouched; each post page therefore has 2 scripts (3 with FAQ)
+- **Local dev/build with Sanity:** `.env` isn't in the repo, so `npm run build` fails on `/sitemap.xml` and `/blog/[slug]` ("Configuration must contain `projectId`"). The project ID and dataset are public (also hardcoded in `sanity.config.ts`): run with `NEXT_PUBLIC_SANITY_PROJECT_ID=8rfcu2ua NEXT_PUBLIC_SANITY_DATASET=production` set in the shell for a full, error-free local build against real posts. Never write API tokens into the repo
 
 ## Key Decisions & Patterns
 - All page-level components follow Server Component (page.tsx exports metadata) + Client Component (PageClient.tsx with 'use client') pattern

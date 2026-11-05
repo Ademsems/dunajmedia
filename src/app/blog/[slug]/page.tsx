@@ -5,6 +5,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, Clock, Calendar } from 'lucide-react';
 import type { Metadata } from 'next';
+import JsonLd from '@/components/JsonLd';
+import { SITE_URL, blogPostingJsonLd, faqPageJsonLd } from '@/lib/jsonld';
 
 export const dynamic = 'force-dynamic';
 
@@ -144,7 +146,20 @@ export default async function BlogPostPage({ params }: Props) {
       })
     : '';
 
+  const blogPosting = blogPostingJsonLd({
+    title: post.title,
+    excerpt: post.excerpt,
+    publishedAt: post.publishedAt,
+    updatedAt: post._updatedAt,
+    imageUrl: post.mainImage ? urlFor(post.mainImage).width(1400).height(700).url() : null,
+    url: `${SITE_URL}/blog/${post.slug?.current ?? params.slug}`,
+  });
+  const faqPage = faqPageJsonLd(post.faq);
+
   return (
+    <>
+    <JsonLd data={blogPosting} />
+    {faqPage && <JsonLd data={faqPage} />}
     <article className="bg-navy min-h-screen">
       <div className="relative">
         {post.mainImage ? (
@@ -225,5 +240,6 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
       </div>
     </article>
+    </>
   );
 }

@@ -42,6 +42,7 @@ export async function getPostBySlug(slug: string) {
     return await client.fetch(`
       *[_type == "post" && slug.current == $slug][0] {
         _id,
+        _updatedAt,
         title,
         slug,
         excerpt,
@@ -49,7 +50,8 @@ export async function getPostBySlug(slug: string) {
         mainImage,
         "category": categories[0]->title,
         "readTime": round(length(pt::text(body)) / 5 / 180) + " min",
-        body
+        body,
+        faq[]{ question, answer }
       }
     `, { slug });
   } catch (error) {
