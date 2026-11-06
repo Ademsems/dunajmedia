@@ -63,6 +63,7 @@ src/
     ContactForm.tsx               — shared contact form (used on most pages)
     PricingTable.tsx              — pricing cards (used on /pricing, /services/tvorba-web-stranok, homepage)
     ServiceFAQ.tsx                — accordion FAQ component
+    PortableTable.tsx             — server component: renders Sanity `table` blocks in blog posts (thead/tbody, scrolls on mobile, brand colors)
     JsonLd.tsx                    — server component: renders <script type="application/ld+json"> from a data object (escapes `<` as <)
   messages/
     sk.json                       — Slovak translations
@@ -172,6 +173,13 @@ All images moved to `/public/our-work/`:
 - Google's rule: FAQ markup must match content **visible on the page**. The `faq` field is not rendered visibly by the template — authors must also include the same Q&A in the article body
 - The site-wide LocalBusiness JSON-LD in `layout.tsx` is separate and untouched; each post page therefore has 2 scripts (3 with FAQ)
 - **Local dev/build with Sanity:** `.env` isn't in the repo, so `npm run build` fails on `/sitemap.xml` and `/blog/[slug]` ("Configuration must contain `projectId`"). The project ID and dataset are public (also hardcoded in `sanity.config.ts`): run with `NEXT_PUBLIC_SANITY_PROJECT_ID=8rfcu2ua NEXT_PUBLIC_SANITY_DATASET=production` set in the shell for a full, error-free local build against real posts. Never write API tokens into the repo
+
+## Blog tables (Sanity `@sanity/table` — 2026-11-06)
+- Plugin: **`@sanity/table@^1.1.4`** (resolved 1.1.4), registered as `table()` in `sanity.config.ts` `plugins`. Its type `table` is a member of the `blockContent` array (`src/sanity/schemas/blockContent.ts` — that array is the `body` of `post`; `post.ts` only references `type: 'blockContent'`)
+- **Why 1.x and not newer:** Sanity here is 3.99 / React 18.3. `@sanity/table` 3.x needs Sanity 5 + React 19. 2.0.x passes the peer range (`sanity ^3||^4||^5`) but depends on `@sanity/ui ^3`, while Sanity 3.99 ships `@sanity/ui ^2.16` — a second, mismatched UI copy next to Studio's theme provider. 1.1.4 depends on `@sanity/ui ^2.10` and dedupes to the single installed 2.16.x. Verify with `find node_modules -path "*@sanity/ui/package.json"` (must be one copy). **Upgrade the plugin together with Sanity (v5/React 19), not before**
+- Data shape: `{_type:'table', rows:[{_type:'tableRow', _key, cells:[string,…]}]}` — first row is treated as the header
+- Rendering: `src/components/PortableTable.tsx` is registered as `types.table` in the blog page's `portableTextComponents`. Semantic `<table>`, first row → `<thead>` with `<th scope="col">`, rest → `<tbody>`; wrapper is `overflow-x-auto` + focusable (keyboard scroll) with a column-based `min-width` (7rem/column) so wide tables scroll inside the box on mobile instead of widening the page. Colors are the literal brand hexes (surface `#0B1224`, borders `#1E293B`, header text white, body text `#94A3B8`) — intentionally not the `navy`/`slate-text` tokens. Empty tables render nothing
+- Verify schema after Sanity/plugin changes with `npx sanity schema validate` (loads `sanity.config.ts`; no login needed)
 
 ## Key Decisions & Patterns
 - All page-level components follow Server Component (page.tsx exports metadata) + Client Component (PageClient.tsx with 'use client') pattern

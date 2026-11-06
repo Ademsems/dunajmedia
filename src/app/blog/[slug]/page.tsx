@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { ArrowLeft, Clock, Calendar } from 'lucide-react';
 import type { Metadata } from 'next';
 import JsonLd from '@/components/JsonLd';
+import PortableTable from '@/components/PortableTable';
 import { SITE_URL, blogPostingJsonLd, faqPageJsonLd } from '@/lib/jsonld';
 
 export const dynamic = 'force-dynamic';
@@ -91,6 +92,7 @@ const portableTextComponents: Record<string, any> = {
     ),
   },
   types: {
+    table: PortableTable,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     image: ({ value }: { value: any }) => {
       if (!value || !value.asset) return null;
