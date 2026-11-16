@@ -20,7 +20,8 @@ Dunajmedia is a **sole trader (živnosť)**, NOT an s.r.o.
 ## Tech Stack
 - **Next.js 14** (App Router) + TypeScript
 - **Tailwind CSS** + custom design tokens (navy/aqua color scheme)
-- **Framer Motion** for animations
+- **Framer Motion** for animations (also powers toasts, cursor reticle, card stacks — no extra animation/toast dependency)
+- **ESLint**: `.eslintrc.json` extends `next/core-web-vitals` (+ `@typescript-eslint` plugin so existing `eslint-disable` comments resolve); `npm run lint` must pass
 - **Lucide React** for icons
 - **Vercel** for hosting
 - **Sanity CMS** for blog (`/blog` fetches from Sanity GROQ; `/studio` is the CMS UI)
@@ -65,6 +66,16 @@ src/
     ServiceFAQ.tsx                — accordion FAQ component
     PortableTable.tsx             — server component: renders Sanity `table` blocks in blog posts (thead/tbody, scrolls on mobile, brand colors)
     JsonLd.tsx                    — server component: renders <script type="application/ld+json"> from a data object (escapes `<` as <)
+    Preloader.tsx                 — once-per-session counter intro (see "Motion layer")
+    CustomCursor.tsx              — trailing diamond reticle for fine pointers (see "Motion layer")
+    Toaster.tsx                   — ToastProvider + useToast() (frosted navy toasts)
+    CopyButton.tsx                — copy email/phone icon button, confirms with a toast
+    KineticHeading.tsx            — SEO-safe rolling heading (single semantic tag)
+    MarqueeTicker.tsx             — outlined + solid infinite ticker (`marquee.items`)
+    HandDrawn.tsx                 — scroll-drawn aqua SVG circle / underline around a phrase
+    PricingPromise.tsx            — "from €349 … within 72 hours" line using HandDrawn (`promise.*`)
+    StickyCardStack.tsx           — sticky stacking card deck (/how-we-work, /services)
+    WebProjectFinder.tsx          — 30-second package quiz (web design page only)
   messages/
     sk.json                       — Slovak translations
     en.json                       — English translations
@@ -72,6 +83,8 @@ src/
     LanguageContext.tsx           — i18n provider
   lib/
     gtag.ts                       — gaEvent() helper for firing GA4 custom events client-side
+    intro.ts                      — INTRO_STORAGE_KEY + introGuardScript (inline <head> script for the preloader)
+    contactPrefill.ts             — CONTACT_FORM_ID, CONTACT_PREFILL_EVENT (quiz → ContactForm)
     jsonld.ts                     — pure builders: blogPostingJsonLd(), faqPageJsonLd(), SITE_URL
     sanity.ts                     — Sanity client + GROQ queries (getPostBySlug also fetches _updatedAt and faq)
 ```
@@ -192,8 +205,57 @@ All images moved to `/public/our-work/`:
 - Cookie banner is a shared client component — test at 375px after any footer/layout changes
 
 ## Before Pushing
-1. `npm run build` — zero errors required
+1. `npm run lint` and `npm run build` — zero errors required
 2. `npm run dev` — spot-check homepage, about, all service pages, pricing, contact
 3. Toggle SK/EN on at least 2 pages to confirm i18n keys work
 4. Check homepage stats (3 tiles), cookie banner at 375px, FAQ accordions expand
 5. `git add . && git commit -m "..."  && git push`
+
+## Motion layer, Agency dropdown, card stacks, project finder (2026-11-16)
+Built on branch `feat/sprk-motion-upgrade`. Everything respects `prefers-reduced-motion` (see the media query at the end of `globals.css` + `useReducedMotion()` in the components).
+
+### Tokens (fonts + easing)
+- **Italic accent font**: `Instrument Serif` italic 400 via `next/font/google` in `layout.tsx` → CSS var `--font-instrument-serif`, Tailwind `font-serif`, CSS class `.accent-serif` (italic, aqua). Paired with Syne on display headlines only — never for body text
+- **Easing** — CSS vars in `:root` (`globals.css`) and matching Tailwind `ease-*` utilities (`tailwind.config.js` → `transitionTimingFunction`):
+  - `--ease-expo` / `ease-expo` = `cubic-bezier(0.19, 1, 0.22, 1)` — header, preloader curtain, reveals, dropdowns
+  - `--ease-inout` / `ease-in-out-cue` = `cubic-bezier(0.65, 0, 0.35, 1)` — scroll cue, hand-drawn ink
+  - `--ease-spring` / `ease-spring` = `cubic-bezier(0.34, 1.56, 0.64, 1)` — button press/lift
+- **Utility classes** (all in `globals.css`): `.grain`, `.link-underline` (left→right `scaleX` underline; add `data-active="true"` to keep it drawn), `.btn-kinetic` (lift −2px on hover, `scale(0.95)` on press — keeps each button's own glow; do NOT flatten buttons to solid fills), `.scroll-cue`, `.marquee` / `.marquee-track`, `.text-outline` (`-webkit-text-stroke`), `.kinetic*`, `.accent-serif`, `.ink-glow`
+- **z-index ladder**: grain 30 → header 40 → toasts 9300 → preloader 9400 → cursor 9500
+
+### Global components (mounted in `layout.tsx`)
+- **`Preloader`** — full-viewport navy cover, `001 → 100` tabular counter bottom-left + 1px glowing aqua line along the bottom (~1.0s), then slides up (`--ease-expo`). Runs once per browser session: `sessionStorage['dunaj_intro_seen']`. An inline `<head>` script (`introGuardScript` in `src/lib/intro.ts`) sets `<html data-intro="skip">` before first paint for returning sessions, reduced motion and `/studio`, so the cover never flashes; `.preloader` is `display:none` under that attribute. Safety nets: a `setTimeout` guard finishes the intro even if `requestAnimationFrame` is starved (background tab), a CSS failsafe animation hides it after 6s, and `<noscript>` hides it without JS. The script lives in `lib/` (not in the client component) because a server component cannot import a string from a `'use client'` module
+- **`.grain`** — one fixed, `pointer-events:none` SVG fractal-noise layer at `opacity: 0.035` (a `<div className="grain">` after the providers). It covers every section, so sections do not need their own noise
+- **`CustomCursor`** — hybrid: the sharp aqua arrow is a *native CSS cursor* (data-URI SVG on `html.has-custom-cursor`, zero lag); the component adds the trailing diamond reticle on Framer Motion springs that rotates 45° and scales up over `a, button, [role=button], label, select, summary, [data-cursor="hover"]`. Only enabled for `(hover: hover) and (pointer: fine)`, off for reduced motion, touch and `/studio`. Add `data-cursor="hover"` to make a non-link element trigger the hover state
+- **`ToastProvider` / `useToast()`** (`Toaster.tsx`) — custom Framer Motion toasts (no `sonner`), bottom-centre so they never cover the cookie banner. `toast(message, 'success' | 'error')`. Wired to: `CopyButton` (email/phone in `ContactForm` and `ContactPageClient` — the button is a *sibling* of the `mailto:`/`tel:` link, never nested inside it), `ContactForm` submit success/error (alongside the inline status and the existing `generate_lead` event), and the project finder prefill. No new GA4 events were added
+
+### Smart header + "Agentúra / Agency" dropdown (`Navbar.tsx`)
+- Header is still `sticky top-0` (TopBar scrolls away above it). At the top it is transparent with no border; after 20px it becomes frosted navy glass with a 1px hairline; past 140px it glides out on scroll-down and back on scroll-up (`duration-500 ease-expo`). It never hides while a dropdown or the mobile menu is open
+- The homepage `Hero` has `-mt-16` so the video sits under the transparent header — keep that pairing if the header height (`h-16`) changes
+- **Top-level nav is now**: Home · **Agentúra/Agency ▾** · Služby/Services ▾ · Blog · Cenník · Kontakt. About, How We Work and Our Work are **only** inside the Agency dropdown — don't re-add them as top-level links
+- Nav structure is the `navEntries` array; panel content comes from JSON: `nav.agency.{label, items[{href,title,desc}], helper}` and `nav.servicesMenu.{all, items[…]}`. To add a page to a dropdown, add an item in **both** `sk.json` and `en.json`
+- Panel: frosted dark navy, hairline dividers, bold title + 1-line description, bottom helper link to `/contact` (Agency) or "All services" (Services). Agency trigger is a `<button>` (no landing page); Services trigger is still a link to `/services`
+- Interaction: opens on hover; a hover-opened panel stays open when the trigger is clicked; closes on mouse leave, `Escape`, blur, or an outside tap. Mobile: each group is a collapsible accordion (one open at a time)
+- The old `navbar-indicator` pill was replaced by `.link-underline` (active page keeps the underline)
+
+### Typography, ticker, accents
+- **`KineticHeading`** — `<KineticHeading className="…" accent="phrase">text</KineticHeading>`; props `as` (`h1|h2|h3`, default `h2`), `accent`, `delay`. Words slide up out of a clipped line on scroll and roll again on hover
+  - **SEO rule (do not break):** it renders exactly ONE heading element and the text exists ONCE in the DOM. The hover roll layer is an `aria-hidden` span whose glyphs come from `data-text` via CSS `content: attr(data-text)` — never put a second copy of the heading text in the DOM. Verified in the prerendered HTML: no duplicate `<h2>` text on any page
+  - Children must be a plain string (a `t()` call or `isSk ? 'a' : 'b'`); anything else falls back to a plain heading. `accent` must be an exact substring of the text or it is ignored — homepage accents live in `home.accents.*` and must be kept in sync if a headline is reworded
+  - All section `<h2>`s on the homepage, about, how-we-work, services, the three service pages, pricing, work and `ContactForm` use it. Blog and case-study pages do not
+- **Hero** h1: the middle line (`home.hero.headline2`) is set in italic Instrument Serif with the aqua gradient. The old chevron scroll indicator is now the 1px `.scroll-cue` hairline (`scaleY 0→1→0`, 1.8s)
+- **Homepage `Services`** is now oversized editorial rows (number · big title · short text · arrow) with hairline borders instead of a card grid
+- **`MarqueeTicker`** — phrases from `marquee.items` (both JSON files), alternating `.text-outline` and solid, `◆` separators, pause on hover/focus. Renders four identical lists and slides the track by −50% (seamless); only the first list is exposed to assistive tech. Placed in exactly two spots: homepage directly below `Hero`, and directly above the bottom `ContactForm` CTA on the three service pages. Marquee copy must stay true to the Stats/Pricing rules above (72h = Business Pro, from €349)
+- **`HandDrawn`** — wraps a phrase and draws a glowing aqua `circle` or `underline` with `pathLength` (stroke-dashoffset → 0) `whileInView`. Used via `PricingPromise` (circles €349, underlines "72 hodín / 72 hours"; strings in `promise.*`) on the homepage pricing teaser and the web design pricing section
+
+### Sticky stacking decks (`StickyCardStack`)
+- Generic: `items`, `getKey`, `renderCard`, `cardClassName`, `topOffset` (96), `step` (14). Each card is `position: sticky` with a progressive `top`; a covered card scales to 0.96 and dims, driven by the next card's scroll position
+- Used for the 6 process steps on `/how-we-work` and the 6 services on `/services`
+- **The parent `<section>` must not have `overflow-hidden`** — it silently breaks `position: sticky`. Both sections had it removed
+- **No-clipping fallback:** the component measures every card; if one is taller than the room under its pin point, pinning is switched off and the deck becomes a normal list (`data-sticky="false"`). At 375×812 the process deck pins, while the taller services cards fall back to a list — that is intended, not a bug. Cards need an opaque background
+
+### Project finder (`WebProjectFinder`) — `/services/tvorba-web-stranok` only
+- Sits between the testimonial and the pricing section. Five questions (business type, current site, goal, size, timeline) from `finder.questions`; scoring table `SCORES` and `recommendTier()` are in the component. Page count is a hard rule (more than 10 pages → Agency Elite; up to 10 never recommends Expres Start)
+- The result reads the tier name/price from `pricing.tiers` (ids `expres`, `business`, `elite`) — prices are never duplicated in the quiz copy
+- "Pre-fill the contact form" dispatches the window event `dunaj:contact-prefill` (`src/lib/contactPrefill.ts`); `ContactForm` listens, sets `service` (first entry of `contact.form.services` = web design) and `message`, and the page scrolls to `#contact-form`. Option ids in the JSON must match the keys in `SCORES`
+- Don't add the finder to other pages (SEO has no fixed pricing)

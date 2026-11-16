@@ -3,7 +3,7 @@
 import { useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowRight, Play, ChevronDown } from 'lucide-react';
+import { ArrowRight, Play } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import { gaEvent } from '@/lib/gtag';
 
@@ -34,7 +34,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-[100svh] flex flex-col justify-center overflow-hidden">
+    <section className="relative -mt-16 min-h-[100svh] flex flex-col justify-center overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
         <video
@@ -67,7 +67,7 @@ export default function Hero() {
       />
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-24">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-32">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -91,7 +91,7 @@ export default function Hero() {
               {t('home.hero.headline1')}
             </span>
             <span
-              className="block text-6xl sm:text-7xl lg:text-8xl"
+              className="block w-fit font-serif italic font-normal pr-[0.12em] text-[4.2rem] sm:text-[5rem] lg:text-[6.6rem] leading-[0.95]"
               style={{
                 background: 'linear-gradient(135deg, #64FFDA 0%, #00E5FF 100%)',
                 WebkitBackgroundClip: 'text',
@@ -125,7 +125,7 @@ export default function Hero() {
                 event_category: 'engagement',
                 event_label: 'cta_button_click',
               })}
-              className="group flex items-center gap-2 bg-aqua text-navy font-display font-bold px-8 py-4 rounded-xl hover:bg-aqua-electric transition-all duration-300 shadow-aqua-lg text-base"
+              className="btn-kinetic group flex items-center gap-2 bg-aqua text-navy font-display font-bold px-8 py-4 rounded-xl hover:bg-aqua-electric transition-all duration-300 shadow-aqua-lg text-base"
             >
               {t('home.hero.cta_primary')}
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -133,7 +133,7 @@ export default function Hero() {
 
             <Link
               href="/work"
-              className="group flex items-center gap-2 border border-white/20 backdrop-blur-sm text-slate-lightest font-display font-semibold px-8 py-4 rounded-xl hover:border-aqua/40 hover:bg-white/5 transition-all duration-300 text-base"
+              className="btn-kinetic group flex items-center gap-2 border border-white/20 backdrop-blur-sm text-slate-lightest font-display font-semibold px-8 py-4 rounded-xl hover:border-aqua/40 hover:bg-white/5 transition-all duration-300 text-base"
             >
               <Play size={14} className="text-aqua" />
               {t('home.hero.cta_secondary')}
@@ -157,22 +157,17 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll cue — 1px aqua hairline, scaleY 0 → 1 → 0 loop */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3"
       >
-        <span className="text-slate-text text-xs font-mono tracking-widest uppercase">
+        <span className="text-slate-text text-[10px] font-mono tracking-[0.3em] uppercase">
           {t('home.hero.scroll')}
         </span>
-        <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          <ChevronDown size={16} className="text-aqua" />
-        </motion.div>
+        <span className="scroll-cue" aria-hidden="true" />
       </motion.div>
     </section>
   );

@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
+import KineticHeading from '@/components/KineticHeading';
 import ContactForm from '@/components/ContactForm';
 import CTABanner from '@/components/CTABanner';
 
@@ -102,9 +103,9 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             className="mb-12"
           >
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
+            <KineticHeading className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
               {isSk ? 'Prečo vznikla Dunajmedia' : 'Why Dunajmedia exists'}
-            </h2>
+            </KineticHeading>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -165,9 +166,9 @@ export default function AboutPage() {
             <span className="inline-block font-mono text-xs text-aqua uppercase tracking-widest mb-4 border border-aqua/20 px-3 py-1 rounded-full bg-aqua/5">
               {isSk ? 'Naše hodnoty' : 'Our Values'}
             </span>
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest mt-2">
+            <KineticHeading className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest mt-2">
               {isSk ? 'Princípy, ktoré nás definujú' : 'The principles that define us'}
-            </h2>
+            </KineticHeading>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

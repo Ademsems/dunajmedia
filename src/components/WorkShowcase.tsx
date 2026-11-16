@@ -161,7 +161,7 @@ export default function WorkShowcase({ compact = false }: WorkShowcaseProps) {
         >
           <Link
             href="/work"
-            className="group inline-flex items-center gap-2 border border-aqua/30 text-aqua font-display font-semibold text-sm px-7 py-3.5 rounded-xl hover:bg-aqua hover:text-navy transition-all duration-300"
+            className="btn-kinetic group inline-flex items-center gap-2 border border-aqua/30 text-aqua font-display font-semibold text-sm px-7 py-3.5 rounded-xl hover:bg-aqua hover:text-navy transition-all duration-300"
           >
             {isSk ? 'Zobraziť všetky ukážky' : 'View all demos'}
             <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />

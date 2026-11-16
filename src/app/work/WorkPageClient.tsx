@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight, ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import KineticHeading from '@/components/KineticHeading';
 import WorkShowcase from '@/components/WorkShowcase';
 import CTABanner from '@/components/CTABanner';
 import ContactForm from '@/components/ContactForm';
@@ -116,9 +117,9 @@ export default function WorkPageClient() {
             <span className="inline-block font-mono text-xs text-aqua uppercase tracking-widest mb-3 border border-aqua/20 px-3 py-1 rounded-full bg-aqua/5">
               {isSk ? 'Naša práca' : 'Our Work'}
             </span>
-            <h2 className="font-display text-3xl lg:text-4xl font-bold text-slate-lightest mt-2">
+            <KineticHeading className="font-display text-3xl lg:text-4xl font-bold text-slate-lightest mt-2">
               {isSk ? 'Projekty pre klientov' : 'Client Projects'}
-            </h2>
+            </KineticHeading>
             <p className="text-slate-text font-body mt-3 max-w-xl">
               {isSk
                 ? 'Weby, ktoré sme navrhli a vyvinuli pre skutočné slovenské firmy.'
@@ -222,9 +223,9 @@ export default function WorkPageClient() {
             <span className="inline-block font-mono text-xs text-aqua uppercase tracking-widest mb-3 border border-aqua/20 px-3 py-1 rounded-full bg-aqua/5">
               {isSk ? 'Ukážky' : 'Sample Projects'}
             </span>
-            <h2 className="font-display text-3xl lg:text-4xl font-bold text-slate-lightest mt-2">
+            <KineticHeading className="font-display text-3xl lg:text-4xl font-bold text-slate-lightest mt-2">
               {isSk ? 'Live demo stránky' : 'Live Demo Sites'}
-            </h2>
+            </KineticHeading>
             <p className="text-slate-text font-body mt-3 max-w-xl">
               {isSk
                 ? 'Funkčné demo stránky pre rôzne odvetvia — ukážka toho, čo vieme vytvoriť pre váš biznis.'
@@ -250,9 +251,9 @@ export default function WorkPageClient() {
             <span className="inline-block font-mono text-xs text-aqua uppercase tracking-widest mb-4 border border-aqua/20 px-3 py-1 rounded-full bg-aqua/5">
               {isSk ? 'Ako pracujeme' : 'How we work'}
             </span>
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest mt-2">
+            <KineticHeading className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest mt-2">
               {isSk ? 'Náš proces' : 'Our Process'}
-            </h2>
+            </KineticHeading>
           </motion.div>
 
           <div className="divide-y divide-white/8">
@@ -303,7 +304,7 @@ export default function WorkPageClient() {
           </p>
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-2 bg-aqua text-navy font-display font-bold px-8 py-4 rounded-xl hover:bg-aqua-electric transition-all duration-300 shadow-aqua"
+            className="btn-kinetic group inline-flex items-center gap-2 bg-aqua text-navy font-display font-bold px-8 py-4 rounded-xl hover:bg-aqua-electric transition-all duration-300 shadow-aqua"
           >
             {isSk ? 'Kontaktujte nás' : 'Contact Us'}
             <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />

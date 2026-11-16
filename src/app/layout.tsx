@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Syne, DM_Sans, DM_Mono } from 'next/font/google';
+import { Syne, DM_Sans, DM_Mono, Instrument_Serif } from 'next/font/google';
 import './globals.css';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { LanguageProvider } from '@/context/LanguageContext';
@@ -7,6 +7,10 @@ import TopBar from '@/components/TopBar';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CookieBanner from '@/components/CookieBanner';
+import Preloader from '@/components/Preloader';
+import CustomCursor from '@/components/CustomCursor';
+import { ToastProvider } from '@/components/Toaster';
+import { introGuardScript } from '@/lib/intro';
 
 const ViewportMeta = () => (
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -89,6 +93,15 @@ const dmMono = DM_Mono({
   weight: ['400', '500'],
 });
 
+// Italic editorial accent face, paired with Syne on display headlines
+const instrumentSerif = Instrument_Serif({
+  subsets: ['latin', 'latin-ext'],
+  variable: '--font-instrument-serif',
+  display: 'swap',
+  weight: '400',
+  style: 'italic',
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://dunajmedia.sk'),
   title: {
@@ -141,21 +154,31 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="sk"
-      className={`${syne.variable} ${dmSans.variable} ${dmMono.variable}`}
+      className={`${syne.variable} ${dmSans.variable} ${dmMono.variable} ${instrumentSerif.variable}`}
       suppressHydrationWarning
     >
       <head>
         <ViewportMeta />
         <SchemaOrg />
+        {/* Runs before first paint: skips the intro for returning sessions / reduced motion */}
+        <script dangerouslySetInnerHTML={{ __html: introGuardScript }} />
+        <noscript>
+          <style>{'.preloader{display:none}'}</style>
+        </noscript>
       </head>
       <body className="bg-navy text-slate-light font-body antialiased" suppressHydrationWarning>
         <LanguageProvider>
-          <TopBar />
-          <Navbar />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
-          <CookieBanner />
+          <ToastProvider>
+            <Preloader />
+            <TopBar />
+            <Navbar />
+            <main className="min-h-screen">{children}</main>
+            <Footer />
+            <CookieBanner />
+            <CustomCursor />
+          </ToastProvider>
         </LanguageProvider>
+        <div className="grain" aria-hidden="true" />
       </body>
       {gaId && <GoogleAnalytics gaId={gaId} />}
     </html>

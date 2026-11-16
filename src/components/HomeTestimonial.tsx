@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight, ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import KineticHeading from '@/components/KineticHeading';
 
 export default function HomeTestimonial() {
   const { locale } = useLanguage();
@@ -30,9 +31,9 @@ export default function HomeTestimonial() {
           <span className="inline-block font-mono text-xs text-aqua uppercase tracking-widest mb-4 border border-aqua/20 px-3 py-1 rounded-full bg-aqua/5">
             {isSk ? 'Referencie' : 'Testimonials'}
           </span>
-          <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
+          <KineticHeading className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
             {isSk ? 'Čo hovoria naši klienti' : 'What our clients say'}
-          </h2>
+          </KineticHeading>
         </motion.div>
 
         {/* Testimonial block — desktop: side by side, mobile: stacked */}
@@ -58,7 +59,7 @@ export default function HomeTestimonial() {
             </p>
             <Link
               href="/work/grand-apartman"
-              className="group inline-flex items-center gap-2 bg-aqua text-navy font-display font-bold px-6 py-3 rounded-xl hover:bg-aqua-electric transition-all duration-300 shadow-aqua"
+              className="btn-kinetic group inline-flex items-center gap-2 bg-aqua text-navy font-display font-bold px-6 py-3 rounded-xl hover:bg-aqua-electric transition-all duration-300 shadow-aqua"
             >
               {isSk ? 'Prečítať prípadovú štúdiu' : 'Read the case study'}
               <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />

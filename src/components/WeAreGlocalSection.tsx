@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Globe2, Check } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import KineticHeading from '@/components/KineticHeading';
 
 export default function WeAreGlocalSection() {
   const { t } = useLanguage();
@@ -27,9 +28,9 @@ export default function WeAreGlocalSection() {
             <span className="inline-block font-mono text-xs text-aqua uppercase tracking-widest mb-4 border border-aqua/20 px-3 py-1 rounded-full bg-aqua/5">
               {t('home.weareglocal.label')}
             </span>
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest mb-6 leading-tight">
+            <KineticHeading accent={t('home.accents.glocal')} className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest mb-6 leading-tight">
               {t('home.weareglocal.headline')}
-            </h2>
+            </KineticHeading>
             <p className="text-slate-light text-lg font-body leading-relaxed mb-4">
               {t('home.weareglocal.body1')}
             </p>
@@ -40,7 +41,7 @@ export default function WeAreGlocalSection() {
               href="https://weareglocal.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 bg-aqua text-navy font-display font-bold px-6 py-3 rounded-xl hover:bg-aqua-electric transition-all duration-300 shadow-aqua"
+              className="btn-kinetic group inline-flex items-center gap-2 bg-aqua text-navy font-display font-bold px-6 py-3 rounded-xl hover:bg-aqua-electric transition-all duration-300 shadow-aqua"
             >
               {t('home.weareglocal.cta')}
               <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

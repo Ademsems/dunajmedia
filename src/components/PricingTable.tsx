@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Check, Zap, Star, Crown } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import KineticHeading from '@/components/KineticHeading';
 
 interface PricingTier {
   id: string;
@@ -31,9 +32,9 @@ export default function PricingTable({ compact = false }: { compact?: boolean })
           <span className="inline-block font-mono text-xs text-aqua uppercase tracking-widest mb-4 border border-aqua/20 px-3 py-1 rounded-full bg-aqua/5">
             {t('pricing.hero.label')}
           </span>
-          <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest mb-5">
+          <KineticHeading className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest mb-5">
             {t('pricing.hero.headline')}
-          </h2>
+          </KineticHeading>
           <p className="text-slate-text text-lg max-w-2xl mx-auto font-body">
             {t('pricing.hero.sub')}
           </p>
@@ -109,7 +110,7 @@ export default function PricingTable({ compact = false }: { compact?: boolean })
                 {/* CTA */}
                 <Link
                   href="/contact"
-                  className={`block text-center font-display font-bold text-sm py-4 rounded-xl transition-all duration-300 ${
+                  className={`btn-kinetic block text-center font-display font-bold text-sm py-4 rounded-xl ${
                     tier.highlighted
                       ? 'bg-aqua text-navy hover:bg-aqua-electric shadow-aqua'
                       : 'border border-aqua/30 text-aqua hover:bg-aqua/10'

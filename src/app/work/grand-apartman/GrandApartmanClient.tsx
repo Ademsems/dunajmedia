@@ -129,14 +129,14 @@ export default function GrandApartmanClient() {
                   href="https://grandapartman.sk"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-2 bg-aqua text-navy font-display font-bold px-6 py-3 rounded-xl hover:bg-aqua-electric transition-all duration-300 shadow-aqua"
+                  className="btn-kinetic group inline-flex items-center gap-2 bg-aqua text-navy font-display font-bold px-6 py-3 rounded-xl hover:bg-aqua-electric transition-all duration-300 shadow-aqua"
                 >
                   <ExternalLink size={15} />
                   {c.visitBtn}
                 </a>
                 <Link
                   href="/work"
-                  className="inline-flex items-center gap-2 border border-aqua/30 text-aqua font-display font-semibold px-6 py-3 rounded-xl hover:bg-aqua/10 transition-all duration-300"
+                  className="btn-kinetic inline-flex items-center gap-2 border border-aqua/30 text-aqua font-display font-semibold px-6 py-3 rounded-xl hover:bg-aqua/10 transition-all duration-300"
                 >
                   {c.backBtn}
                 </Link>
@@ -365,7 +365,7 @@ export default function GrandApartmanClient() {
             </p>
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-2 bg-aqua text-navy font-display font-bold px-8 py-4 rounded-xl hover:bg-aqua-electric transition-all duration-300 shadow-aqua"
+              className="btn-kinetic group inline-flex items-center gap-2 bg-aqua text-navy font-display font-bold px-8 py-4 rounded-xl hover:bg-aqua-electric transition-all duration-300 shadow-aqua"
             >
               {c.ctaBtn}
               <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />

@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import ContactForm from '@/components/ContactForm';
 import { gaEvent } from '@/lib/gtag';
+import CopyButton from '@/components/CopyButton';
 
 const contactItems = [
   {
@@ -73,13 +74,22 @@ export default function ContactPageClient() {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="grid grid-cols-2 gap-4"
             >
-              {contactItems.map(({ icon: Icon, key, label_sk, label_en, href }, i) => (
+              {contactItems.map(({ icon: Icon, key, label_sk, label_en, href, value }, i) => (
                 <motion.div
                   key={key}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 + i * 0.1 }}
+                  className="relative"
                 >
+                  {/* Sibling of the card link (not nested inside it) */}
+                  {href && (href.startsWith('mailto:') || href.startsWith('tel:')) && (
+                    <CopyButton
+                      value={value}
+                      kind={href.startsWith('mailto:') ? 'email' : 'phone'}
+                      className="absolute top-4 right-4 z-10"
+                    />
+                  )}
                   {href ? (
                     <a
                       href={href}

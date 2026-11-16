@@ -264,7 +264,7 @@ export default function BlogPageClient() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => { if (email) setSubscribed(true); }}
-                  className="flex items-center gap-2 bg-aqua text-navy font-display font-bold px-5 py-3.5 rounded-xl hover:bg-aqua-electric transition-all text-sm whitespace-nowrap"
+                  className="btn-kinetic flex items-center gap-2 bg-aqua text-navy font-display font-bold px-5 py-3.5 rounded-xl hover:bg-aqua-electric transition-all text-sm whitespace-nowrap"
                 >
                   <Send size={14} />
                   {t('blog.newsletter.cta')}

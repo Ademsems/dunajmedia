@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
+import KineticHeading from '@/components/KineticHeading';
 import PricingTable from '@/components/PricingTable';
 import ContactForm from '@/components/ContactForm';
 
@@ -145,9 +146,9 @@ export default function PricingPageClient() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="font-display text-4xl font-bold text-slate-lightest">
+            <KineticHeading className="font-display text-4xl font-bold text-slate-lightest">
               {t('pricing.faq.headline')}
-            </h2>
+            </KineticHeading>
           </motion.div>
           <div className="space-y-3">
             {faqItems.map((item, i) => (
@@ -164,13 +165,13 @@ export default function PricingPageClient() {
         }} />
         <div className="relative max-w-2xl mx-auto px-4 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="font-display text-3xl font-bold text-slate-lightest mb-4">
+            <KineticHeading className="font-display text-3xl font-bold text-slate-lightest mb-4">
               {t('pricing.cta.headline')}
-            </h2>
+            </KineticHeading>
             <p className="text-slate-text font-body mb-8">{t('pricing.cta.sub')}</p>
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-2 bg-gradient-to-r from-aqua to-aqua-electric text-navy font-display font-bold px-8 py-4 rounded-xl hover:shadow-aqua-lg transition-all"
+              className="btn-kinetic group inline-flex items-center gap-2 bg-gradient-to-r from-aqua to-aqua-electric text-navy font-display font-bold px-8 py-4 rounded-xl hover:shadow-aqua-lg transition-all"
             >
               {t('pricing.cta.cta')}
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />

@@ -8,7 +8,49 @@
     "blog": "Blog",
     "pricing": "Cenník",
     "contact": "Kontakt",
-    "cta": "Začnime"
+    "cta": "Začnime",
+    "agency": {
+      "label": "Agentúra",
+      "items": [
+        {
+          "href": "/about",
+          "title": "O nás",
+          "desc": "Kto stojí za Dunajmedia a prečo vznikla."
+        },
+        {
+          "href": "/how-we-work",
+          "title": "Ako pracujeme",
+          "desc": "Transparentný proces od konzultácie po spustenie."
+        },
+        {
+          "href": "/work",
+          "title": "Naša práca",
+          "desc": "Klientske projekty a živé demo stránky."
+        }
+      ],
+      "helper": "Neviete, čo presne potrebujete? Napíšte nám"
+    },
+    "servicesMenu": {
+      "all": "Všetky služby",
+      "items": [
+        {
+          "href": "/services/tvorba-web-stranok",
+          "title": "Tvorba Web Stránok",
+          "desc": "Rýchle weby na Next.js, ktoré predávajú."
+        },
+        {
+          "href": "/services/seo-optimalizacia",
+          "title": "SEO Optimalizácia",
+          "desc": "AI-driven SEO a GEO pre Google aj AI vyhľadávanie."
+        },
+        {
+          "href": "/services/sprava-socialnych-sieti",
+          "title": "Správa Sociálnych Sietí",
+          "desc": "Obsah a správa profilov podložená dátami."
+        }
+      ]
+    },
+    "menu_toggle": "Otvoriť alebo zavrieť menu"
   },
   "topbar": {
     "email": "info@dunajmedia.sk",
@@ -40,7 +82,8 @@
     "services_snippet": {
       "label": "Naše služby",
       "headline": "Komplexné digitálne služby pre moderný biznis",
-      "sub": "Každá služba je navrhnutá pre maximálny dopad a merateľný rast vašej značky na slovenskom aj medzinárodnom trhu."
+      "sub": "Každá služba je navrhnutá pre maximálny dopad a merateľný rast vašej značky na slovenskom aj medzinárodnom trhu.",
+      "all": "Všetky služby"
     },
     "why": {
       "label": "Prečo Dunajmedia",
@@ -79,6 +122,17 @@
       "point2": "Medzinárodné kampane s lokálnou znalosťou trhu",
       "point3": "Jeden zodpovedný kontakt, globálne možnosti",
       "cta": "Navštíviť WeAreGlocal"
+    },
+    "pricing_teaser": {
+      "label": "Cenník",
+      "headline": "Transparentné ceny pre každý biznis",
+      "accent": "každý biznis"
+    },
+    "accents": {
+      "services": "moderný biznis",
+      "about": "stratégia",
+      "cta": "digitálnu transformáciu",
+      "glocal": "globálny dosah"
     }
   },
   "about": {
@@ -114,9 +168,18 @@
     "numbers": {
       "headline": "Dunajmedia v číslach",
       "items": [
-        { "value": "11+", "label": "Rokov v marketingu" },
-        { "value": "48h", "label": "Najrýchlejšie doručenie webu" },
-        { "value": "100%", "label": "Moderný tech-stack" }
+        {
+          "value": "11+",
+          "label": "Rokov v marketingu"
+        },
+        {
+          "value": "48h",
+          "label": "Najrýchlejšie doručenie webu"
+        },
+        {
+          "value": "100%",
+          "label": "Moderný tech-stack"
+        }
       ]
     }
   },
@@ -222,10 +285,26 @@
       "label": "Náš proces",
       "headline": "Ako Dunajmedia Strategizuje Váš Digitálny Úspech",
       "steps": [
-        { "number": "01", "title": "Analýza", "desc": "Dôkladná analýza vášho trhu, konkurencie a cieľov pre vytvorenie pevných základov." },
-        { "number": "02", "title": "Stratégia", "desc": "Precízna tvorba digitálnej stratégie na mieru, s jasne definovanými KPI a akčným plánom." },
-        { "number": "03", "title": "Realizácia", "desc": "Agilná implementácia s dôrazom na rýchlosť a kvalitu, dodávaná transparentne a efektívne." },
-        { "number": "04", "title": "Optimalizácia", "desc": "Kontinuálne monitorovanie, optimalizácia a A/B testovanie pre maximálny ROI a udržateľný rast." }
+        {
+          "number": "01",
+          "title": "Analýza",
+          "desc": "Dôkladná analýza vášho trhu, konkurencie a cieľov pre vytvorenie pevných základov."
+        },
+        {
+          "number": "02",
+          "title": "Stratégia",
+          "desc": "Precízna tvorba digitálnej stratégie na mieru, s jasne definovanými KPI a akčným plánom."
+        },
+        {
+          "number": "03",
+          "title": "Realizácia",
+          "desc": "Agilná implementácia s dôrazom na rýchlosť a kvalitu, dodávaná transparentne a efektívne."
+        },
+        {
+          "number": "04",
+          "title": "Optimalizácia",
+          "desc": "Kontinuálne monitorovanie, optimalizácia a A/B testovanie pre maximálny ROI a udržateľný rast."
+        }
       ]
     }
   },
@@ -235,7 +314,14 @@
       "headline": "Insights zo sveta digitálu: trendy, stratégie a AI.",
       "sub": "Dunajmedia prináša najnovšie poznatky, analýzy a strategické tipy z oblasti SEO, AI, webdevu a growth marketingu, špeciálne pre slovenský a európsky trh."
     },
-    "categories": ["Všetko", "SEO", "Web Dizajn", "Social Media", "AI & Tech", "Growth"],
+    "categories": [
+      "Všetko",
+      "SEO",
+      "Web Dizajn",
+      "Social Media",
+      "AI & Tech",
+      "Growth"
+    ],
     "posts": [
       {
         "slug": "ai-seo-2024",
@@ -419,7 +505,7 @@
       "headline": "Pošlite nám správu",
       "name": "Vaše meno",
       "email": "E-mailová adresa",
-	"phone": "Telefónne číslo",
+      "phone": "Telefónne číslo",
       "company": "Firma (nepovinné)",
       "service": "Záujem o službu",
       "message": "Vaša správa",
@@ -445,9 +531,23 @@
       "services": "Služby",
       "legal": "Právne info"
     },
-    "company_links": ["O nás", "Blog", "Cenník", "Kontakt"],
-    "service_links": ["Tvorba webov", "SEO & AI", "Social Media", "Growth Marketing"],
-    "legal_links": ["Ochrana osobných údajov", "Podmienky používania", "Cookies"],
+    "company_links": [
+      "O nás",
+      "Blog",
+      "Cenník",
+      "Kontakt"
+    ],
+    "service_links": [
+      "Tvorba webov",
+      "SEO & AI",
+      "Social Media",
+      "Growth Marketing"
+    ],
+    "legal_links": [
+      "Ochrana osobných údajov",
+      "Podmienky používania",
+      "Cookies"
+    ],
     "copyright": "© 2026 Dunajmedia. Všetky práva vyhradené.",
     "social": "Sledujte nás"
   },
@@ -462,5 +562,173 @@
     "learn_more": "Zistiť viac",
     "get_started": "Začnite dnes",
     "contact_us": "Kontaktujte nás"
+  },
+  "toast": {
+    "copied_email": "E-mail skopírovaný do schránky",
+    "copied_phone": "Telefónne číslo skopírované do schránky",
+    "copy_failed": "Kopírovanie sa nepodarilo",
+    "copy_email": "Kopírovať e-mail",
+    "copy_phone": "Kopírovať telefónne číslo",
+    "prefilled": "Formulár sme predvyplnili vašimi odpoveďami",
+    "dismiss": "Zavrieť oznámenie",
+    "region": "Oznámenia"
+  },
+  "marquee": {
+    "label": "Silné stránky Dunajmedia",
+    "items": [
+      "Next.js rýchlosť",
+      "AI SEO & GEO",
+      "Dodanie do 72 hodín",
+      "Founding Agency WeAreGlocal",
+      "Weby od €349",
+      "Dvojjazyčne SK / EN",
+      "11+ rokov v marketingu"
+    ]
+  },
+  "promise": {
+    "before": "Fixné ceny bez skrytých poplatkov. Weby už od",
+    "price": "€349",
+    "mid": ", viacstránkový web hotový do",
+    "hours": "72 hodín",
+    "after": "."
+  },
+  "stack": {
+    "included": "Čo zahŕňa",
+    "step": "Krok"
+  },
+  "finder": {
+    "label": "Project Finder",
+    "headline": "Nájdite ideálny balík za 30 sekúnd",
+    "accent": "30 sekúnd",
+    "sub": "Odpovedzte na päť rýchlych otázok a odporučíme vám webový balík, ktorý sedí vášmu biznisu.",
+    "step": "Otázka",
+    "of": "z",
+    "back": "Späť",
+    "restart": "Začať odznova",
+    "questions": [
+      {
+        "id": "business",
+        "short": "Typ podnikania",
+        "title": "Aký typ podnikania máte?",
+        "options": [
+          {
+            "id": "solo",
+            "label": "Živnostník alebo freelancer"
+          },
+          {
+            "id": "local",
+            "label": "Lokálna služba alebo prevádzka"
+          },
+          {
+            "id": "company",
+            "label": "Zavedená firma"
+          },
+          {
+            "id": "complex",
+            "label": "E-shop alebo vlastná platforma"
+          }
+        ]
+      },
+      {
+        "id": "status",
+        "short": "Súčasný web",
+        "title": "Aký je stav vášho súčasného webu?",
+        "options": [
+          {
+            "id": "none",
+            "label": "Web zatiaľ nemám"
+          },
+          {
+            "id": "outdated",
+            "label": "Mám zastaraný web"
+          },
+          {
+            "id": "noresults",
+            "label": "Mám web, ale neprináša dopyty"
+          },
+          {
+            "id": "complex",
+            "label": "Potrebujem pokročilé funkcie"
+          }
+        ]
+      },
+      {
+        "id": "goal",
+        "short": "Hlavný cieľ",
+        "title": "Čo je váš hlavný cieľ?",
+        "options": [
+          {
+            "id": "presence",
+            "label": "Byť rýchlo online"
+          },
+          {
+            "id": "leads",
+            "label": "Získavať dopyty a zákazníkov"
+          },
+          {
+            "id": "seo",
+            "label": "Lepšie pozície v Google"
+          },
+          {
+            "id": "scale",
+            "label": "Riešenie na mieru a škálovanie"
+          }
+        ]
+      },
+      {
+        "id": "size",
+        "short": "Rozsah webu",
+        "title": "Aký rozsah webu potrebujete?",
+        "options": [
+          {
+            "id": "one",
+            "label": "Jedna stránka (one-page)"
+          },
+          {
+            "id": "multi",
+            "label": "Do 10 podstránok"
+          },
+          {
+            "id": "large",
+            "label": "Viac ako 10 podstránok"
+          }
+        ]
+      },
+      {
+        "id": "timeline",
+        "short": "Termín",
+        "title": "Kedy potrebujete web spustiť?",
+        "options": [
+          {
+            "id": "asap",
+            "label": "Čo najskôr — do 48 hodín"
+          },
+          {
+            "id": "week",
+            "label": "Do týždňa"
+          },
+          {
+            "id": "flexible",
+            "label": "Nie je to súrne, chcem to precízne"
+          }
+        ]
+      }
+    ],
+    "result": {
+      "label": "Naše odporúčanie",
+      "headline": "Váš ideálny balík",
+      "one_time": "jednorazovo",
+      "reasons": {
+        "expres": "Jednostránkový web doručený do 48 hodín — ideálny štart, keď chcete byť rýchlo online.",
+        "business": "Web do 10 podstránok s doručením do 72 hodín — najlepší pomer ceny a výkonu pre firmy, ktoré chcú dopyty.",
+        "elite": "Neobmedzený počet stránok a riešenie na mieru — pre projekty, ktoré potrebujú pokročilé funkcie a priestor na rast."
+      },
+      "answers": "Vaše odpovede",
+      "cta": "Predvyplniť kontaktný formulár",
+      "note": "Presný rozsah a termín potvrdíme na bezplatnej konzultácii.",
+      "message_intro": "Dobrý deň, vyplnil(a) som Project Finder na vašom webe.",
+      "message_recommended": "Odporúčaný balík",
+      "message_outro": "Prosím o nezáväznú konzultáciu."
+    }
   }
 }

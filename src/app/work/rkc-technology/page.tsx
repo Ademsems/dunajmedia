@@ -43,7 +43,7 @@ export default function RKCTechnologyPage() {
           href="https://advancednavigation.sk"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 bg-aqua text-navy font-display font-bold px-6 py-3 rounded-xl hover:bg-aqua-electric transition-all duration-300 mb-16"
+          className="btn-kinetic inline-flex items-center gap-2 bg-aqua text-navy font-display font-bold px-6 py-3 rounded-xl hover:bg-aqua-electric transition-all duration-300 mb-16"
         >
           <ExternalLink size={16} />
           advancednavigation.sk
