@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import MarqueeTicker from '@/components/MarqueeTicker';
+import KineticHeading from '@/components/KineticHeading';
 import ContactForm from '@/components/ContactForm';
 import ServiceFAQ from '@/components/ServiceFAQ';
 
@@ -192,9 +194,9 @@ export default function SEOPageClient() {
         <div className="absolute inset-0 grid-bg opacity-10 pointer-events-none" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest mb-6">
+            <KineticHeading className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest mb-6">
               {isSk ? 'Čo Je SEO Optimalizácia?' : 'What Is SEO Optimization?'}
-            </h2>
+            </KineticHeading>
             <p className="text-slate-text text-lg font-body leading-relaxed max-w-3xl">
               {isSk
                 ? 'SEO — optimalizácia pre vyhľadávače — je súbor techník, ktoré zvyšujú pozície vo vyhľadávačoch ako Google. Keď niekto vyhľadá službu alebo produkt, ktorý ponúkate, Google rozhodne, ktoré weby zobrazí na prvej stránke. Cieľom SEO optimalizácie webstránok je zabezpečiť, aby bol váš web medzi prvými výsledkami — nie na stránke 3 vyhľadávania, kde ho nikto nevidí. Google optimalizácia dnes zahŕňa technické aspekty webu, kvalitu obsahu, spätné odkazy aj rýchlosť načítania. Správna SEO stratégia od Dunajmedia pokrýva všetky tieto oblasti.'
@@ -209,9 +211,9 @@ export default function SEOPageClient() {
         <div className="absolute inset-0 grid-bg opacity-15 pointer-events-none" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-12">
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
+            <KineticHeading className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
               {isSk ? 'Naše SEO Služby' : 'Our SEO Services'}
-            </h2>
+            </KineticHeading>
             <p className="text-slate-text text-lg font-body mt-4 max-w-2xl">
               {isSk
                 ? 'Komplexná profesionálna SEO optimalizácia pre slovenský trh — od technického auditu po AI-optimalizovaný obsah.'
@@ -236,9 +238,9 @@ export default function SEOPageClient() {
         <div className="absolute inset-0 grid-bg opacity-10 pointer-events-none" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-12">
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
+            <KineticHeading className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
               {isSk ? 'Prečo Je Dunajmedia Iná SEO Agentúra Bratislava' : 'Why Dunajmedia Is a Different SEO Agency in Bratislava'}
-            </h2>
+            </KineticHeading>
             <p className="text-slate-text text-lg font-body mt-4 max-w-2xl">
               {isSk
                 ? 'Väčšina tradičných SEO firiem na Slovensku stále ponúka postupy z roku 2018 — preplnené kľúčové slová a pomalé WordPress weby. Naša moderná mediálna agentúra stavia na bleskovej rýchlosti Next.js a pokročilej GEO optimalizácii pre umelú inteligenciu.'
@@ -269,9 +271,9 @@ export default function SEOPageClient() {
         <div className="absolute inset-0 grid-bg opacity-15 pointer-events-none" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-12">
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
+            <KineticHeading className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
               {isSk ? 'Náš Postup SEO Optimalizácie' : 'Our SEO Optimization Process'}
-            </h2>
+            </KineticHeading>
             <p className="text-slate-text text-lg font-body mt-4 max-w-2xl">
               {isSk
                 ? 'Transparentná SEO stratégia s merateľnými výsledkami v každom kroku.'
@@ -308,16 +310,16 @@ export default function SEOPageClient() {
             <span className="inline-block font-mono text-xs text-aqua uppercase tracking-widest mb-4 border border-aqua/20 px-3 py-1 rounded-full bg-aqua/10">
               {isSk ? 'Bezplatný audit' : 'Free audit'}
             </span>
-            <h2 className="font-display text-3xl lg:text-4xl font-bold text-slate-lightest mb-5">
+            <KineticHeading className="font-display text-3xl lg:text-4xl font-bold text-slate-lightest mb-5">
               {isSk ? 'Bezplatný SEO Audit — Zistite, Kde Sa Nachádzate na Googli' : 'Free SEO Audit — Find Out Where You Rank on Google'}
-            </h2>
+            </KineticHeading>
             <p className="text-slate-text text-base font-body leading-relaxed mb-8">
               {isSk
                 ? 'Nevyhnutným prvým krokom každej profesionálnej SEO optimalizácie je poznať aktuálny stav. Náš bezplatný SEO audit webstránky vám ukáže: kde sa nachádzate na Googli dnes, ktoré technické problémy bránia vášmu rastu, aký je potenciál zvýšenia organickej návštevnosti pre váš biznis a kde strácate zákazníkov, ktorí hľadajú presne to, čo ponúkate. Bez záväzkov. Bez platby. Len reálne dáta o vašom webe.'
                 : 'The essential first step of any professional SEO optimization is knowing your current position. Our free website SEO audit will show you: where you rank on Google today, which technical issues are blocking your growth, what the potential is for increasing organic traffic for your business and where you are losing customers who are searching for exactly what you offer. No commitment. No payment. Just real data about your website.'}
             </p>
             <Link href="/contact"
-              className="group inline-flex items-center gap-2 bg-aqua text-navy font-display font-bold px-7 py-3.5 rounded-xl hover:bg-aqua-electric transition-all duration-300 shadow-aqua">
+              className="btn-kinetic group inline-flex items-center gap-2 bg-aqua text-navy font-display font-bold px-7 py-3.5 rounded-xl hover:bg-aqua-electric transition-all duration-300 shadow-aqua">
               {isSk ? 'Získajte bezplatný SEO audit' : 'Get your free SEO audit'}
               <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
             </Link>
@@ -330,9 +332,9 @@ export default function SEOPageClient() {
         <div className="absolute inset-0 grid-bg opacity-15 pointer-events-none" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-8">
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
+            <KineticHeading className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
               {isSk ? 'Cena SEO Optimalizácie' : 'SEO Optimization Pricing'}
-            </h2>
+            </KineticHeading>
             <p className="text-slate-text text-lg font-body mt-4 max-w-2xl">
               {isSk
                 ? 'SEO optimalizácia je individuálna služba — cena závisí od rozsahu projektu, konkurenčnosti odvetvia a vašich cieľov. Kontaktujte nás pre bezplatnú konzultáciu a cenovú ponuku na mieru.'
@@ -340,7 +342,7 @@ export default function SEOPageClient() {
             </p>
           </motion.div>
           <Link href="/contact"
-            className="group inline-flex items-center gap-2 bg-aqua text-navy font-display font-bold px-7 py-3.5 rounded-xl hover:bg-aqua-electric transition-all duration-300 shadow-aqua">
+            className="btn-kinetic group inline-flex items-center gap-2 bg-aqua text-navy font-display font-bold px-7 py-3.5 rounded-xl hover:bg-aqua-electric transition-all duration-300 shadow-aqua">
             {isSk ? 'Získajte cenovú ponuku' : 'Get a quote'}
             <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
           </Link>
@@ -352,13 +354,16 @@ export default function SEOPageClient() {
         <div className="absolute inset-0 grid-bg opacity-10 pointer-events-none" />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-10">
-            <h2 className="font-display text-4xl font-bold text-slate-lightest">
+            <KineticHeading className="font-display text-4xl font-bold text-slate-lightest">
               {isSk ? 'Časté Otázky o SEO' : 'FAQ About SEO'}
-            </h2>
+            </KineticHeading>
           </motion.div>
           <ServiceFAQ items={isSk ? faqSk : faqEn} />
         </div>
       </section>
+
+      {/* Strengths ticker — directly above the bottom CTA */}
+      <MarqueeTicker />
 
       {/* Single unified CTA — keyworded heading + lead form */}
       <ContactForm

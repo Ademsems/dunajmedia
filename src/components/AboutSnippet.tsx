@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle2, Users, Award, Globe } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import KineticHeading from '@/components/KineticHeading';
 
 interface WhyItem {
   title: string;
@@ -29,7 +30,7 @@ export default function AboutSnippet() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Row 1: text left + mockup image right */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -39,16 +40,16 @@ export default function AboutSnippet() {
             <span className="inline-block font-mono text-xs text-aqua uppercase tracking-widest mb-4 border border-aqua/20 px-3 py-1 rounded-full bg-aqua/5">
               {t('home.about_snippet.label')}
             </span>
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest leading-tight mb-6">
+            <KineticHeading accent={t('home.accents.about')} className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest leading-tight mb-6">
               {t('home.about_snippet.headline')}
-            </h2>
+            </KineticHeading>
             <p className="text-slate-text text-lg font-body leading-relaxed mb-8">
               {t('home.about_snippet.body')}
             </p>
 
             <Link
               href="/about"
-              className="group inline-flex items-center gap-2 text-aqua font-display font-semibold hover:gap-3 transition-all duration-200"
+              className="link-underline group inline-flex items-center gap-2 text-aqua font-display font-semibold"
             >
               {t('home.about_snippet.cta')}
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />

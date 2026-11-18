@@ -3,6 +3,10 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
+import PricingPromise from '@/components/PricingPromise';
+import WebProjectFinder from '@/components/WebProjectFinder';
+import MarqueeTicker from '@/components/MarqueeTicker';
+import KineticHeading from '@/components/KineticHeading';
 import PricingTable from '@/components/PricingTable';
 import ContactForm from '@/components/ContactForm';
 import ServiceFAQ from '@/components/ServiceFAQ';
@@ -192,9 +196,9 @@ export default function WebDesignPageClient() {
             <span className="inline-block font-mono text-xs text-aqua uppercase tracking-widest mb-4 border border-aqua/20 px-3 py-1 rounded-full bg-aqua/5">
               {isSk ? 'Naša výhoda' : 'Our advantage'}
             </span>
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest mt-2">
+            <KineticHeading className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest mt-2">
               {isSk ? 'Prečo si firmy vyberajú Dunajmedia' : 'Why Businesses Choose Dunajmedia'}
-            </h2>
+            </KineticHeading>
             <p className="text-slate-text text-lg font-body mt-4 max-w-2xl">
               {isSk
                 ? 'Nie všetky weby sú rovnaké. Tu je to, čo nás odlišuje od väčšiny agentúr na slovenskom trhu.'
@@ -219,9 +223,9 @@ export default function WebDesignPageClient() {
         <div className="absolute inset-0 grid-bg opacity-15 pointer-events-none" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-12">
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
+            <KineticHeading className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
               {isSk ? 'Čo Vieme Vytvoriť' : 'What We Can Build'}
-            </h2>
+            </KineticHeading>
             <p className="text-slate-text text-lg font-body mt-4 max-w-2xl">
               {isSk
                 ? 'Tvoríme rôzne typy moderných web stránok pre firmy — od jednoduchých prezentačných webov po komplexné riešenia pre špecifické odvetvia.'
@@ -246,9 +250,9 @@ export default function WebDesignPageClient() {
         <div className="absolute inset-0 grid-bg opacity-10 pointer-events-none" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-12">
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
+            <KineticHeading className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
               {isSk ? 'Technológie, Ktoré Používame' : 'Technologies We Use'}
-            </h2>
+            </KineticHeading>
             <p className="text-slate-text text-lg font-body mt-4 max-w-2xl">
               {isSk
                 ? 'Voľba technológií priamo ovplyvňuje rýchlosť, SEO a dlhodobú udržateľnosť vášho webu. Používame len moderný tech-stack.'
@@ -281,9 +285,9 @@ export default function WebDesignPageClient() {
         <div className="absolute inset-0 grid-bg opacity-15 pointer-events-none" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-12">
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
+            <KineticHeading className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
               {isSk ? 'Náš Postup Tvorby Web Stránky' : 'Our Website Creation Process'}
-            </h2>
+            </KineticHeading>
             <p className="text-slate-text text-lg font-body mt-4 max-w-2xl">
               {isSk
                 ? 'Transparentný postup od prvého hovoru po spustenie — a ďaleko za neho.'
@@ -314,19 +318,23 @@ export default function WebDesignPageClient() {
       {/* Testimonial */}
       <HomeTestimonial />
 
+      {/* 30-second package quiz — this page only, right before pricing */}
+      <WebProjectFinder />
+
       {/* Pricing */}
       <section className="py-24 bg-navy relative overflow-hidden">
         <div className="absolute inset-0 grid-bg opacity-15 pointer-events-none" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-12">
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
+            <KineticHeading className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
               {isSk ? 'Cena Tvorby Web Stránok' : 'Website Creation Pricing'}
-            </h2>
+            </KineticHeading>
             <p className="text-slate-text text-lg font-body mt-4 max-w-2xl">
               {isSk
                 ? 'Transparentné a fixné ceny — žiadne skryté poplatky. Cena tvorby web stránok závisí od rozsahu projektu.'
                 : 'Transparent and fixed prices — no hidden fees. The price of website creation depends on the scope of the project.'}
             </p>
+            <PricingPromise className="text-slate-light text-lg font-body mt-5 max-w-2xl leading-loose" />
           </motion.div>
           <PricingTable />
           <p className="text-slate-text text-sm font-body mt-8 max-w-2xl">
@@ -342,13 +350,16 @@ export default function WebDesignPageClient() {
         <div className="absolute inset-0 grid-bg opacity-10 pointer-events-none" />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-10">
-            <h2 className="font-display text-4xl font-bold text-slate-lightest">
+            <KineticHeading className="font-display text-4xl font-bold text-slate-lightest">
               {isSk ? 'Časté Otázky' : 'FAQ'}
-            </h2>
+            </KineticHeading>
           </motion.div>
           <ServiceFAQ items={isSk ? faqSk : faqEn} />
         </div>
       </section>
+
+      {/* Strengths ticker — directly above the bottom CTA */}
+      <MarqueeTicker />
 
       {/* Single unified CTA — keyworded heading + lead form */}
       <ContactForm

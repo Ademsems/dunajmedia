@@ -188,3 +188,181 @@ body {
     rgba(10, 25, 47, 1) 100%
   );
 }
+
+/* ════════════════════════════════════════════════════════════════
+   Motion layer (2026-11) — tokens, grain, cursor, links, marquee
+   ════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Exponential ease-out used by header, preloader curtain, reveals */
+  --ease-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  /* Symmetric ease used by looping cues */
+  --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
+  /* Slight overshoot for tactile button presses */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Film grain — static fractal noise, kills flat colour banding.
+   Used once as a fixed full-viewport layer in the root layout. */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 220px 220px;
+}
+
+/* Preloader — hidden before first paint when the intro was already seen
+   (data-intro is set by an inline script in <head>). The failsafe animation
+   removes the cover even if JavaScript never runs. */
+html[data-intro='skip'] .preloader {
+  display: none;
+}
+.preloader {
+  animation: preloader-failsafe 0.01s linear 6s forwards;
+}
+@keyframes preloader-failsafe {
+  to { visibility: hidden; pointer-events: none; }
+}
+
+/* Custom cursor — sharp aqua arrow replaces the OS cursor on fine pointers.
+   Classes are toggled by CustomCursor: `has-custom-cursor` while active,
+   `cursor-hover` over clickable elements (larger, brighter arrow). */
+html.has-custom-cursor,
+html.has-custom-cursor * {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 22 22'%3E%3Cpath d='M2 2 L19 9.5 L11.2 11.2 L9.5 19 Z' fill='%2364FFDA' stroke='%230A192F' stroke-width='1.2' stroke-linejoin='miter'/%3E%3C/svg%3E") 2 2, auto !important;
+}
+html.has-custom-cursor.cursor-hover,
+html.has-custom-cursor.cursor-hover * {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 22 22'%3E%3Cpath d='M2 2 L19 9.5 L11.2 11.2 L9.5 19 Z' fill='%23E6F1FF' stroke='%230A192F' stroke-width='1.2' stroke-linejoin='miter'/%3E%3C/svg%3E") 3 3, pointer !important;
+}
+html.has-custom-cursor input:not([type='checkbox']):not([type='radio']),
+html.has-custom-cursor textarea {
+  cursor: text !important;
+}
+
+/* Left-to-right drawing underline */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 1px;
+  background: var(--aqua);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.5s var(--ease-expo);
+}
+.link-underline:hover::after,
+.link-underline:focus-visible::after,
+.link-underline[data-active='true']::after,
+.group:hover > .link-underline-group::after {
+  transform: scaleX(1);
+}
+
+/* Kinetic buttons — keeps each button's own glow, adds lift + press */
+.btn-kinetic {
+  transition:
+    transform 0.35s var(--ease-spring),
+    box-shadow 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+  will-change: transform;
+}
+.btn-kinetic:not(.btn-option) {
+  border-radius: 9999px;
+}
+.btn-kinetic:hover {
+  transform: translateY(-2px);
+}
+.btn-kinetic:active {
+  transform: translateY(0) scale(0.95);
+  transition-duration: 0.12s;
+}
+
+/* Hero hairline scroll cue */
+.scroll-cue {
+  width: 1px;
+  height: 56px;
+  background: var(--aqua);
+  box-shadow: 0 0 8px rgba(100, 255, 218, 0.6);
+  transform-origin: top center;
+  animation: scroll-cue 1.8s var(--ease-inout) infinite;
+}
+@keyframes scroll-cue {
+  0% { transform: scaleY(0); transform-origin: top center; }
+  50% { transform: scaleY(1); transform-origin: top center; }
+  50.01% { transform: scaleY(1); transform-origin: bottom center; }
+  100% { transform: scaleY(0); transform-origin: bottom center; }
+}
+
+/* Marquee ticker */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+}
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(204, 214, 246, 0.75);
+}
+
+/* Kinetic headings — one-time reveal: each word rises out of a clipped line */
+.kinetic-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding: 0.08em 0.06em 0.14em 0;
+  margin: -0.08em -0.06em -0.14em 0;
+}
+
+/* Italic editorial accent (Instrument Serif) */
+.accent-serif {
+  font-family: var(--font-instrument-serif), 'Times New Roman', serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--aqua);
+}
+
+/* Glowing aqua ink for hand-drawn SVG accents */
+.ink-glow {
+  filter: drop-shadow(0 0 4px rgba(100, 255, 218, 0.55));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .marquee-track,
+  .scroll-cue {
+    animation: none;
+  }
+  .scroll-cue { transform: none; }
+  .btn-kinetic,
+  .link-underline::after {
+    transition: none;
+  }
+  .btn-kinetic:hover,
+  .btn-kinetic:active {
+    transform: none;
+  }
+}
+
+/* DunajShowreel typefaces — reuse the site fonts (DM Sans / DM Mono / Instrument Serif) */
+.font-sans-clean { font-family: var(--font-dm-sans), sans-serif; }
+.font-mono-code { font-family: var(--font-dm-mono), monospace; }
+.font-serif-italic { font-family: var(--font-instrument-serif), 'Instrument Serif', serif; font-style: italic; }

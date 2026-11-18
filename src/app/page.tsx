@@ -7,6 +7,7 @@ import HomeTestimonial from '@/components/HomeTestimonial';
 import HomePricingTeaser from '@/components/HomePricingTeaser';
 import ContactForm from '@/components/ContactForm';
 import CTABanner from '@/components/CTABanner';
+import MarqueeTicker from '@/components/MarqueeTicker';
 
 export const metadata: Metadata = {
   title: 'Domov | Dunajmedia — Digitálna Agentúra Bratislava',
@@ -18,6 +19,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <MarqueeTicker />
       <AboutSnippet />
       <Services />
       <HomeTestimonial />

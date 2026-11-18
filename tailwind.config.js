@@ -28,11 +28,17 @@ module.exports = {
         display: ['var(--font-syne)', 'sans-serif'],
         body: ['var(--font-dm-sans)', 'sans-serif'],
         mono: ['var(--font-dm-mono)', 'monospace'],
+        serif: ['var(--font-instrument-serif)', 'Times New Roman', 'serif'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'navy-gradient': 'linear-gradient(135deg, #0A192F 0%, #112240 50%, #0A192F 100%)',
         'aqua-gradient': 'linear-gradient(135deg, #64FFDA 0%, #00E5FF 100%)',
+      },
+      transitionTimingFunction: {
+        expo: 'cubic-bezier(0.19, 1, 0.22, 1)',
+        'in-out-cue': 'cubic-bezier(0.65, 0, 0.35, 1)',
+        spring: 'cubic-bezier(0.34, 1.56, 0.64, 1)',
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',

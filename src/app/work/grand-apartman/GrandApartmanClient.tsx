@@ -96,7 +96,7 @@ export default function GrandApartmanClient() {
         />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -129,14 +129,14 @@ export default function GrandApartmanClient() {
                   href="https://grandapartman.sk"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-2 bg-aqua text-navy font-display font-bold px-6 py-3 rounded-xl hover:bg-aqua-electric transition-all duration-300 shadow-aqua"
+                  className="btn-kinetic group inline-flex items-center gap-2 bg-aqua text-navy font-display font-bold px-6 py-3 rounded-xl hover:bg-aqua-electric transition-all duration-300 shadow-aqua"
                 >
                   <ExternalLink size={15} />
                   {c.visitBtn}
                 </a>
                 <Link
                   href="/work"
-                  className="inline-flex items-center gap-2 border border-aqua/30 text-aqua font-display font-semibold px-6 py-3 rounded-xl hover:bg-aqua/10 transition-all duration-300"
+                  className="btn-kinetic inline-flex items-center gap-2 border border-aqua/30 text-aqua font-display font-semibold px-6 py-3 rounded-xl hover:bg-aqua/10 transition-all duration-300"
                 >
                   {c.backBtn}
                 </Link>
@@ -233,7 +233,7 @@ export default function GrandApartmanClient() {
             </span>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             {/* Quote — always English */}
             <motion.div
               initial={{ opacity: 0, x: -24 }}
@@ -365,7 +365,7 @@ export default function GrandApartmanClient() {
             </p>
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-2 bg-aqua text-navy font-display font-bold px-8 py-4 rounded-xl hover:bg-aqua-electric transition-all duration-300 shadow-aqua"
+              className="btn-kinetic group inline-flex items-center gap-2 bg-aqua text-navy font-display font-bold px-8 py-4 rounded-xl hover:bg-aqua-electric transition-all duration-300 shadow-aqua"
             >
               {c.ctaBtn}
               <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />

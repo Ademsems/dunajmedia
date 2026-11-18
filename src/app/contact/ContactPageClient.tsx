@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import ContactForm from '@/components/ContactForm';
 import { gaEvent } from '@/lib/gtag';
+import CopyButton from '@/components/CopyButton';
 
 const contactItems = [
   {
@@ -53,7 +54,7 @@ export default function ContactPageClient() {
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-aqua/20 to-transparent" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
               <span className="inline-block font-mono text-xs text-aqua uppercase tracking-widest mb-5 border border-aqua/20 px-3 py-1 rounded-full bg-aqua/5">
                 {t('contact.hero.label')}
@@ -73,13 +74,22 @@ export default function ContactPageClient() {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="grid grid-cols-2 gap-4"
             >
-              {contactItems.map(({ icon: Icon, key, label_sk, label_en, href }, i) => (
+              {contactItems.map(({ icon: Icon, key, label_sk, label_en, href, value }, i) => (
                 <motion.div
                   key={key}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 + i * 0.1 }}
+                  className="relative"
                 >
+                  {/* Sibling of the card link (not nested inside it) */}
+                  {href && (href.startsWith('mailto:') || href.startsWith('tel:')) && (
+                    <CopyButton
+                      value={value}
+                      kind={href.startsWith('mailto:') ? 'email' : 'phone'}
+                      className="absolute top-4 right-4 z-10"
+                    />
+                  )}
                   {href ? (
                     <a
                       href={href}

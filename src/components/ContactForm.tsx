@@ -1,11 +1,15 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, CheckCircle, AlertCircle, User, Mail, Building2, MessageSquare, ChevronDown, Phone } from 'lucide-react';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import { gaEvent } from '@/lib/gtag';
+import { useToast } from '@/components/Toaster';
+import CopyButton from '@/components/CopyButton';
+import KineticHeading from '@/components/KineticHeading';
+import { CONTACT_FORM_ID, CONTACT_PREFILL_EVENT, ContactPrefillDetail } from '@/lib/contactPrefill';
 
 interface FormState {
   name: string;
@@ -34,12 +38,23 @@ interface ContactFormProps {
 
 export default function ContactForm({ headline, subtitle }: ContactFormProps = {}) {
   const { t, tArray } = useLanguage();
+  const toast = useToast();
   const [form, setForm] = useState<FormState>(initialState);
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [focused, setFocused] = useState<string | null>(null);
   const [consentError, setConsentError] = useState(false);
 
   const services = tArray<string>('contact.form.services');
+
+  // Pre-fill from the Web Project Finder quiz (same page, via window event)
+  useEffect(() => {
+    const onPrefill = (event: Event) => {
+      const { service, message } = (event as CustomEvent<ContactPrefillDetail>).detail;
+      setForm((prev) => ({ ...prev, service, message }));
+    };
+    window.addEventListener(CONTACT_PREFILL_EVENT, onPrefill);
+    return () => window.removeEventListener(CONTACT_PREFILL_EVENT, onPrefill);
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const target = e.target;
@@ -77,15 +92,18 @@ export default function ContactForm({ headline, subtitle }: ContactFormProps = {
       if (response.ok) {
         setStatus('success');
         setForm(initialState);
+        toast(t('contact.form.success'));
         gaEvent('generate_lead', {
           event_category: 'contact_form',
           event_label: 'contact_form_submission',
         });
       } else {
         setStatus('error');
+        toast(t('contact.form.error'), 'error');
       }
     } catch {
       setStatus('error');
+      toast(t('contact.form.error'), 'error');
     }
 
     setTimeout(() => setStatus('idle'), 5000);
@@ -95,12 +113,12 @@ export default function ContactForm({ headline, subtitle }: ContactFormProps = {
     'w-full bg-navy/60 border text-slate-lightest placeholder-slate-text/50 rounded-lg px-4 py-3 text-sm font-body outline-none transition-all duration-200 focus:border-aqua/60 focus:bg-navy/80 focus:shadow-[0_0_0_3px_rgba(100,255,218,0.1)]';
 
   return (
-    <section className="py-24 bg-navy relative overflow-hidden">
+    <section id={CONTACT_FORM_ID} className="py-24 bg-navy relative overflow-hidden scroll-mt-16">
       <div className="absolute inset-0 grid-bg opacity-20 pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-aqua/3 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
           {/* Left: Copy */}
           <motion.div
@@ -112,36 +130,39 @@ export default function ContactForm({ headline, subtitle }: ContactFormProps = {
             <span className="inline-block font-mono text-xs text-aqua uppercase tracking-widest mb-4 border border-aqua/20 px-3 py-1 rounded-full bg-aqua/5">
               {t('contact.hero.label')}
             </span>
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest leading-tight mb-6">
+            <KineticHeading className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest leading-tight mb-6">
               {headline ?? t('contact.form.headline')}
-            </h2>
+            </KineticHeading>
             <p className="text-slate-text text-lg font-body leading-relaxed mb-10">
               {subtitle ?? t('contact.hero.sub')}
             </p>
 
             <div className="space-y-4">
               {[
-                { label: t('contact.info.email'), value: 'info@dunajmedia.sk', href: 'mailto:info@dunajmedia.sk' },
-                { label: t('contact.info.phone'), value: '+421 952 049 119', href: 'tel:+421952049119' },
-              ].map(({ label, value, href }) => (
-                <motion.a
-                  key={value}
-                  href={href}
-                  onClick={href.startsWith('tel:') ? () => gaEvent('contact_click', {
-                    event_category: 'phone_or_whatsapp',
-                    event_label: 'phone_click',
-                  }) : undefined}
-                  whileHover={{ x: 4 }}
-                  className="flex items-center gap-4 p-4 rounded-xl border border-white/5 bg-navy-light/60 hover:border-aqua/30 transition-all duration-200 group"
-                >
-                  <div className="w-10 h-10 rounded-lg bg-aqua/10 border border-aqua/20 flex items-center justify-center group-hover:bg-aqua/20 transition-colors">
-                    <Mail size={16} className="text-aqua" />
-                  </div>
-                  <div>
-                    <p className="text-xs text-slate-text font-mono uppercase tracking-wider">{label}</p>
-                    <p className="text-slate-lightest font-body text-sm mt-0.5">{value}</p>
-                  </div>
-                </motion.a>
+                { kind: 'email' as const, icon: Mail, label: t('contact.info.email'), value: 'info@dunajmedia.sk', href: 'mailto:info@dunajmedia.sk' },
+                { kind: 'phone' as const, icon: Phone, label: t('contact.info.phone'), value: '+421 952 049 119', href: 'tel:+421952049119' },
+              ].map(({ kind, icon: Icon, label, value, href }) => (
+                <div key={value} className="relative">
+                  <motion.a
+                    href={href}
+                    onClick={kind === 'phone' ? () => gaEvent('contact_click', {
+                      event_category: 'phone_or_whatsapp',
+                      event_label: 'phone_click',
+                    }) : undefined}
+                    whileHover={{ x: 4 }}
+                    className="flex items-center gap-4 p-4 pr-14 rounded-xl border border-white/5 bg-navy-light/60 hover:border-aqua/30 transition-all duration-200 group"
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-aqua/10 border border-aqua/20 flex items-center justify-center group-hover:bg-aqua/20 transition-colors">
+                      <Icon size={16} className="text-aqua" />
+                    </div>
+                    <div>
+                      <p className="text-xs text-slate-text font-mono uppercase tracking-wider">{label}</p>
+                      <p className="text-slate-lightest font-body text-sm mt-0.5">{value}</p>
+                    </div>
+                  </motion.a>
+                  {/* Sibling of the link (not nested) so both stay valid, focusable controls */}
+                  <CopyButton value={value} kind={kind} className="absolute right-3 top-1/2 -mt-4" />
+                </div>
               ))}
             </div>
 
@@ -334,8 +355,9 @@ export default function ContactForm({ headline, subtitle }: ContactFormProps = {
               <motion.button
                 onClick={handleSubmit}
                 disabled={status === 'submitting'}
-                whileHover={{ scale: 1.01 }}
-                whileTap={{ scale: 0.99 }}
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: 'spring', stiffness: 420, damping: 22 }}
                 className="w-full flex items-center justify-center gap-2 bg-aqua text-navy font-display font-bold text-sm py-4 rounded-xl hover:bg-aqua-electric transition-all duration-300 shadow-aqua disabled:opacity-70 disabled:cursor-not-allowed"
               >
                 {status === 'submitting' ? (

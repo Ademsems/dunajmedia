@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight, Shield, User, TrendingUp } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import StickyCardStack from '@/components/StickyCardStack';
+import KineticHeading from '@/components/KineticHeading';
 import ContactForm from '@/components/ContactForm';
 
 const processSteps = [
@@ -79,7 +81,7 @@ const values = [
 ];
 
 export default function HowWeWorkPageClient() {
-  const { locale } = useLanguage();
+  const { t, locale } = useLanguage();
   const isSk = locale === 'sk';
 
   return (
@@ -113,8 +115,8 @@ export default function HowWeWorkPageClient() {
         </div>
       </section>
 
-      {/* Process steps */}
-      <section className="py-24 bg-navy-light relative overflow-hidden">
+      {/* Process steps — sticky stacking deck. No overflow-hidden here: it would break position: sticky */}
+      <section className="py-24 bg-navy-light relative">
         <div className="absolute inset-0 grid-bg opacity-10 pointer-events-none" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -127,44 +129,40 @@ export default function HowWeWorkPageClient() {
             <span className="inline-block font-mono text-xs text-aqua uppercase tracking-widest mb-4 border border-aqua/20 px-3 py-1 rounded-full bg-aqua/5">
               {isSk ? 'Krok za krokom' : 'Step by step'}
             </span>
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest mt-2">
+            <KineticHeading className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest mt-2">
               {isSk ? 'Náš proces' : 'Our Process'}
-            </h2>
+            </KineticHeading>
           </motion.div>
 
-          <div className="divide-y divide-white/8">
-            {processSteps.map((step, i) => (
-              <motion.div
-                key={step.number}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="grid grid-cols-12 gap-6 py-8 lg:py-10 group"
-              >
-                {/* Step number */}
-                <div className="col-span-2 lg:col-span-1 flex items-start pt-1">
-                  <span className="font-mono text-sm font-bold text-aqua tracking-widest">
+          <StickyCardStack
+            items={processSteps}
+            getKey={(step) => step.number}
+            cardClassName="rounded-3xl border border-white/10 bg-navy shadow-[0_-18px_50px_rgba(2,8,20,0.5)]"
+            renderCard={(step) => (
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-10 p-7 sm:p-10 lg:p-14 lg:min-h-[340px]">
+                <div className="lg:col-span-3">
+                  <span
+                    aria-hidden="true"
+                    className="block font-display font-bold text-7xl lg:text-9xl leading-none text-transparent"
+                    style={{ WebkitTextStroke: '1px rgba(100,255,218,0.65)', fontVariantNumeric: 'tabular-nums' }}
+                  >
                     {step.number}
                   </span>
                 </div>
-
-                {/* Title */}
-                <div className="col-span-10 lg:col-span-4 flex items-start">
-                  <h3 className="font-display text-xl lg:text-2xl font-bold text-slate-lightest group-hover:text-aqua transition-colors duration-300">
+                <div className="lg:col-span-9 flex flex-col justify-center">
+                  <p className="font-mono text-xs text-aqua uppercase tracking-widest mb-3">
+                    {t('stack.step')} {step.number} / {String(processSteps.length).padStart(2, '0')}
+                  </p>
+                  <h3 className="font-display text-3xl lg:text-5xl font-bold text-slate-lightest leading-tight mb-4">
                     {isSk ? step.titleSk : step.titleEn}
                   </h3>
-                </div>
-
-                {/* Description */}
-                <div className="col-span-12 lg:col-span-7 pl-8 lg:pl-0">
-                  <p className="text-slate-text font-body text-base leading-relaxed">
+                  <p className="text-slate-light font-body text-base lg:text-lg leading-relaxed max-w-2xl">
                     {isSk ? step.descSk : step.descEn}
                   </p>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+            )}
+          />
         </div>
       </section>
 
@@ -179,9 +177,9 @@ export default function HowWeWorkPageClient() {
             transition={{ duration: 0.6 }}
             className="mb-12"
           >
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
+            <KineticHeading className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
               {isSk ? 'Čo od nás môžete očakávať' : 'What you can expect from us'}
-            </h2>
+            </KineticHeading>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -220,15 +218,15 @@ export default function HowWeWorkPageClient() {
           transition={{ duration: 0.6 }}
           className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
         >
-          <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest mb-4">
+          <KineticHeading className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest mb-4">
             {isSk ? 'Začnime váš projekt' : "Let's start your project"}
-          </h2>
+          </KineticHeading>
           <p className="text-slate-text text-lg font-body mb-10">
             {isSk ? 'Prvý hovor je bezplatný. Bez záväzkov.' : 'The first call is free. No commitments.'}
           </p>
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-2 bg-aqua text-navy font-display font-bold px-8 py-4 rounded-xl hover:bg-aqua-electric transition-all duration-300 shadow-aqua"
+            className="btn-kinetic group inline-flex items-center gap-2 bg-aqua text-navy font-display font-bold px-8 py-4 rounded-xl hover:bg-aqua-electric transition-all duration-300 shadow-aqua"
           >
             {isSk ? 'Kontaktujte nás' : 'Contact Us'}
             <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />

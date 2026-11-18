@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import MarqueeTicker from '@/components/MarqueeTicker';
+import KineticHeading from '@/components/KineticHeading';
 import ContactForm from '@/components/ContactForm';
 import ServiceFAQ from '@/components/ServiceFAQ';
 
@@ -196,9 +198,9 @@ export default function SocialMediaPageClient() {
         <div className="absolute inset-0 grid-bg opacity-10 pointer-events-none" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-12">
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
+            <KineticHeading className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
               {isSk ? 'Platformy, Ktoré Spravujeme' : 'Platforms We Manage'}
-            </h2>
+            </KineticHeading>
             <p className="text-slate-text text-lg font-body mt-4 max-w-2xl">
               {isSk
                 ? 'Spravujeme vaše profily tam, kde sa nachádza vaša cieľová skupina — bez ohľadu na platformu.'
@@ -223,9 +225,9 @@ export default function SocialMediaPageClient() {
         <div className="absolute inset-0 grid-bg opacity-15 pointer-events-none" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-12">
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
+            <KineticHeading className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
               {isSk ? 'Čo Zahŕňa Naša Správa Sociálnych Sietí' : 'What Our Social Media Management Includes'}
-            </h2>
+            </KineticHeading>
             <p className="text-slate-text text-lg font-body mt-4 max-w-2xl">
               {isSk
                 ? 'Komplexná správa sociálnych sietí pre firmy — od stratégie po meranie výsledkov.'
@@ -250,9 +252,9 @@ export default function SocialMediaPageClient() {
         <div className="absolute inset-0 grid-bg opacity-10 pointer-events-none" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-12">
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
+            <KineticHeading className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
               {isSk ? 'Prečo Je Dunajmedia Iná' : 'Why Dunajmedia Is Different'}
-            </h2>
+            </KineticHeading>
             <p className="text-slate-text text-lg font-body mt-4 max-w-2xl">
               {isSk
                 ? 'Väčšina agentúr správy sociálnych sietí robí obsah. My robíme výsledky.'
@@ -283,9 +285,9 @@ export default function SocialMediaPageClient() {
         <div className="absolute inset-0 grid-bg opacity-15 pointer-events-none" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-12">
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
+            <KineticHeading className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
               {isSk ? 'Náš Mesačný Postup' : 'Our Monthly Process'}
-            </h2>
+            </KineticHeading>
             <p className="text-slate-text text-lg font-body mt-4 max-w-2xl">
               {isSk
                 ? 'Správa sociálnych sietí pre firmy funguje ako hodinky — každý mesiac rovnaký profesionálny postup.'
@@ -318,9 +320,9 @@ export default function SocialMediaPageClient() {
         <div className="absolute inset-0 grid-bg opacity-10 pointer-events-none" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-8">
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
+            <KineticHeading className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
               {isSk ? 'Cena Správy Sociálnych Sietí' : 'Social Media Management Pricing'}
-            </h2>
+            </KineticHeading>
             <p className="text-slate-text text-lg font-body mt-4 max-w-2xl">
               {isSk
                 ? 'Správa sociálnych sietí je individuálna služba — cena závisí od počtu platforiem, frekvencie obsahu a rozsahu. Kontaktujte nás pre bezplatnú konzultáciu a cenovú ponuku na mieru.'
@@ -328,7 +330,7 @@ export default function SocialMediaPageClient() {
             </p>
           </motion.div>
           <Link href="/contact"
-            className="group inline-flex items-center gap-2 bg-aqua text-navy font-display font-bold px-7 py-3.5 rounded-xl hover:bg-aqua-electric transition-all duration-300 shadow-aqua">
+            className="btn-kinetic group inline-flex items-center gap-2 bg-aqua text-navy font-display font-bold px-7 py-3.5 rounded-xl hover:bg-aqua-electric transition-all duration-300 shadow-aqua">
             {isSk ? 'Získajte cenovú ponuku' : 'Get a quote'}
             <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
           </Link>
@@ -340,13 +342,16 @@ export default function SocialMediaPageClient() {
         <div className="absolute inset-0 grid-bg opacity-15 pointer-events-none" />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-10">
-            <h2 className="font-display text-4xl font-bold text-slate-lightest">
+            <KineticHeading className="font-display text-4xl font-bold text-slate-lightest">
               {isSk ? 'Časté Otázky' : 'FAQ'}
-            </h2>
+            </KineticHeading>
           </motion.div>
           <ServiceFAQ items={isSk ? faqSk : faqEn} />
         </div>
       </section>
+
+      {/* Strengths ticker — directly above the bottom CTA */}
+      <MarqueeTicker />
 
       {/* Single unified CTA — keyworded heading + lead form */}
       <ContactForm

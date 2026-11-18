@@ -8,7 +8,49 @@
     "blog": "Blog",
     "pricing": "Pricing",
     "contact": "Contact",
-    "cta": "Get Started"
+    "cta": "Get Started",
+    "agency": {
+      "label": "Agency",
+      "items": [
+        {
+          "href": "/about",
+          "title": "About",
+          "desc": "Who is behind Dunajmedia and why it exists."
+        },
+        {
+          "href": "/how-we-work",
+          "title": "How We Work",
+          "desc": "A transparent process from consultation to launch."
+        },
+        {
+          "href": "/work",
+          "title": "Our Work",
+          "desc": "Client projects and live demo sites."
+        }
+      ],
+      "helper": "Not sure what you need? Let's talk"
+    },
+    "servicesMenu": {
+      "all": "All Services",
+      "items": [
+        {
+          "href": "/services/tvorba-web-stranok",
+          "title": "Web Design",
+          "desc": "Fast Next.js websites that actually sell."
+        },
+        {
+          "href": "/services/seo-optimalizacia",
+          "title": "SEO Optimization",
+          "desc": "AI-driven SEO and GEO for Google and AI search."
+        },
+        {
+          "href": "/services/sprava-socialnych-sieti",
+          "title": "Social Media",
+          "desc": "Data-driven content and profile management."
+        }
+      ]
+    },
+    "menu_toggle": "Toggle mobile menu"
   },
   "topbar": {
     "email": "info@dunajmedia.sk",
@@ -33,14 +75,15 @@
     },
     "about_snippet": {
       "label": "About Our Agency",
-      "headline": "Dunajmedia: Innovating Digital Marketing in Bratislava",
+      "headline": "Dunajmedia — where strategy meets design",
       "body": "Dunajmedia is dedicated to transforming your online presence. We specialize in crafting premium websites using advanced tech stacks alongside expert social media management. Our AI-optimized SEO strategies drive measurable growth and ensure your brand excels in the competitive digital landscape. We use predictive analytics to fine-tune campaigns, helping you outperform competitors and achieve your business goals. For companies seeking significant ROI through targeted PPC management and innovative online advertising solutions, Dunajmedia offers comprehensive expertise.",
-      "cta": "Meet Our Team"
+      "cta": "Meet our team"
     },
     "services_snippet": {
       "label": "Our Core Digital Services",
-      "headline": "Holistic Digital Marketing Solutions for Modern European Businesses",
-      "sub": "Tailored strategies for web development, SEO, social media, and more, driving measurable growth in both local and international markets."
+      "headline": "Comprehensive digital services for modern European businesses",
+      "sub": "Tailored strategies for web development, SEO, social media, and more, driving measurable growth in both local and international markets.",
+      "all": "All services"
     },
     "why": {
       "label": "Why Dunajmedia",
@@ -79,6 +122,23 @@
       "point2": "International campaigns with local-market know-how",
       "point3": "One accountable contact, global capabilities",
       "cta": "Visit WeAreGlocal"
+    },
+    "pricing_teaser": {
+      "label": "Pricing",
+      "headline": "Transparent pricing for every business",
+      "accent": "every business"
+    },
+    "accents": {
+      "services": "modern European businesses",
+      "about": "strategy",
+      "cta": "digital transformation",
+      "glocal": "global reach"
+    },
+    "testimonial": {
+      "label": "Testimonials",
+      "headline": "What our clients say",
+      "case_study": "Read case study",
+      "view_post": "View original post"
     }
   },
   "about": {
@@ -114,9 +174,18 @@
     "numbers": {
       "headline": "Dunajmedia by the numbers",
       "items": [
-        { "value": "11+", "label": "Years in Marketing" },
-        { "value": "48h", "label": "Fastest Website Delivery" },
-        { "value": "100%", "label": "Modern Tech Stack" }
+        {
+          "value": "11+",
+          "label": "Years in Marketing"
+        },
+        {
+          "value": "48h",
+          "label": "Fastest Website Delivery"
+        },
+        {
+          "value": "100%",
+          "label": "Modern Tech Stack"
+        }
       ]
     }
   },
@@ -222,10 +291,26 @@
       "label": "Our Process",
       "headline": "How Dunajmedia Strategizes Your Digital Success",
       "steps": [
-        { "number": "01", "title": "Discovery", "desc": "Thorough analysis of your market, competition, and goals to build strong foundations." },
-        { "number": "02", "title": "Strategy", "desc": "Precise creation of tailor-made digital strategies, with clearly defined KPIs and an actionable plan." },
-        { "number": "03", "title": "Execution", "desc": "Agile implementation with an emphasis on speed and quality, delivered transparently and efficiently." },
-        { "number": "04", "title": "Optimization", "desc": "Continuous monitoring, optimization, and A/B testing for maximum ROI and sustainable growth." }
+        {
+          "number": "01",
+          "title": "Discovery",
+          "desc": "Thorough analysis of your market, competition, and goals to build strong foundations."
+        },
+        {
+          "number": "02",
+          "title": "Strategy",
+          "desc": "Precise creation of tailor-made digital strategies, with clearly defined KPIs and an actionable plan."
+        },
+        {
+          "number": "03",
+          "title": "Execution",
+          "desc": "Agile implementation with an emphasis on speed and quality, delivered transparently and efficiently."
+        },
+        {
+          "number": "04",
+          "title": "Optimization",
+          "desc": "Continuous monitoring, optimization, and A/B testing for maximum ROI and sustainable growth."
+        }
       ]
     }
   },
@@ -235,7 +320,14 @@
       "headline": "Insights from the digital world: trends, strategies, and AI.",
       "sub": "Dunajmedia brings the latest insights, analyses, and strategic tips in SEO, AI, web development, and growth marketing, tailored for the Slovak and European markets."
     },
-    "categories": ["All", "SEO", "Web Design", "Social Media", "AI & Tech", "Growth"],
+    "categories": [
+      "All",
+      "SEO",
+      "Web Design",
+      "Social Media",
+      "AI & Tech",
+      "Growth"
+    ],
     "posts": [
       {
         "slug": "ai-seo-2024",
@@ -419,7 +511,7 @@
       "headline": "Send us a message",
       "name": "Your name",
       "email": "Email address",
-	"phone": "Phone number",
+      "phone": "Phone number",
       "company": "Company (optional)",
       "service": "Service of interest",
       "message": "Your message",
@@ -445,9 +537,23 @@
       "services": "Services",
       "legal": "Legal"
     },
-    "company_links": ["About", "Blog", "Pricing", "Contact"],
-    "service_links": ["Web Development", "SEO & AI", "Social Media", "Growth Marketing"],
-    "legal_links": ["Privacy Policy", "Terms of Use", "Cookies"],
+    "company_links": [
+      "About",
+      "Blog",
+      "Pricing",
+      "Contact"
+    ],
+    "service_links": [
+      "Web Development",
+      "SEO & AI",
+      "Social Media",
+      "Growth Marketing"
+    ],
+    "legal_links": [
+      "Privacy Policy",
+      "Terms of Use",
+      "Cookies"
+    ],
     "copyright": "© 2026 Dunajmedia. All rights reserved.",
     "social": "Follow us"
   },
@@ -462,5 +568,176 @@
     "learn_more": "Learn more",
     "get_started": "Get started today",
     "contact_us": "Contact us"
+  },
+  "toast": {
+    "copied_email": "Email copied to clipboard",
+    "copied_phone": "Phone number copied to clipboard",
+    "copy_failed": "Copying failed",
+    "copy_email": "Copy email",
+    "copy_phone": "Copy phone number",
+    "prefilled": "We pre-filled the form with your answers",
+    "dismiss": "Dismiss notification",
+    "region": "Notifications"
+  },
+  "marquee": {
+    "label": "Dunajmedia strengths",
+    "items": [
+      "Next.js speed",
+      "AI SEO & GEO",
+      "Delivery within 72 hours",
+      "WeAreGlocal Founding Agency",
+      "Websites from €349",
+      "Bilingual SK / EN",
+      "11+ years in marketing"
+    ]
+  },
+  "promise": {
+    "before": "Fixed prices, no hidden fees. Websites from",
+    "price": "€349",
+    "mid": ", a multi-page site ready within",
+    "hours": "72 hours",
+    "after": "."
+  },
+  "stack": {
+    "included": "What's included",
+    "step": "Step"
+  },
+  "finder": {
+    "label": "Project Finder",
+    "headline": "Find Your Ideal Package in 30 Seconds",
+    "accent": "30 Seconds",
+    "sub": "Answer five quick questions and we will recommend the web package that fits your business.",
+    "step": "Question",
+    "of": "of",
+    "back": "Back",
+    "restart": "Start over",
+    "questions": [
+      {
+        "id": "business",
+        "short": "Business type",
+        "title": "What type of business do you run?",
+        "options": [
+          {
+            "id": "solo",
+            "label": "Sole trader or freelancer"
+          },
+          {
+            "id": "local",
+            "label": "Local service or venue"
+          },
+          {
+            "id": "company",
+            "label": "Established company"
+          },
+          {
+            "id": "complex",
+            "label": "E-shop or custom platform"
+          }
+        ]
+      },
+      {
+        "id": "status",
+        "short": "Current website",
+        "title": "What is the state of your current website?",
+        "options": [
+          {
+            "id": "none",
+            "label": "I don't have a website yet"
+          },
+          {
+            "id": "outdated",
+            "label": "My website is outdated"
+          },
+          {
+            "id": "noresults",
+            "label": "I have a site, but it brings no inquiries"
+          },
+          {
+            "id": "complex",
+            "label": "I need advanced features"
+          }
+        ]
+      },
+      {
+        "id": "goal",
+        "short": "Main goal",
+        "title": "What is your main goal?",
+        "options": [
+          {
+            "id": "presence",
+            "label": "Get online fast"
+          },
+          {
+            "id": "leads",
+            "label": "Generate inquiries and customers"
+          },
+          {
+            "id": "seo",
+            "label": "Rank higher in Google"
+          },
+          {
+            "id": "scale",
+            "label": "A custom solution that scales"
+          }
+        ]
+      },
+      {
+        "id": "size",
+        "short": "Website size",
+        "title": "How big should the website be?",
+        "options": [
+          {
+            "id": "one",
+            "label": "A single page (one-page)"
+          },
+          {
+            "id": "multi",
+            "label": "Up to 10 pages"
+          },
+          {
+            "id": "large",
+            "label": "More than 10 pages"
+          }
+        ]
+      },
+      {
+        "id": "timeline",
+        "short": "Timeline",
+        "title": "When do you need to launch?",
+        "options": [
+          {
+            "id": "asap",
+            "label": "As soon as possible — within 48 hours"
+          },
+          {
+            "id": "week",
+            "label": "Within a week"
+          },
+          {
+            "id": "flexible",
+            "label": "No rush, I want it done precisely"
+          }
+        ]
+      }
+    ],
+    "result": {
+      "label": "Our recommendation",
+      "headline": "Your ideal package",
+      "one_time": "one-time",
+      "reasons": {
+        "expres": "A one-page website delivered within 48 hours — the ideal start when you want to be online fast.",
+        "business": "Up to 10 pages delivered within 72 hours — the best value for businesses that want inquiries.",
+        "elite": "Unlimited pages and a custom build — for projects that need advanced features and room to grow."
+      },
+      "answers": "Your answers",
+      "cta": "Pre-fill the contact form",
+      "note": "We will confirm the exact scope and timeline in a free consultation.",
+      "message_intro": "Hello, I completed the Project Finder on your website.",
+      "message_recommended": "Recommended package",
+      "message_outro": "I would like a free, no-obligation consultation."
+    }
+  },
+  "showreel": {
+    "aria": "Animated Dunajmedia agency showreel: web design, AI SEO and GEO, social media, branding and growth."
   }
 }

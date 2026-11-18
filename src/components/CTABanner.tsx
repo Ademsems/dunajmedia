@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import KineticHeading from '@/components/KineticHeading';
 import { gaEvent } from '@/lib/gtag';
 
 export default function CTABanner() {
@@ -40,9 +41,9 @@ export default function CTABanner() {
               {t('cta.label')}
             </span>
           </div>
-          <h2 className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest mb-6 leading-tight">
+          <KineticHeading accent={t('home.accents.cta')} className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest mb-6 leading-tight">
             {t('home.cta_banner.headline')}
-          </h2>
+          </KineticHeading>
           <p className="text-slate-text text-lg font-body mb-10 max-w-2xl mx-auto">
             {t('home.cta_banner.sub')}
           </p>
@@ -57,7 +58,7 @@ export default function CTABanner() {
                 event_category: 'engagement',
                 event_label: 'cta_button_click',
               })}
-              className="group inline-flex items-center gap-3 bg-gradient-to-r from-aqua to-aqua-electric text-navy font-display font-bold text-lg px-10 py-5 rounded-2xl hover:shadow-aqua-lg transition-all duration-300"
+              className="btn-kinetic group inline-flex items-center gap-3 bg-gradient-to-r from-aqua to-aqua-electric text-navy font-display font-bold text-lg px-10 py-5 rounded-2xl hover:shadow-aqua-lg transition-all duration-300"
             >
               {t('home.cta_banner.cta')}
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />

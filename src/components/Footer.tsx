@@ -86,7 +86,7 @@ export default function Footer() {
                 <li key={href}>
                   <Link
                     href={href}
-                    className="group flex items-center gap-1 text-slate-text hover:text-aqua text-sm font-body transition-colors duration-200"
+                    className="link-underline group inline-flex items-center gap-1 text-slate-text hover:text-aqua text-sm font-body transition-colors duration-200"
                   >
                     <span>{locale === 'sk' ? label_sk : label_en}</span>
                     <ArrowUpRight size={11} className="opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -106,7 +106,7 @@ export default function Footer() {
                 <li key={label_sk}>
                   <Link
                     href={href}
-                    className="group flex items-center gap-1 text-slate-text hover:text-aqua text-sm font-body transition-colors duration-200"
+                    className="link-underline group inline-flex items-center gap-1 text-slate-text hover:text-aqua text-sm font-body transition-colors duration-200"
                   >
                     <span>{locale === 'sk' ? label_sk : label_en}</span>
                     <ArrowUpRight size={11} className="opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -197,7 +197,7 @@ export default function Footer() {
               <Link
                 key={href}
                 href={href}
-                className="text-slate-text hover:text-aqua text-xs font-body transition-colors duration-200"
+                className="link-underline text-slate-text hover:text-aqua text-xs font-body transition-colors duration-200"
               >
                 {locale === 'sk' ? label_sk : label_en}
               </Link>
