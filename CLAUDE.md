@@ -53,7 +53,8 @@ src/
     contact/page.tsx + ContactPageClient.tsx
     blog/                         — fetches from Sanity
   components/
-    Hero.tsx                      — homepage hero with stats bar
+    Hero.tsx                      — homepage top: framed <DunajShowreel /> section + a dedicated intro section below it (h1, description, CTAs, stats)
+    DunajShowreel.tsx             — 9-act, 42 s animated agency film on a 1920×1080 stage; follows SK/EN (see "Showreel hero")
     AboutSnippet.tsx              — homepage "who we are": Row 1 text+mockup image, Row 2 4-card strip
     HomePricingTeaser.tsx         — 'use client' wrapper for homepage pricing section (bilingual)
     HomeTestimonial.tsx           — 'use client' featured testimonial section (between Work and Pricing on homepage); quote always in English; Simon Wheeler, Grand Apartman
@@ -70,7 +71,7 @@ src/
     CustomCursor.tsx              — toggles the aqua arrow cursor classes on fine pointers; renders nothing (see "Motion layer")
     Toaster.tsx                   — ToastProvider + useToast() (frosted navy toasts)
     CopyButton.tsx                — copy email/phone icon button, confirms with a toast
-    KineticHeading.tsx            — SEO-safe rolling heading (single semantic tag)
+    KineticHeading.tsx            — SEO-safe heading with a one-time bottom-up scroll reveal (single semantic tag, no hover effect)
     MarqueeTicker.tsx             — outlined + solid infinite ticker (`marquee.items`)
     HandDrawn.tsx                 — scroll-drawn aqua SVG circle / underline around a phrase
     PricingPromise.tsx            — "from €349 … within 72 hours" line using HandDrawn (`promise.*`)
@@ -231,7 +232,7 @@ Built on branch `feat/sprk-motion-upgrade`. Everything respects `prefers-reduced
 
 ### Smart header + "Agentúra / Agency" dropdown (`Navbar.tsx`)
 - Header is still `sticky top-0` (TopBar scrolls away above it). At the top it is transparent with no border; after 20px it becomes frosted navy glass with a 1px hairline; past 140px it glides out on scroll-down and back on scroll-up (`duration-500 ease-expo`). It never hides while a dropdown or the mobile menu is open
-- The homepage `Hero` has `-mt-16` so the video sits under the transparent header — keep that pairing if the header height (`h-16`) changes
+- The header is transparent at the top and sits above the navy page; the homepage no longer has a full-bleed hero video, so there is no `-mt-16` pull-up any more
 - **Top-level nav is now**: Home · **Agentúra/Agency ▾** · Služby/Services ▾ · Blog · Cenník · Kontakt. About, How We Work and Our Work are **only** inside the Agency dropdown — don't re-add them as top-level links
 - Nav structure is the `navEntries` array; panel content comes from JSON: `nav.agency.{label, items[{href,title,desc}], helper}` and `nav.servicesMenu.{all, items[…]}`. To add a page to a dropdown, add an item in **both** `sk.json` and `en.json`
 - Panel: frosted dark navy, hairline dividers, bold title + 1-line description, bottom helper link to `/contact` (Agency) or "All services" (Services). Agency trigger is a `<button>` (no landing page); Services trigger is still a link to `/services`
@@ -239,12 +240,12 @@ Built on branch `feat/sprk-motion-upgrade`. Everything respects `prefers-reduced
 - The old `navbar-indicator` pill was replaced by `.link-underline` (active page keeps the underline)
 
 ### Typography, ticker, accents
-- **`KineticHeading`** — `<KineticHeading className="…" accent="phrase" href="/optional">text</KineticHeading>`; props `as` (`h1|h2|h3`, default `h2`), `accent`, `delay`, `href`. Words rise out of a clipped line **once** when the heading first scrolls into view (`viewport once`). There is **no hover animation** (the old hover re-roll was removed). With `href` the heading is a link and hovering/focusing draws a left-to-right aqua underline (`.heading-link`); the homepage services heading links to `/services`
+- **`KineticHeading`** — `<KineticHeading className="…" accent="phrase">text</KineticHeading>`; props `as` (`h1|h2|h3`, default `h2`), `accent`, `delay`. Words rise out of a clipped line **once** when the heading first scrolls into view (`viewport once`). **No hover effect of any kind** — no re-roll and no underline (both were tried and removed; the `href` prop and `.heading-link` class no longer exist, don't re-add them). Hover underlines remain only on nav/footer/inline text links (`.link-underline`)
   - **SEO rule (do not break):** it renders exactly ONE heading element and the text exists ONCE in the DOM — no duplicate/decorative copy layers. Verified in the prerendered HTML: no duplicate `<h2>` text on any page
   - The element is keyed by its text, so switching SK/EN remounts the words (no stale words from the other language)
   - Children must be a plain string (a `t()` call or `isSk ? 'a' : 'b'`); anything else falls back to a plain heading. `accent` must be an exact substring of the text or it is ignored — homepage accents live in `home.accents.*` and must be kept in sync if a headline is reworded
   - All section `<h2>`s on the homepage, about, how-we-work, services, the three service pages, pricing, work and `ContactForm` use it. Blog and case-study pages do not
-- **Hero** h1: the middle line (`home.hero.headline2`) is set in italic Instrument Serif with the aqua gradient. The old chevron scroll indicator is now the 1px `.scroll-cue` hairline (`scaleY 0→1→0`, 1.8s)
+- **Hero** (`Hero.tsx`) is two sections: (1) the framed showreel + the 1px `.scroll-cue` hairline, (2) the **intro section directly below it** with the page's only `<h1>` (middle line `home.hero.headline2` in italic Instrument Serif with the aqua gradient), `home.hero.sub`, the primary/secondary CTAs (primary keeps the GA4 `cta_click`) and the 3 stat tiles — all existing `home.hero.*` / `home.stats.*` keys. `MarqueeTicker` follows the intro section
 - **Homepage `Services`** is now oversized editorial rows (number · big title · short text · arrow) with hairline borders instead of a card grid
 - **`MarqueeTicker`** — phrases from `marquee.items` (both JSON files), alternating `.text-outline` and solid, `◆` separators, pause on hover/focus. Renders four identical lists and slides the track by −50% (seamless); only the first list is exposed to assistive tech. Placed in exactly two spots: homepage directly below `Hero`, and directly above the bottom `ContactForm` CTA on the three service pages. Marquee copy must stay true to the Stats/Pricing rules above (72h = Business Pro, from €349)
 - **`HandDrawn`** — wraps a phrase and draws a glowing aqua `circle` or `underline` with `pathLength` (stroke-dashoffset → 0) `whileInView`. Used via `PricingPromise` (circles €349, underlines "72 hodín / 72 hours"; strings in `promise.*`) on the homepage pricing teaser and the web design pricing section
@@ -264,3 +265,11 @@ Built on branch `feat/sprk-motion-upgrade`. Everything respects `prefers-reduced
 ### Refinements (2026-11-18)
 - **i18n:** all copy must exist in both JSON files; no hardcoded SK-only strings in components. Homepage testimonial copy is now `home.testimonial.*`. EN fixes: about headline "Dunajmedia — where strategy meets design" / CTA "Meet our team"; services headline "Comprehensive digital services for modern European businesses". Audit method: walk both JSON trees and flag identical non-trivial strings or diacritics in `en.json` (remaining identical strings are brand names, slugs, image paths, phone/email/address)
 - **Mobile overflow:** two-column grids must be `grid grid-cols-1 lg:grid-cols-2` — a bare `grid lg:grid-cols-2` leaves an implicit `auto` track that grows to the content's min-width and clips the right edge below `lg`. Hero h1 scales `text-4xl` → `min-[400px]:text-5xl` → `sm:text-7xl` → `lg:text-8xl` (serif middle line `text-[2.6rem]` → `min-[400px]:text-[3.3rem]` → `sm:text-[5rem]` → `lg:text-[6.6rem]`). When scanning for overflow, ignore elements still holding a Framer Motion `x` offset before they enter the viewport
+
+### Showreel hero (`DunajShowreel`, 2026-11-18)
+- **What it is:** `src/components/DunajShowreel.tsx`, converted from the designer's prototype to typed TSX with the studio chrome removed (no header bar, scrubber, speed buttons, scene pills, telemetry badge or modal). It renders only a 16:9 frame (`aspect-video`, `rounded-2xl sm:rounded-3xl`, aqua border + glow) containing a fixed **1920×1080** stage scaled with `transform: scale(width / 1920)` driven by a `ResizeObserver` (sharp at any width, no horizontal overflow)
+- **Content:** 9 acts / 42 s (Hello → We are DunajMedia → services pills → strategy + `un` brandmark blueprint → deliverables scatter → studio UI sim → social/SEO proof cloud → brand spec + Glocal dossier → orbital finale). The official `D[un]ajMedia` wordmark and `un` brandmark are inline SVG (`DunajBrandmark`, `DunajLogo`) — never use a generic `d.`/`M` mark. Pacing: **0.8× speed inside 30.7–33.5 s and 39.8–41.0 s** (`SLOW_WINDOWS`); loops seamlessly at 42 s
+- **Language:** reads `locale` from `LanguageContext`; the `COPY.sk` / `COPY.en` dictionary is inside the component (not in the JSON files) and switches live with the SK/EN toggle. Scenes 5–6 contain a simulated creative-app UI (menu names, file names, client project names) that is intentionally English product chrome in both languages
+- **Playback rules:** autoplays muted-by-nature (no audio); pauses when scrolled offscreen (`IntersectionObserver`) or the tab is hidden; on the first visit of a session it waits ~2.1 s so the preloader curtain finishes before "Ahoj" starts (detected via the missing `data-intro` attribute); with `prefers-reduced-motion` it shows one still frame (the finale lockup, t = 41.5 s). Accessible as a single `role="img"` with the `showreel.aria` label (SK/EN); the stage itself is `aria-hidden`
+- **Fonts:** the film uses Plus Jakarta Sans and JetBrains Mono, registered in `layout.tsx` with `next/font` (`--font-jakarta`, `--font-jetbrains`, `preload: false` so they only download when painted) and exposed as `.font-sans-clean` / `.font-mono-code` / `.font-serif-italic` in `globals.css`. Syne (`font-display`) and Instrument Serif are the site's existing fonts
+- **Scene functions** (`Scene1Hello` … `Scene9Finale`) take a normalised progress `t` (0→1) and, where they show copy, the `dict`. The old hero video is no longer referenced anywhere (`public/hero-video.mp4` is unused and can be deleted)

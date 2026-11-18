@@ -1,7 +1,6 @@
 'use client';
 
 import { createElement, Fragment, ReactNode } from 'react';
-import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
 
 type HeadingTag = 'h1' | 'h2' | 'h3';
@@ -15,8 +14,6 @@ interface KineticHeadingProps {
   className?: string;
   /** Delay before the reveal starts, in seconds. */
   delay?: number;
-  /** Makes the heading a link; hovering draws a left-to-right aqua underline. */
-  href?: string;
 }
 
 interface Word {
@@ -47,8 +44,7 @@ const EASE_EXPO = [0.19, 1, 0.22, 1] as const;
  *
  * Renders exactly ONE heading element and the text exists exactly once in the
  * DOM. Each word slides up out of a clipped line the first time the heading
- * scrolls into view; there is no hover animation. With `href`, the heading is
- * a link and hovering draws an aqua underline left to right.
+ * scrolls into view; there is no hover effect of any kind.
  */
 export default function KineticHeading({
   children,
@@ -56,22 +52,12 @@ export default function KineticHeading({
   as = 'h2',
   className = '',
   delay = 0,
-  href,
 }: KineticHeadingProps) {
   const reduceMotion = useReducedMotion();
 
-  const wrap = (content: ReactNode) =>
-    href ? (
-      <Link href={href} className="heading-link">
-        {content}
-      </Link>
-    ) : (
-      content
-    );
-
   // Non-string content (or reduced motion): plain semantic heading.
   if (typeof children !== 'string') {
-    return createElement(as, { className }, wrap(children));
+    return createElement(as, { className }, children);
   }
 
   const words = toWords(children, accent);
@@ -80,14 +66,12 @@ export default function KineticHeading({
     return createElement(
       as,
       { className },
-      wrap(
-        words.map((word, i) => (
-          <Fragment key={i}>
-            <span className={word.accent ? 'accent-serif' : undefined}>{word.text}</span>
-            {i < words.length - 1 ? ' ' : null}
-          </Fragment>
-        ))
-      )
+      words.map((word, i) => (
+        <Fragment key={i}>
+          <span className={word.accent ? 'accent-serif' : undefined}>{word.text}</span>
+          {i < words.length - 1 ? ' ' : null}
+        </Fragment>
+      ))
     );
   }
 
@@ -103,8 +87,7 @@ export default function KineticHeading({
       viewport={{ once: true, amount: 0.4 }}
       transition={{ staggerChildren: 0.055, delayChildren: delay }}
     >
-      {wrap(
-        words.map((word, i) => (
+      {words.map((word, i) => (
           <Fragment key={i}>
             <span className="kinetic-word">
               <motion.span
@@ -119,8 +102,7 @@ export default function KineticHeading({
             </span>
             {i < words.length - 1 ? ' ' : null}
           </Fragment>
-        ))
-      )}
+      ))}
     </MotionTag>
   );
 }

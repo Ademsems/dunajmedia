@@ -45,7 +45,6 @@ export default function Services() {
               {t('home.services_snippet.label')}
             </span>
             <KineticHeading
-              href="/services"
               accent={t('home.accents.services')}
               className="font-display text-4xl lg:text-6xl font-bold text-slate-lightest leading-[1.05]"
             >

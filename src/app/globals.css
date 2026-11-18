@@ -331,22 +331,6 @@ html.has-custom-cursor textarea {
   margin: -0.08em -0.06em -0.14em 0;
 }
 
-/* Linked heading: aqua underline draws left to right on hover/focus */
-.heading-link {
-  background-image: linear-gradient(var(--aqua), var(--aqua));
-  background-repeat: no-repeat;
-  background-position: 0 100%;
-  background-size: 0% 2px;
-  padding-bottom: 0.08em;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-  transition: background-size 0.6s var(--ease-expo);
-}
-.heading-link:hover,
-.heading-link:focus-visible {
-  background-size: 100% 2px;
-}
-
 /* Italic editorial accent (Instrument Serif) */
 .accent-serif {
   font-family: var(--font-instrument-serif), 'Times New Roman', serif;
@@ -369,7 +353,6 @@ html.has-custom-cursor textarea {
   }
   .scroll-cue { transform: none; }
   .btn-kinetic,
-  .heading-link,
   .link-underline::after {
     transition: none;
   }
@@ -378,3 +361,8 @@ html.has-custom-cursor textarea {
     transform: none;
   }
 }
+
+/* DunajShowreel typefaces (variables are set on <html> in layout.tsx) */
+.font-sans-clean { font-family: var(--font-jakarta), 'Plus Jakarta Sans', sans-serif; }
+.font-mono-code { font-family: var(--font-jetbrains), 'JetBrains Mono', monospace; }
+.font-serif-italic { font-family: var(--font-instrument-serif), 'Instrument Serif', serif; font-style: italic; }

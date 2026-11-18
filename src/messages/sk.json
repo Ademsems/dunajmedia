@@ -736,5 +736,8 @@
       "message_recommended": "Odporúčaný balík",
       "message_outro": "Prosím o nezáväznú konzultáciu."
     }
+  },
+  "showreel": {
+    "aria": "Animované showreel agentúry Dunajmedia: tvorba webov, AI SEO a GEO, sociálne siete, branding a rast."
   }
 }

@@ -736,5 +736,8 @@
       "message_recommended": "Recommended package",
       "message_outro": "I would like a free, no-obligation consultation."
     }
+  },
+  "showreel": {
+    "aria": "Animated Dunajmedia agency showreel: web design, AI SEO and GEO, social media, branding and growth."
   }
 }

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Syne, DM_Sans, DM_Mono, Instrument_Serif } from 'next/font/google';
+import { Syne, DM_Sans, DM_Mono, Instrument_Serif, Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { LanguageProvider } from '@/context/LanguageContext';
@@ -93,6 +93,23 @@ const dmMono = DM_Mono({
   weight: ['400', '500'],
 });
 
+// Showreel typefaces (used only inside DunajShowreel; not preloaded)
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ['latin', 'latin-ext'],
+  variable: '--font-jakarta',
+  display: 'swap',
+  weight: ['400', '500', '600', '700', '800'],
+  preload: false,
+});
+
+const jetbrains = JetBrains_Mono({
+  subsets: ['latin', 'latin-ext'],
+  variable: '--font-jetbrains',
+  display: 'swap',
+  weight: ['400', '600', '700'],
+  preload: false,
+});
+
 // Italic editorial accent face, paired with Syne on display headlines
 const instrumentSerif = Instrument_Serif({
   subsets: ['latin', 'latin-ext'],
@@ -154,7 +171,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="sk"
-      className={`${syne.variable} ${dmSans.variable} ${dmMono.variable} ${instrumentSerif.variable}`}
+      className={`${syne.variable} ${dmSans.variable} ${dmMono.variable} ${instrumentSerif.variable} ${jakarta.variable} ${jetbrains.variable}`}
       suppressHydrationWarning
     >
       <head>
