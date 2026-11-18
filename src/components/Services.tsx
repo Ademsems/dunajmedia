@@ -38,13 +38,14 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="grid lg:grid-cols-12 gap-6 lg:gap-10 items-end mb-14"
+          className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-end mb-14"
         >
           <div className="lg:col-span-7">
             <span className="inline-block font-mono text-xs text-aqua uppercase tracking-widest mb-4 border border-aqua/20 px-3 py-1 rounded-full bg-aqua/5">
               {t('home.services_snippet.label')}
             </span>
             <KineticHeading
+              href="/services"
               accent={t('home.accents.services')}
               className="font-display text-4xl lg:text-6xl font-bold text-slate-lightest leading-[1.05]"
             >
@@ -117,7 +118,7 @@ export default function Services() {
         >
           <Link
             href="/services"
-            className="btn-kinetic group inline-flex items-center gap-2 border border-aqua/30 text-aqua font-display font-semibold px-8 py-4 rounded-xl hover:bg-aqua/10"
+            className="btn-kinetic group inline-flex items-center gap-2 border border-aqua/30 text-aqua font-display font-semibold px-8 py-4 rounded-xl shadow-[0_0_18px_rgba(100,255,218,0.12)] hover:bg-aqua/10 hover:shadow-aqua"
           >
             {t('home.services_snippet.all')}
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />

@@ -133,6 +133,12 @@
       "about": "stratégia",
       "cta": "digitálnu transformáciu",
       "glocal": "globálny dosah"
+    },
+    "testimonial": {
+      "label": "Referencie",
+      "headline": "Čo hovoria naši klienti",
+      "case_study": "Prečítať prípadovú štúdiu",
+      "view_post": "Pozrieť pôvodný príspevok"
     }
   },
   "about": {

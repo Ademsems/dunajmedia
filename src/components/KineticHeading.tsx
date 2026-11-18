@@ -1,6 +1,7 @@
 'use client';
 
 import { createElement, Fragment, ReactNode } from 'react';
+import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
 
 type HeadingTag = 'h1' | 'h2' | 'h3';
@@ -14,6 +15,8 @@ interface KineticHeadingProps {
   className?: string;
   /** Delay before the reveal starts, in seconds. */
   delay?: number;
+  /** Makes the heading a link; hovering draws a left-to-right aqua underline. */
+  href?: string;
 }
 
 interface Word {
@@ -40,13 +43,12 @@ function toWords(text: string, accent?: string): Word[] {
 const EASE_EXPO = [0.19, 1, 0.22, 1] as const;
 
 /**
- * SEO-safe rolling heading.
+ * SEO-safe heading with a one-time bottom-up reveal.
  *
- * Renders exactly ONE heading element whose real text appears exactly once in
- * the DOM. Each word slides up out of a clipped line on scroll (slot reveal),
- * and rolls again on hover. The hover "duplicate" is an aria-hidden span whose
- * glyphs are painted from a data attribute via CSS — so there is no second
- * copy of the text for crawlers or screen readers.
+ * Renders exactly ONE heading element and the text exists exactly once in the
+ * DOM. Each word slides up out of a clipped line the first time the heading
+ * scrolls into view; there is no hover animation. With `href`, the heading is
+ * a link and hovering draws an aqua underline left to right.
  */
 export default function KineticHeading({
   children,
@@ -54,12 +56,22 @@ export default function KineticHeading({
   as = 'h2',
   className = '',
   delay = 0,
+  href,
 }: KineticHeadingProps) {
   const reduceMotion = useReducedMotion();
 
+  const wrap = (content: ReactNode) =>
+    href ? (
+      <Link href={href} className="heading-link">
+        {content}
+      </Link>
+    ) : (
+      content
+    );
+
   // Non-string content (or reduced motion): plain semantic heading.
   if (typeof children !== 'string') {
-    return createElement(as, { className }, children);
+    return createElement(as, { className }, wrap(children));
   }
 
   const words = toWords(children, accent);
@@ -68,44 +80,47 @@ export default function KineticHeading({
     return createElement(
       as,
       { className },
-      words.map((word, i) => (
-        <Fragment key={i}>
-          <span className={word.accent ? 'accent-serif' : undefined}>{word.text}</span>
-          {i < words.length - 1 ? ' ' : null}
-        </Fragment>
-      ))
+      wrap(
+        words.map((word, i) => (
+          <Fragment key={i}>
+            <span className={word.accent ? 'accent-serif' : undefined}>{word.text}</span>
+            {i < words.length - 1 ? ' ' : null}
+          </Fragment>
+        ))
+      )
     );
   }
 
   const MotionTag = motion[as];
 
   return (
+    // key = text: switching SK/EN remounts the words so none can linger
     <MotionTag
-      className={`kinetic ${className}`}
+      key={children}
+      className={className}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.4 }}
       transition={{ staggerChildren: 0.055, delayChildren: delay }}
     >
-      {words.map((word, i) => (
-        <Fragment key={i}>
-          <span className="kinetic-word">
-            <motion.span
-              className="inline-block"
-              variants={{
-                hidden: { y: '115%' },
-                visible: { y: '0%', transition: { duration: 0.9, ease: EASE_EXPO } },
-              }}
-            >
-              <span className={`kinetic-inner ${word.accent ? 'accent-serif' : ''}`}>
+      {wrap(
+        words.map((word, i) => (
+          <Fragment key={i}>
+            <span className="kinetic-word">
+              <motion.span
+                className={`inline-block ${word.accent ? 'accent-serif' : ''}`}
+                variants={{
+                  hidden: { y: '115%' },
+                  visible: { y: '0%', transition: { duration: 0.9, ease: EASE_EXPO } },
+                }}
+              >
                 {word.text}
-                <span className="kinetic-roll" aria-hidden="true" data-text={word.text} />
-              </span>
-            </motion.span>
-          </span>
-          {i < words.length - 1 ? ' ' : null}
-        </Fragment>
-      ))}
+              </motion.span>
+            </span>
+            {i < words.length - 1 ? ' ' : null}
+          </Fragment>
+        ))
+      )}
     </MotionTag>
   );
 }

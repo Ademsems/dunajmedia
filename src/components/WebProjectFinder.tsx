@@ -193,7 +193,7 @@ export default function WebProjectFinder() {
                           type="button"
                           onClick={() => choose(question.id, option.id)}
                           aria-pressed={selected}
-                          className={`btn-kinetic group flex items-center justify-between gap-3 text-left px-5 py-4 rounded-xl border font-body text-sm sm:text-base ${
+                          className={`btn-kinetic btn-option group flex items-center justify-between gap-3 text-left px-5 py-4 rounded-xl border font-body text-sm sm:text-base ${
                             selected
                               ? 'border-aqua/60 bg-aqua/10 text-slate-lightest shadow-aqua'
                               : 'border-white/10 bg-navy-light/60 text-slate-light hover:border-aqua/40 hover:bg-aqua/5 hover:text-slate-lightest'

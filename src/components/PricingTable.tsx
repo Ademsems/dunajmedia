@@ -113,7 +113,7 @@ export default function PricingTable({ compact = false }: { compact?: boolean })
                   className={`btn-kinetic block text-center font-display font-bold text-sm py-4 rounded-xl ${
                     tier.highlighted
                       ? 'bg-aqua text-navy hover:bg-aqua-electric shadow-aqua'
-                      : 'border border-aqua/30 text-aqua hover:bg-aqua/10'
+                      : 'border border-aqua/30 text-aqua shadow-[0_0_18px_rgba(100,255,218,0.12)] hover:bg-aqua/10 hover:shadow-aqua'
                   }`}
                 >
                   {tier.cta}

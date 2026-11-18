@@ -67,7 +67,7 @@ export default function Hero() {
       />
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-32">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 pb-28 sm:pb-32">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -85,13 +85,13 @@ export default function Hero() {
           {/* Headline */}
           <motion.h1
             variants={itemVariants}
-            className="font-display font-bold leading-[0.95] mb-6"
+            className="font-display font-bold leading-[1.1] sm:leading-[0.95] mb-6"
           >
-            <span className="block text-6xl sm:text-7xl lg:text-8xl text-slate-lightest">
+            <span className="block text-4xl min-[400px]:text-5xl sm:text-7xl lg:text-8xl text-slate-lightest">
               {t('home.hero.headline1')}
             </span>
             <span
-              className="block w-fit font-serif italic font-normal pr-[0.12em] text-[4.2rem] sm:text-[5rem] lg:text-[6.6rem] leading-[0.95]"
+              className="block w-fit font-serif italic font-normal pr-[0.12em] text-[2.6rem] min-[400px]:text-[3.3rem] sm:text-[5rem] lg:text-[6.6rem] leading-[0.95]"
               style={{
                 background: 'linear-gradient(135deg, #64FFDA 0%, #00E5FF 100%)',
                 WebkitBackgroundClip: 'text',
@@ -101,7 +101,7 @@ export default function Hero() {
             >
               {t('home.hero.headline2')}
             </span>
-            <span className="block text-6xl sm:text-7xl lg:text-8xl text-slate-lightest">
+            <span className="block text-4xl min-[400px]:text-5xl sm:text-7xl lg:text-8xl text-slate-lightest">
               {t('home.hero.headline3')}
             </span>
           </motion.h1>
@@ -146,7 +146,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.1 }}
-          className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-px bg-white/5 rounded-2xl overflow-hidden border border-white/5"
+          className="mt-12 sm:mt-20 grid grid-cols-1 md:grid-cols-3 gap-px bg-white/5 rounded-2xl overflow-hidden border border-white/5"
         >
           {stats.map(({ value, key }) => (
             <div key={key} className="bg-navy/60 backdrop-blur-sm px-6 py-5 text-center">

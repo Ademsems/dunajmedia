@@ -75,13 +75,13 @@
     },
     "about_snippet": {
       "label": "About Our Agency",
-      "headline": "Dunajmedia: Innovating Digital Marketing in Bratislava",
+      "headline": "Dunajmedia — where strategy meets design",
       "body": "Dunajmedia is dedicated to transforming your online presence. We specialize in crafting premium websites using advanced tech stacks alongside expert social media management. Our AI-optimized SEO strategies drive measurable growth and ensure your brand excels in the competitive digital landscape. We use predictive analytics to fine-tune campaigns, helping you outperform competitors and achieve your business goals. For companies seeking significant ROI through targeted PPC management and innovative online advertising solutions, Dunajmedia offers comprehensive expertise.",
-      "cta": "Meet Our Team"
+      "cta": "Meet our team"
     },
     "services_snippet": {
       "label": "Our Core Digital Services",
-      "headline": "Holistic Digital Marketing Solutions for Modern European Businesses",
+      "headline": "Comprehensive digital services for modern European businesses",
       "sub": "Tailored strategies for web development, SEO, social media, and more, driving measurable growth in both local and international markets.",
       "all": "All services"
     },
@@ -129,10 +129,16 @@
       "accent": "every business"
     },
     "accents": {
-      "services": "Modern European Businesses",
-      "about": "Digital Marketing",
+      "services": "modern European businesses",
+      "about": "strategy",
       "cta": "digital transformation",
       "glocal": "global reach"
+    },
+    "testimonial": {
+      "label": "Testimonials",
+      "headline": "What our clients say",
+      "case_study": "Read case study",
+      "view_post": "View original post"
     }
   },
   "about": {

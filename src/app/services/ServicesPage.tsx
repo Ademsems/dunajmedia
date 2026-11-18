@@ -66,7 +66,7 @@ export default function ServicesPage() {
             renderCard={(service, i) => {
               const Icon = iconMap[service.icon] || Code2;
               return (
-                <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 p-7 sm:p-10 lg:p-14">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 p-7 sm:p-10 lg:p-14">
                   <div>
                     <div className="flex items-center gap-4 mb-6">
                       <div className="w-12 h-12 rounded-2xl bg-aqua/10 border border-aqua/25 flex items-center justify-center">

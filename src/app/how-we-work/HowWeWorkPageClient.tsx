@@ -139,7 +139,7 @@ export default function HowWeWorkPageClient() {
             getKey={(step) => step.number}
             cardClassName="rounded-3xl border border-white/10 bg-navy shadow-[0_-18px_50px_rgba(2,8,20,0.5)]"
             renderCard={(step) => (
-              <div className="grid lg:grid-cols-12 gap-5 lg:gap-10 p-7 sm:p-10 lg:p-14 lg:min-h-[340px]">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-10 p-7 sm:p-10 lg:p-14 lg:min-h-[340px]">
                 <div className="lg:col-span-3">
                   <span
                     aria-hidden="true"

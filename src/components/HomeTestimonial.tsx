@@ -8,7 +8,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import KineticHeading from '@/components/KineticHeading';
 
 export default function HomeTestimonial() {
-  const { locale } = useLanguage();
+  const { t, locale } = useLanguage();
   const isSk = locale === 'sk';
 
   return (
@@ -29,15 +29,15 @@ export default function HomeTestimonial() {
           className="text-center mb-16"
         >
           <span className="inline-block font-mono text-xs text-aqua uppercase tracking-widest mb-4 border border-aqua/20 px-3 py-1 rounded-full bg-aqua/5">
-            {isSk ? 'Referencie' : 'Testimonials'}
+            {t('home.testimonial.label')}
           </span>
           <KineticHeading className="font-display text-4xl lg:text-5xl font-bold text-slate-lightest">
-            {isSk ? 'Čo hovoria naši klienti' : 'What our clients say'}
+            {t('home.testimonial.headline')}
           </KineticHeading>
         </motion.div>
 
         {/* Testimonial block — desktop: side by side, mobile: stacked */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start max-w-6xl mx-auto">
           {/* Left: quote — always English (client's real words) */}
           <motion.div
             initial={{ opacity: 0, x: -24 }}
@@ -61,7 +61,7 @@ export default function HomeTestimonial() {
               href="/work/grand-apartman"
               className="btn-kinetic group inline-flex items-center gap-2 bg-aqua text-navy font-display font-bold px-6 py-3 rounded-xl hover:bg-aqua-electric transition-all duration-300 shadow-aqua"
             >
-              {isSk ? 'Prečítať prípadovú štúdiu' : 'Read the case study'}
+              {t('home.testimonial.case_study')}
               <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
             </Link>
           </motion.div>
@@ -91,13 +91,13 @@ export default function HomeTestimonial() {
               <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/20 transition-colors duration-300 flex items-end justify-center pb-4 opacity-0 group-hover:opacity-100">
                 <span className="font-mono text-xs text-white bg-navy/80 px-3 py-1.5 rounded-full backdrop-blur-sm flex items-center gap-1.5">
                   <ExternalLink size={11} />
-                  {isSk ? 'Pozrieť pôvodný príspevok' : 'View the original post'}
+                  {t('home.testimonial.view_post')}
                 </span>
               </div>
             </a>
             <p className="text-slate-text/60 text-xs font-mono text-center flex items-center justify-center gap-1 mt-1">
               <ExternalLink size={10} />
-              {isSk ? 'Pozrieť pôvodný príspevok' : 'View the original post'}
+              {t('home.testimonial.view_post')}
             </p>
           </motion.div>
         </div>

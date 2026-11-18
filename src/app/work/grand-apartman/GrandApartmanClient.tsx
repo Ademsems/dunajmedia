@@ -96,7 +96,7 @@ export default function GrandApartmanClient() {
         />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -233,7 +233,7 @@ export default function GrandApartmanClient() {
             </span>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             {/* Quote — always English */}
             <motion.div
               initial={{ opacity: 0, x: -24 }}

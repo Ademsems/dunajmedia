@@ -30,7 +30,7 @@ export default function AboutSnippet() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Row 1: text left + mockup image right */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
